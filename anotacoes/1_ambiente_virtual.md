@@ -11,11 +11,11 @@
 ### Windows
 
 ```bash
-pasta> python -m venv (nome_ambiente)    # Cria o ambiente virtual
+pasta> python -m venv (nome_ambiente)       # Cria o ambiente virtual
 
 pasta> nome_ambiente\Scripts\activate       # Ativa o ambiente virtual
 
-pasta> deactivate                                          # Desativa o ambiente virtual
+pasta> deactivate                           # Desativa o ambiente virtual
 
 ```
 
@@ -29,10 +29,10 @@ ao executar este comando você estará criando 3 pastas
 ```bash
 pasta> python -m venv (nome_ambiente)       # Cria o ambiente virtual
 
-pasta> .venv/bin/activate                                # Ativa o ambiente virtual
+pasta> .venv/bin/activate                   # Ativa o ambiente virtual
 pasta> source nome_ambiente/bin/activate    # Ativa o ambiente virtual
 
-pasta> deactivate                                             # Desativa o ambiente virtual
+pasta> deactivate                           # Desativa o ambiente virtual
 
 ```
 
