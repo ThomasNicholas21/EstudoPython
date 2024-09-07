@@ -76,3 +76,17 @@ with open('arquivo.txt', 'r') as arquivo:
 - **seek**: Move o cursor de leitura/escrita para uma posição específica no arquivo.
 - **readline**: Lê uma linha do arquivo por vez. Ideal para arquivos grandes ou para processar linha a linha.
 - **readlines**: Lê todas as linhas do arquivo e retorna uma lista de strings, onde cada linha é um item da lista.
+
+
+## Enconding
+- É o conjunto de regras que define a representação em um formato específico de forma efieciente, variando de sistema operacional. Alguns exemplos utilizados:
+    - UTF-8
+    - ISO-8859
+    - ASCII
+    - Unicode
+    - UTF-16
+    ```python
+    with open('arquivo.txt', 'r', encoding='utf-8') as arquivo:
+        conteudo = arquivo.read()
+    # Arquivo fechado automaticamente ao sair do bloco `with`
+    ```
