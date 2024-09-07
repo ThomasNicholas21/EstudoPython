@@ -1,4 +1,4 @@
-# Requuirements em Python
+# Requirements em Python
 
 ## *pip*
 - pip na linguagem Python serve para instalar bibliotecas não nativas no ambiente.
