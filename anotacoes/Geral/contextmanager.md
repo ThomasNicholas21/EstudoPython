@@ -90,3 +90,19 @@ with open('arquivo.txt', 'r') as arquivo:
         conteudo = arquivo.read()
     # Arquivo fechado automaticamente ao sair do bloco `with`
     ```
+
+## Biblioteca OS
+- O mesmo fornece uma menira simples de usar funcionalidades que são dependentes de sistema operacional. Para o uso do context manager, podemos usar os seguintes módulos:
+    - Método: ***os.unlink*** ou ***os.remove***
+    ```python
+    import os
+
+    os.remove('arquivo.txt')
+    os.unlink('arquivv.txt')
+    ```
+    - Método: ***os.rename***
+    ```python
+    import os
+    
+    os.rename('arquivo.txt. novo_nome.txt')
+    ```
