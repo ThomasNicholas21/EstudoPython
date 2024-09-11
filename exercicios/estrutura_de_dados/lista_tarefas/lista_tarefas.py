@@ -1,6 +1,7 @@
 # Lista de Tarefas
 # Definição: realizar a listagem, desfaz uma ação e refazaz uma ação 
 import os
+import json
 
 class lista_tarefas:
     def __init__(self, lista):
@@ -33,7 +34,6 @@ def listar(lista_tarefa):
 def inserir_tarefa(lista_tarefa, tarefas):
     tarefa = lista_tarefas(lista_tarefa)
     tarefa.inserir_tarefa(tarefas)
-    print()
     
 def desfazer(lista_tarefa, lista_lixeira):
     if not lista_tarefa:
@@ -51,12 +51,16 @@ def refazer(lista_tarefa, lista_lixeira):
     tarefa.refaz_tarefa(lista_lixeira)
     print()
 
+def exportar(lista_tarefa):
+    with open("D:/programação/EstudoPython/exercicios/estrutura_de_dados/lista_tarefas/lista_tarefas.json", "w") as arquivo:
+        json.dump(lista_tarefa, arquivo, indent=2)
+
 def main():
     lista_tarefa = []
     lista_lixeira = []
 
     while True:
-        opcoes = input('Comandos: Listar, Desfazer e Refazer\nDigite sua tarefa ou um comando:').lower()
+        opcoes = input('Comandos: Listar, Desfazer, Refazer e Exportar\nDigite sua tarefa ou um comando:').lower()
 
         if opcoes == 'listar':
             listar(lista_tarefa)
@@ -64,6 +68,8 @@ def main():
             desfazer(lista_tarefa, lista_lixeira)
         elif opcoes == 'refazer':
             refazer(lista_tarefa, lista_lixeira)
+        elif opcoes == 'exportar':
+            exportar(lista_tarefa)
         elif opcoes == 'sair':
             break
         elif opcoes == 'cls':
@@ -71,5 +77,5 @@ def main():
         else:
             inserir_tarefa(lista_tarefa, opcoes)
             print()
-    
+
 main()
