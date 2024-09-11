@@ -66,7 +66,7 @@ def main():
             refazer(lista_tarefa, lista_lixeira)
         elif opcoes == 'sair':
             break
-        elif opcoes == 'limpar':
+        elif opcoes == 'cls':
             os.system('cls')
         else:
             inserir_tarefa(lista_tarefa, opcoes)
