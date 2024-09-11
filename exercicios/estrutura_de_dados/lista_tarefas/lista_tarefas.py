@@ -28,18 +28,27 @@ def listar(lista_tarefa):
     
     tarefa = lista_tarefas(lista_tarefa)
     print(tarefa)
+    print()
 
 def inserir_tarefa(lista_tarefa, tarefas):
     tarefa = lista_tarefas(lista_tarefa)
     tarefa.inserir_tarefa(tarefas)
+    print()
     
 def desfazer(lista_tarefa, lista_lixeira):
+    if not lista_tarefa:
+        return print('Nada a desfazer.\n')
+    
     tarefa = lista_tarefas(lista_tarefa)
     tarefa.apaga_tarefa(lista_lixeira)
+    print()
 
 def refazer(lista_tarefa, lista_lixeira):
-    tarefa = lista_tarefas(lista_tarefa)
-    tarefa.refaz_tarefa(lista_lixeira)
+    if not lista_lixeira:
+        print('Nada a refazer.\n')
+
+        tarefa = lista_tarefas(lista_tarefa)
+        tarefa.refaz_tarefa(lista_lixeira)
 
 def main():
     lista_tarefa = []
@@ -51,17 +60,9 @@ def main():
         if opcoes == 'listar':
             listar(lista_tarefa)
         elif opcoes == 'desfazer':
-            if not lista_tarefa:
-                print('Nada a desfazer.\n')
-            else:
-                desfazer(lista_tarefa, lista_lixeira)
-                print()
+            desfazer(lista_tarefa, lista_lixeira)
         elif opcoes == 'refazer':
-            if not lista_lixeira:
-                print('Nada a refazer.\n')
-            else:
-                refazer(lista_tarefa, lista_lixeira)
-                print()
+            refazer(lista_tarefa, lista_lixeira)
         elif opcoes == 'sair':
             break
         elif opcoes == 'limpar':
