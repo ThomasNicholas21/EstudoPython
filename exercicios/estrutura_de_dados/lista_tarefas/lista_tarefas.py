@@ -47,8 +47,9 @@ def refazer(lista_tarefa, lista_lixeira):
     if not lista_lixeira:
         print('Nada a refazer.\n')
 
-        tarefa = lista_tarefas(lista_tarefa)
-        tarefa.refaz_tarefa(lista_lixeira)
+    tarefa = lista_tarefas(lista_tarefa)
+    tarefa.refaz_tarefa(lista_lixeira)
+    print()
 
 def main():
     lista_tarefa = []
