@@ -55,7 +55,7 @@ def main():
             if not lista_tarefa:
                 print('Nada a desfazer.\n')
             else:
-                desfazer(lista_lixeira, lista_lixeira)
+                desfazer(lista_tarefa, lista_lixeira)
                 print()
         elif opcoes == 'refazer':
             if not lista_tarefa and not lista_lixeira:
@@ -69,5 +69,6 @@ def main():
             os.system('cls')
         else:
             inserir_tarefa(lista_tarefa, opcoes)
+            print()
     
 main()
