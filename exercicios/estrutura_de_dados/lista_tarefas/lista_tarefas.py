@@ -58,7 +58,7 @@ def main():
                 desfazer(lista_tarefa, lista_lixeira)
                 print()
         elif opcoes == 'refazer':
-            if not lista_tarefa and not lista_lixeira:
+            if not lista_lixeira:
                 print('Nada a refazer.\n')
             else:
                 refazer(lista_tarefa, lista_lixeira)
