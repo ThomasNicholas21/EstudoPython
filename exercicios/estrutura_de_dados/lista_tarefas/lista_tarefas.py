@@ -23,8 +23,11 @@ class lista_tarefas:
         return f'{self.__class__.__name__}:\n{'\n'.join([f'{item}' for item in self.lista])}'
 
 def listar(lista_tarefa):
-    tarefas = lista_tarefas(lista_tarefa)
-    print(tarefas)
+    if not lista_tarefa:
+        return print('Lista vazia.')
+    
+    tarefa = lista_tarefas(lista_tarefa)
+    print(tarefa)
 
 def inserir_tarefa(lista_tarefa, tarefas):
     tarefa = lista_tarefas(lista_tarefa)
@@ -46,11 +49,7 @@ def main():
         opcoes = input('Comandos: Listar, Desfazer e Refazer\nDigite sua tarefa ou um comando:').lower()
 
         if opcoes == 'listar':
-            if not lista_tarefa:
-                print('Lista vazia.')
-            else:
-                listar(lista_tarefa)
-                print()
+            listar(lista_tarefa)
         elif opcoes == 'desfazer':
             if not lista_tarefa:
                 print('Nada a desfazer.\n')
