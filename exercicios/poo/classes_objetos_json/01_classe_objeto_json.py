@@ -29,7 +29,9 @@ def cadastrar(lista_pessoas):
             tamanho = int(input('Tamanho em CM: '))
 
             pessoa = CriaPessoa(nome=nome, ano_nascimento=ano_nascimento, genero=genero, tamanho=tamanho)
-            return pessoa.empacotar(lista_pessoas)
+            print('Cadastro concluido.')
+            pessoa.empacotar(lista_pessoas)
+            return pessoa
 
         except ValueError:
             print(f'{ValueError}: Opa, você inseriu um valor errado.')
@@ -37,14 +39,17 @@ def cadastrar(lista_pessoas):
         except Exception:
             print('Algo aconteceu 😢')
             return
+    return
 
 def main():
     lista_pessoas = []
 
     while True:
-        opcoes = input('Comandos: Cadastrar e Exportar').lower()
+        opcoes = input('Comandos: Cadastrar e Exportar: ').lower()
         if opcoes == 'cadastrar':
-            cadastrar(lista_pessoas)
+            pessoa = cadastrar(lista_pessoas)
+        elif opcoes == 'exportar':
+            pessoa.exportar(lista_pessoas)
         else:
             break
     
