@@ -75,6 +75,6 @@ print(resultado)  # 7
             self.portas = portas
 
     carro = {'marca': 'Ford', 'portas': 4}
-    carro1 = Carro('Ford', 4)
+    carro1 = Carro(**carro)
     
     ```
