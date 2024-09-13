@@ -16,14 +16,34 @@ class Pessoa:
         return ANO_ATUAL - self.ano_nascimento
     
     def verifica_tamanho(self):
-        if self.tamanho < 140:
-            print('Tamanho para pessoas comm nanismo.')
-        elif self.tamanho > 140:
-            print('Pessoa pequena.')
+        if self.tamanho <= 140:
+            return 'pessoa com nanismo.'
+        elif 140 < self.tamanho <= 150:
+            return 'pessoa pequena.'
         elif 150 < self.tamanho <= 165:
-            print('Pessoa média.')
+            return 'pessoa média.'
         elif 165 < self.tamanho <= 180:
-            print('Pessoa alta.')
-        else:
-            print('Pessoa muito alta.')
+            return 'pessoa alta.'
+        elif 180 < self.tamanho <= 230:
+            return 'pessoa muito alta.'
+        elif self.tamanho > 230:
+            return 'pessoa com gigantismo.'
+
+    def __str__(self):
+        return f'{[f'{chave}: {valor}' for chave, valor in self.__dict__.items()]}\nSe chama {self.inverte_nome()}, possui {self.calcula_idade()}, e é uma {self.verifica_tamanho()} '
         
+        
+
+def main():
+    print('Lendo dados...')
+    with open('D:/programação/EstudoPython/exercicios/poo/classes_objetos_json/pessoa.json', 'r') as arquivo:
+        dados = json.load(arquivo)
+    print('Leitura Feita!')
+
+    for dado in dados:
+        pessoa = Pessoa(**dado)
+        print(pessoa)
+
+    print('Leituras finalizadas e aplicacoes feitas!')
+
+main()
