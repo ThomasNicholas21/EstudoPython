@@ -50,12 +50,13 @@ def main():
         if opcoes == 'cadastrar':
             pessoa = cadastrar(lista_pessoas)
         elif opcoes == 'exportar':
+            print('Exportando...')
             pessoa.exportar(lista_pessoas)
+            print('Exportado!!')
         elif opcoes == 'sair':
             break
         else:
             print('Opcao invalida')
     
-
 
 main()            
