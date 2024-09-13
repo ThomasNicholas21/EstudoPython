@@ -52,3 +52,29 @@ print(resultado)  # 7
 
 ## O que é *self*
 - self é a instância da classe, ou seja, é uma referênciada classe ao próprio objeto que será manipulado.
+
+## __dict__ e vars
+- São métodos que transformam os atributos de um objeto em um dicionário.
+    ```Python
+    class Carro:
+        def __init__(self, marca, portas):
+            self.marca = marca
+            self.portas = portas
+
+    carro1 = Carro('Ford', 4)
+    carro1.__dict__  # Transforma o objeto em dicionário
+    vars(dict)       # Transforma o objeto em dicionário
+    ```
+
+## Método de importação de dados para uma classe
+- É possível desempacotar um dicionário em uma instância de classe, permitindo que o objeto receba seus atributos de forma automática.
+    ```Python
+    class Carro:
+        def __init__(self, marca, portas):
+            self.marca = marca
+            self.portas = portas
+
+    carro = {'marca': 'Ford', 'portas': 4}
+    carro1 = Carro('Ford', 4)
+    
+    ```
