@@ -45,13 +45,16 @@ def main():
     lista_pessoas = []
 
     while True:
-        opcoes = input('Comandos: Cadastrar e Exportar: ').lower()
+        opcoes = input('Comandos: Cadastrar, Exportar ou Sair\n'
+                       '--> ').lower()
         if opcoes == 'cadastrar':
             pessoa = cadastrar(lista_pessoas)
         elif opcoes == 'exportar':
             pessoa.exportar(lista_pessoas)
-        else:
+        elif opcoes == 'sair':
             break
+        else:
+            print('Opcao invalida')
     
 
 
