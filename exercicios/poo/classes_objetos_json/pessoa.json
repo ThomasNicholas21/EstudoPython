@@ -1,0 +1,14 @@
+[
+  {
+    "nome": "Fulano",
+    "ano_nascimento": 2000,
+    "genero": "Masculino",
+    "tamanho": 130
+  },
+  {
+    "nome": "Ciclana ",
+    "ano_nascimento": 1991,
+    "genero": "Feminino",
+    "tamanho": 185
+  }
+]
