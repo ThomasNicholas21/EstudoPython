@@ -19,11 +19,33 @@ class CriaPessoa:
         with open('D:/programação/EstudoPython/exercicios/poo/classes_objetos_json/pessoa.json', 'w') as arquivo:
             json.dump(lista_de_dicionario, arquivo, indent=2)
 
-def main():
-    pessoa1 = CriaPessoa('Fulano', 2001, 'Masculino', 175)
-    pessoa2 = CriaPessoa('Ciclana', 1996, 'Feminino', 150)
-    pessoa1.exportar()
-    pessoa2.exportar()
+def cadastrar(lista_pessoas):
+    deseja_cadastrar = input('Deseja cadastrar pessoa? [S]im ou [N]ão: ').lower().startswith('s')
+    if deseja_cadastrar:
+        try:
+            nome = input('Nome: ')
+            ano_nascimento = int(input('Ano de Nascimento: '))
+            genero = input('Genero:')
+            tamanho = int(input('Tamanho em CM: '))
 
+            pessoa = CriaPessoa(nome=nome, ano_nascimento=ano_nascimento, genero=genero, tamanho=tamanho)
+            return lista_pessoas.append(pessoa)
+
+        except ValueError:
+            print(f'{ValueError}: Opa, você inseriu um valor errado.')
+            return
+        except Exception:
+            print('Algo aconteceu 😢')
+            return
+
+def main():
+    lista_pessoas = []
+
+    while True:
+        opcoes = input('Comandos: Cadastrar e Exportar').lower()
+        if opcoes == 'cadastrar':
+            cadastrar(lista_pessoas)
     
+
+
 main()            
