@@ -78,3 +78,26 @@ print(resultado)  # 7
     carro1 = Carro(**carro)
     
     ```
+
+## Métodos
+- **Método de Classe**
+    - Permite que seja possível exercutar um método a classe sem passar o objeto como parâmetro, recebendo a própria classe. Usado para métodos de fábricas (factories).
+    ```Python
+    class Carro:
+        def __init__(self, marca, modelo, ano):
+            self.marca = marca
+            self.modelo = modelo
+            self.ano = ano
+
+        def exibir_detalhes(self):
+            print(f"Carro: {self.marca} {self.modelo}, Ano: {self.ano}")
+
+        @classmethod
+        def from_string(cls, string_carro):
+            marca, modelo, ano = string_carro.split('-')
+            return cls(marca, modelo, int(ano))
+
+    carro = Carro.from_string("Toyota-Corolla-2020")
+
+    carro.exibir_detalhes()
+    ```
