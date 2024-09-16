@@ -101,3 +101,16 @@ print(resultado)  # 7
 
     carro.exibir_detalhes()
     ```
+
+- **Método estáticos**
+    - São métodos dentro da classe que não possuem acesso ao objeto e nem mesmo a classe, ou seja, são somente funções que existem dentro da classe.
+    ```Python
+    class Oi:
+        @staticmethod
+        def dar_saudao():
+            print('Oi!')
+        
+    saudacao1 = Oi()
+    saudacao1.oi()
+    Oi.dar_saudacao()
+    ```
