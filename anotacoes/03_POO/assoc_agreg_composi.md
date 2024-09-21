@@ -33,3 +33,22 @@ Uma forma especializada de associação entre dois ou mais objetos. Geralmente �
     sala.adicionar_aluno(aluno1)
 
     ```
+
+
+# Composição
+Sendo uma especialização de agragação, porém quando o objeto "pai" for apagado, todas as referência dos objetos também são apagadas.
+- *Exemplo*:
+    ```Python
+    class Motor:
+        def __init__(self, tipo):
+            self.tipo = tipo
+
+    class Carro:
+        def __init__(self, tipo_motor):
+            # Composição: o carro é responsável por criar o motor
+            self.motor = Motor(tipo_motor)
+
+    # Composição: O Carro cria e possui o Motor, e se o carro não existir, o motor também não.
+    carro = Carro("V8")
+
+    ```
