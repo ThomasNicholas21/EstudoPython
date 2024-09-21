@@ -13,8 +13,8 @@ Quado se trata de associação para Programação Orientada a Objetos, se refere
 
 
 # Agregação
-Uma forma especializada de associação entre dois ou mais objetos. Geralmente é uma relação de um para muitos, onde um objeto tem um ou muitos objetos. Os objetos podem vir separadamente, mas pode se tratar de uma relação onde um objeto precisa de outro para fazer determinada tarefa. Dessa forma, é possível concluir que as classes não depende do ojeto como um todo
-- *Exempo*:
+Uma forma especializada de associação entre dois ou mais objetos. Geralmente é uma relação de um para muitos, onde um objeto tem um ou muitos objetos. Os objetos podem vir separadamente, mas pode se tratar de uma relação onde um objeto precisa de outro para fazer determinada tarefa. Dessa forma, é possível concluir que as classes não depende do objeto como um todo, mas dependem uma das outros para executar algo completo.
+- *Exemplo*:
     ```Python
     class Aluno:
     def __init__(self, nome):
