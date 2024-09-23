@@ -30,6 +30,15 @@ class Carro:
     def fabricante(self, valor):
         self._fabricante = valor
 
+    @motor.deleter
+    def motor(self):
+        self._motor = None
+    
+    @fabricante.deleter
+    def fabricante(self):
+        self._motor = None
+
+
     def __str__(self):
         return f'Carro: {self.nome}, Motor: {self.motor.nome if self.motor.nome else 'Carro sem Motor'}, Fabricante: {self.fabricante.nome if self.fabricante.nome else 'Carro sem Fabricante'}'
 
