@@ -52,6 +52,10 @@ def cadastro_carro(lista_de_carro):
 
     lista_de_carro.append(carro1)
 
+def listar_carros(lista_de_carro):
+    for carro in lista_de_carro:
+        print(carro)
+
 def main():
     lista_carro_cadastrado = []
 
@@ -66,8 +70,8 @@ def main():
             cadastro_carro(lista_carro_cadastrado)
             print()
         elif op == 'l':
-            for objeto in lista_carro_cadastrado:
-                print(objeto)
+            listar_carros(lista_carro_cadastrado)
+            print()
         elif op == 'e':
             pass
         elif op == 's':
