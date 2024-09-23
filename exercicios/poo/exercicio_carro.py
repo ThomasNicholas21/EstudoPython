@@ -41,31 +41,39 @@ class Fabricante:
     def __init__(self, nome):
         self.nome = nome
 
+def cadastro_carro(lista_de_carro):
+    print('Iniciando Cadastro de Carros')
+    carro = input('Nome do carro: ')
+    motor = input('Motor do carro: ')
+    fabricante = input('Fabricante do carro: ')
+
+    carro1, motor1, fabricante1 = Carro(carro), Motor(motor), Fabricante(fabricante)
+    carro1.motor, carro1.fabricante = motor1, fabricante1
+
+    lista_de_carro.append(carro1)
+
 def main():
     lista_carro_cadastrado = []
 
     while True:       
-        op = input('Deseja cadastrar, listar ou sair?\n'
+        op = input('Deseja cadastrar, listar, editar ou sair?\n'
                    'C - Cadastrar\n'
                    'L - Listar\n'
                    'S - Sair\n'
                    '--> ').lower()
 
         if op == 'c':
-            print('Iniciando Cadastro de Carros')
-            carro = input('Nome do carro: ')
-            motor = input('Motor do carro: ')
-            fabricante = input('Fabricante do carro: ')
-
-            carro1, motor1, fabricante1 = Carro(carro), Motor(motor), Fabricante(fabricante)
-            carro1.motor, carro1.fabricante = motor1, fabricante1
-
-            lista_carro_cadastrado.append(carro1)
+            cadastro_carro(lista_carro_cadastrado)
+            print()
         elif op == 'l':
             for objeto in lista_carro_cadastrado:
                 print(objeto)
+        elif op == 'e':
+            pass
         elif op == 's':
             break
+        else:
+            print('Comando desconhecido')
 
 
 
