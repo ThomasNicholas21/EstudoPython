@@ -15,6 +15,10 @@ class Carro:
         self._fabricante = None
 
     @property
+    def carro(self):
+        return self.nome
+
+    @property
     def motor(self):
         return self._motor
     
@@ -30,25 +34,47 @@ class Carro:
     def fabricante(self, valor):
         self._fabricante = valor
 
+    @carro.deleter
+    def carro(self):
+        self.nome = 0
+        self._motor = 0
+        self._fabricante = 0
+
     @motor.deleter
     def motor(self):
-        self._motor = None
+        self._motor = 0
     
     @fabricante.deleter
     def fabricante(self):
-        self._motor = None
+        self._fabricante = 0
 
 
     def __str__(self):
-        return f'Carro: {self.nome}, Motor: {self.motor.nome if self.motor.nome else 'Carro sem Motor'}, Fabricante: {self.fabricante.nome if self.fabricante.nome else 'Carro sem Fabricante'}'
+        atributo = []
+        if hasattr(self, 'nome'):
+            atributo.append(f'Carro: {self.nome}')
 
+        if hasattr(self, 'motor'):
+            atributo.append(f'Motor: {self.motor}')
+
+        if hasattr(self, 'fabricante'):
+            atributo.append(f'Fabricante: {self.fabricante}')
+        
+        return f'{'|'.join(atributo)}'
+
+        
 class Motor:
     def __init__(self, nome):
         self.nome = nome
 
+    def __str__(self):
+        return f'{self.nome}'
 class Fabricante:
     def __init__(self, nome):
         self.nome = nome
+    
+    def __str__(self):
+        return f'{self.nome}'
 
 def cadastro_carro(lista_de_carro):
     print('Iniciando Cadastro de Carros')
@@ -62,8 +88,11 @@ def cadastro_carro(lista_de_carro):
     lista_de_carro.append(carro)
 
 def listar_carros(lista_de_carro):
-    for carro in lista_de_carro:
-        print(carro)
+    try:
+        for carro in lista_de_carro:
+            print(carro)
+    except:
+        print('Sem carros cadastrado.')
 
 def edit_carro_cadastrado(lista_de_carro):
     for carro in lista_de_carro:
@@ -92,6 +121,7 @@ def edit_carro_cadastrado(lista_de_carro):
                     carro.nome = novo_nome
 
                 elif op == 'd':
+                    print('Deletando carro por completo (Motor e fabricante)\n')
                     del carro.nome
 
                 else:
@@ -146,7 +176,7 @@ def main():
         op = input('Deseja cadastrar, listar, editar ou sair?\n'
                    'C - Cadastrar\n'
                    'L - Listar\n'
-                   'E - Listar\n'
+                   'E - Editar\n'
                    'S - Sair\n'
                    '--> ').lower()
 
