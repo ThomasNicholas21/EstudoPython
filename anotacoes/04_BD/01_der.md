@@ -6,13 +6,19 @@
 
 ## Entidades
 - São objetos do mundo real que podem ser represantados no DER como tabelas, que possuem os atributos. 
-    - Chave Primária (PK)
+    - **Chave Primária (PK)**
         - Valor sempre será único.
         - Não pode ser nulo.
         - A Chave primária é única.
         - Não pode ser alterada.
-- Entidades Fortes
-- Entidades Fracas
-- Entidades Associativas
-    - Chave estrangeira (FK)
+    - **Chave estrangeira (FK)**
         - Referencia uma chave primária de uma tabela em outra tabela.
+
+    - **Relacionamento de Entidades**
+        - *Um para Um*: indica que um registro está ligado a outro registro de outra tabela, sendo essencial ver a obrigatoriedade do mesmo.
+        - *Um para Muitos*: quando um registro de uma tabela está atrelado a um ou muitos registros de outra tabela
+        - *Muito para Muitos*: esse tipo de relacionamento se refere quando muitos registros de uma tabela se relaciona com muitos de outras tabelas, porém eles não podem se repetir.
+
+    - Entidades Fortes
+    - Entidades Fracas
+    - Entidades Associativas
