@@ -1,8 +1,8 @@
 from log import LogFIleMixin, LogPrintMixin
+from carrinho_compra import Carrinho, Produto
 
-l1 = LogFIleMixin()
-l2 = LogPrintMixin()
-l1.log_error('Mensagem de erro')
-l1.log_sucesso('Mensagem de sucesso')
-l2.log_error('Mensagem de erro')
-l2.log_sucesso('Mensagem de sucesso')
+prod1 = Produto('Caneta', 'Material')
+carrinho = Carrinho()
+
+prod1.adicionar_produto()
+prod1.remover_produto()
