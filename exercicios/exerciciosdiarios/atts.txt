@@ -1,0 +1,60 @@
+Dia 1: Estruturas Condicionais
+Crie um programa que leia a idade de uma pessoa e informe se ela pode votar ou não.
+Dia 2: Estruturas de Repetição (While)
+Faça um programa que peça ao usuário um número e continue pedindo até que o número seja positivo.
+Dia 3: Estruturas de Repetição (For)
+Crie um programa que exiba a tabuada de um número informado pelo usuário.
+Dia 4: Listas
+Desenvolva um programa que receba 5 números e exiba o maior, o menor e a média desses números.
+Dia 5: Tuplas
+Crie um programa que armazene nomes de cidades em uma tupla e, em seguida, exiba cada cidade em uma linha diferente.
+Dia 6: Dicionários
+Faça um programa que gerencie o estoque de uma loja, onde o usuário pode adicionar ou remover itens do estoque, além de consultar a quantidade disponível de um item específico.
+Dia 7: Conjuntos
+Crie um programa que receba duas listas de números e exiba os números que estão em ambas as listas (interseção).
+Dia 8: Funções
+Desenvolva uma função que receba um número e retorne se ele é primo ou não.
+Dia 9: Funções com Retorno
+Crie uma função que receba uma lista de números e retorne a média, o maior e o menor número.
+Dia 10: List Comprehension
+Escreva um programa que receba uma lista de números e retorne uma nova lista com o quadrado de cada número, usando list comprehension.
+Dia 11: Manipulação de Strings
+Crie um programa que inverta uma string informada pelo usuário, sem usar funções prontas.
+Dia 12: Arquivos (Leitura)
+Crie um programa que leia um arquivo de texto e conte quantas palavras há nesse arquivo.
+Dia 13: Arquivos (Escrita)
+Faça um programa que pergunte ao usuário por uma lista de tarefas e as salve em um arquivo de texto.
+Dia 14: Tratamento de Exceções
+Desenvolva um programa que peça dois números ao usuário e faça a divisão, tratando a exceção de divisão por zero.
+Dia 15: Estruturas Aninhadas
+Faça um programa que simule uma agenda telefônica, onde o usuário pode cadastrar contatos (nome e número) e buscar um contato pelo nome.
+Dia 16: Funções Lambda
+Crie uma lista de dicionários, onde cada dicionário represente uma pessoa (nome e idade). Use uma função lambda para ordenar essa lista pela idade.
+Dia 17: Decoradores
+Crie um decorador que calcule o tempo de execução de uma função.
+Dia 18: Classes e Objetos
+Implemente uma classe Carro com atributos como marca, modelo e ano, e um método para ligar o carro.
+Dia 19: Construtores e Destrutores
+Expanda o exercício anterior para incluir um método destrutor que exiba uma mensagem ao destruir o objeto.
+Dia 20: Herança
+Crie uma classe Veiculo e faça a classe Carro herdá-la. Veiculo deve conter atributos e métodos comuns a todos os veículos.
+Dia 21: Polimorfismo
+Use o exercício anterior e adicione mais um tipo de veículo, como Moto, e faça com que ambas as classes tenham um método polimórfico para descrever o veículo.
+Dia 22: Classes Abstratas
+Crie uma classe abstrata Animal com o método emitir_som() e implemente classes concretas como Cachorro e Gato que herdem de Animal.
+Dia 23: Associação
+Implemente um sistema de biblioteca onde um objeto Usuario possa emprestar um objeto Livro. Crie uma relação de associação entre as classes.
+Dia 24: Agregação
+Crie uma classe Departamento que contém uma lista de objetos Funcionario, mostrando a relação de agregação entre eles.
+Dia 25: Composição
+Crie uma classe Computador que tenha como atributos internos objetos CPU, RAM, Disco, mostrando a relação de composição.
+Dia 26: Métodos Estáticos e de Classe
+Adicione um método de classe em Funcionario para contar quantos funcionários existem e um método estático que valide se o salário informado é um valor positivo.
+Dia 27: Métodos Mágicos
+Implemente a classe Funcionario com o método __str__ para retornar uma string formatada com as informações do funcionário.
+Dia 28: Manipulação de Arquivos com POO
+Crie uma classe Arquivo que tenha métodos para ler e escrever em arquivos de texto.
+Dia 29: Exceções Personalizadas
+Crie uma exceção personalizada para validar se a idade de um usuário é válida (acima de 18 anos) ao criar uma conta.
+Dia 30: Projeto Final
+Desenvolva um pequeno sistema bancário, com classes Conta, Cliente, e Banco. O sistema deve permitir criar contas, depositar, sacar e consultar saldo.
