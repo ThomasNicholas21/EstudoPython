@@ -93,4 +93,12 @@ except ValueError as e:
     print(f"Erro: {e}")
 ```
 
+## `Exception`
+
+A classe Exception é utilizada para criar uma exceção, colocando Error no final do erro criado.
+
+```Python
+class MyError(Exception):
+    pass
+```
 
