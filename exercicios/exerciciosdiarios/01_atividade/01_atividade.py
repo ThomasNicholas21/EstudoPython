@@ -9,41 +9,37 @@
 # Documento de Identificação: Utilizar CPF ou RG 
 # Capacidade Civil: direitos políticos suspensos (condenação eleitoral)
 # Esse programa Verifica se a pessoa está apta a votar, não realiza consultas externas
-ANO_ATUAL = 2024 # Refatorar posteriormente utilizando datetime
+from datetime import datetime
+
+ANO_ATUAL = datetime.now().year
 
 class ArmezenaInfo:
-    def __init__(self, lista_true=[], lista_false=[]):
-        self.lista_true = lista_true
-        self.lista_false = lista_false
-
-    def armazena_true(self, texto):
-        lista_true = []
+    def armazena_true(self, texto, lista_true):
         lista_true.append(texto)
 
-    def armazena_false(self, texto):
-        lista_false = []
+    def armazena_false(self, texto, lista_false):
         lista_false.append(texto)
 
-    def listagem_true(self):
-        for texto in self.lista_true:
+    def listagem_true(self, lista_true):
+        for texto in lista_true:
             print(texto, sep=' | ')
 
-    def listagem_false(self):
-        for texto in self.lista_false:
+    def listagem_false(self, lista_false):
+        for texto in lista_false:
             print(texto, sep=' | ')
        
 class NecessarioParaVotar(ArmezenaInfo):
     def idade_minima(self, ano_nascimento) -> bool:
         idade = ANO_ATUAL - ano_nascimento
         if idade == 16 or idade == 17 or idade >= 70:
-            self.armazena_true(f'{idade} - Voto Facultativo')
+            self.armazena_true(f'Idade: {idade} - Voto Facultativo')
             return True
         
         elif 18 <= idade < 70:
-            self.armazena_true(f'{idade} - Voto Obrigatório')
+            self.armazena_true(f'Idade: {idade} - Voto Obrigatório')
             return True
         
-        self.armazena_false(f'{idade} - Não está apto para votar')
+        self.armazena_false(f'Idade: {idade} - Não está apto para votar')
         return False
         
     def verifica_nacionalidade(self, cpf) -> bool:
@@ -56,20 +52,22 @@ class NecessarioParaVotar(ArmezenaInfo):
     def verifica_titulo(self):
         inscricao_titulo = input('Insira sua inscriação de titulo: ')
         if 0 < len(inscricao_titulo) <= 6:
+            self.armazena_true(f'Titulo:{inscricao_titulo} - Titulo Validado')
             return True
         
+        self.armazena_false(f'Titulo:{inscricao_titulo} - Titulo Invalido')
         return False
      
     def capacidade_civil(self):
         verifica_capacidade_civil = input('Possui condenação eleitoral, [s]im ou [n]ão: ').lower().startswith('n')
         if verifica_capacidade_civil:
+            self.armazena_true(f'Capacidade Civil: {verifica_capacidade_civil} - Titulo Validado')
             return True
         
         return False
     
 class Pessoa(ArmezenaInfo):
     def __init__(self, nome, cpf, ano_nascimento) -> None:
-        super().__init__(lista_true=[], lista_false=[])
         self._nome = nome
         self._cpf = cpf
         self._ano_nascimento = ano_nascimento     
@@ -82,19 +80,17 @@ class Pessoa(ArmezenaInfo):
         self.listagem_false()
         
 
-    def __del__(self):
-        print('Dados sendo destruídos após validação!')
-
-def main():
-
-    print('Iniciando verificação de dados para validar se o usuário está apto a votar')
+    # def __del__(self):
+    #     print('Dados sendo destruídos após validação!')
+def cadastro_pessoa(lista):
     nome = input('Digite seu nome: ')
     cpf = input('Digite seu CPF: ')
     ano_nascimento = int(input('Digite seu ano de nascimento: '))
-    print('Iniciando verificação: ')
-
     usuario = Pessoa(nome=nome, cpf=cpf, ano_nascimento=ano_nascimento)
-    usuario.pode_votar()
+    
+def main():
+    lista_true = []
+    lista_false = []
 
 
 main()
