@@ -11,7 +11,7 @@
 
 # Esse programa Verifica se a pessoa está apta a votar, não realiza consultas externas
 ANO_ATUAL = 2024 # Refatorar posteriormente utilizando datetime
-     
+ 
 class NecessarioParaVotar:
     def idade_minima(self, ano_nascimento) -> bool:
         idade = ANO_ATUAL - ano_nascimento
@@ -24,9 +24,8 @@ class NecessarioParaVotar:
         return False
         
     def verifica_nacionalidade(self, cpf) -> bool:
-        validacao = input('Informe seu CPF: ')
+        validacao = input('Confirme seu CPF: ')
         if validacao == cpf:
-            print('CPF confirmado, possui nacionalidade.')
             return True
         
         return False
@@ -37,8 +36,13 @@ class NecessarioParaVotar:
             return True
         
         return False
-            
-    
+     
+    def capacidade_civil(self):
+        verifica_capacidade_civil = input('Possui condenação eleitoral, [s]im ou [n]ão: ').lower().startswith('n')
+        if verifica_capacidade_civil:
+            return True
+        
+        return False
 class Pessoa:
     def __init__(self, nome, cpf, ano_nascimento) -> None:
         self._nome = nome
@@ -47,16 +51,23 @@ class Pessoa:
         self.necessario_para_votar = NecessarioParaVotar()
 
     def pode_votar(self):
-        if self.necessario_para_votar.idade_minima(self._ano_nascimento) and self.necessario_para_votar.verifica_nacionalidade(self._cpf) and self.necessario_para_votar.verifica_titulo() :
-            print(f'{self._nome} pode votar')
+        if self.necessario_para_votar.idade_minima(self._ano_nascimento) and self.necessario_para_votar.verifica_nacionalidade(self._cpf) and self.necessario_para_votar.verifica_titulo() and self.necessario_para_votar.capacidade_civil():
+            print(f'{self._nome} está apto para votar.')
+
+        print(f'{self._nome} não está apto para votar.')
 
     def __del__(self):
         print('Dados sendo destruídos após validação!')
 
-if __name__ == '__main__':
-    user_test = Pessoa('Fulano', '123456789', 2000)
-    user_test.pode_votar()
-    #user_test.necessario_para_votar.idade_minima(2000)
-    #user_test.necessario_para_votar.verifica_nacionalidade('123456789')
-    #user_test.necessario_para_votar.verifica_titulo()
-    del user_test
+def main():
+    print('Iniciando verificação de dados para validar se o usuário está apto a votar')
+    nome = input('Digite seu nome: ')
+    cpf = input('Digite seu CPF: ')
+    ano_nascimento = int(input('Digite seu ano de nascimento: '))
+    print('Iniciando verificação: ')
+
+    usuario = Pessoa(nome=nome, cpf=cpf, ano_nascimento=ano_nascimento)
+    usuario.pode_votar()
+
+
+main()
