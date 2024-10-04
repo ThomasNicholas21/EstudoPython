@@ -11,16 +11,35 @@
 
 # Esse programa Verifica se a pessoa está apta a votar, não realiza consultas externas
 ANO_ATUAL = 2024 # Refatorar posteriormente utilizando datetime
- 
-class NecessarioParaVotar:
+class ArmezenaInfo:
+    def armazena_true(self, texto):
+        lista_true = []
+        lista_true.append(texto)
+
+    def armazena_false(self, texto):
+        lista_false = []
+        lista_false.append(texto)
+
+    def listagem_true(self):
+        for texto in self.lista_true:
+            print(texto, sep=' | ')
+
+    def listagem_false(self):
+        for texto in self.lista_false:
+            print(texto, sep=' | ')
+       
+class NecessarioParaVotar(ArmezenaInfo):
     def idade_minima(self, ano_nascimento) -> bool:
         idade = ANO_ATUAL - ano_nascimento
         if idade == 16 or idade == 17 or idade >= 70:
+            self.armazena_true(f'{idade} - Voto Facultativo')
             return True
         
         elif 18 <= idade < 70:
+            self.armazena_true(f'{idade} - Voto Obrigatório')
             return True
         
+        self.armazena_false(f'{idade} - Não está apto para votar')
         return False
         
     def verifica_nacionalidade(self, cpf) -> bool:
@@ -43,18 +62,19 @@ class NecessarioParaVotar:
             return True
         
         return False
-class Pessoa:
+class Pessoa(ArmezenaInfo):
     def __init__(self, nome, cpf, ano_nascimento) -> None:
         self._nome = nome
         self._cpf = cpf
         self._ano_nascimento = ano_nascimento     
         self.necessario_para_votar = NecessarioParaVotar()
 
-    def pode_votar(self):
+    def pode_votar(self) -> bool:
         if self.necessario_para_votar.idade_minima(self._ano_nascimento) and self.necessario_para_votar.verifica_nacionalidade(self._cpf) and self.necessario_para_votar.verifica_titulo() and self.necessario_para_votar.capacidade_civil():
-            print(f'{self._nome} está apto para votar.')
-
-        print(f'{self._nome} não está apto para votar.')
+            self.listagem_true()
+        
+        self.listagem_false()
+        
 
     def __del__(self):
         print('Dados sendo destruídos após validação!')
@@ -68,6 +88,7 @@ def main():
 
     usuario = Pessoa(nome=nome, cpf=cpf, ano_nascimento=ano_nascimento)
     usuario.pode_votar()
+    usuario.listagem_true()
 
 
 main()
