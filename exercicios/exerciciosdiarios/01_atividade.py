@@ -13,25 +13,38 @@
 ANO_ATUAL = 2024 # Refatorar posteriormente utilizando datetime
      
 class NecessarioParaVotar:
-    def idade_minima(self) -> bool:
-        idade = ANO_ATUAL - self._ano_nascimento
+    def idade_minima(self, ano_nascimento) -> bool:
+        idade = ANO_ATUAL - ano_nascimento
         if idade == 16 or idade == 17 or idade >= 70:
-            print('Voto Facultativo')
             return True
         
         elif 18 <= idade < 70:
-            print('Voto Obrigatório')
             return True
         
-        else:
-            return False
-
-class Pessoa(NecessarioParaVotar):
+        return False
+        
+    def verifica_nacionalidade(self, cpf) -> bool:
+        validacao = input('Informe seu CPF: ')
+        if validacao == cpf:
+            print('CPF confirmado, possui nacionalidade.')
+            return True
+        return False
+    
+class Pessoa:
     def __init__(self, nome, cpf, ano_nascimento) -> None:
         self._nome = nome
         self._cpf = cpf
         self._ano_nascimento = ano_nascimento     
+        self.necessario_para_votar = NecessarioParaVotar()
+
+    def pode_votar(self):
+        if self.necessario_para_votar.idade_minima(self._ano_nascimento) and self.necessario_para_votar.verifica_nacionalidade(self._cpf):
+            print(f'{self._nome} pode votar')
+
 
 if __name__ == '__main__':
     user_test = Pessoa('Fulano', '123456789', 2000)
-    user_test.idade_minima()
+    user_test.pode_votar()
+    user_test.necessario_para_votar.idade_minima(2000)
+    user_test.necessario_para_votar.verifica_nacionalidade('123456789')
+    
