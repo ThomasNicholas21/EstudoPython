@@ -12,14 +12,15 @@ class Localizacao:
     
     def __repr__(self) -> str: # Como o método é montado
         return f'{self.__class__.__name__}(x:{self.longitude!r}, y:{self.longitude!r})'
-    
-loca1 = Localizacao(123, 321)
-loca2 = Localizacao(987, 789)
-# Método __str__ chamado primeiro
-print(loca1) 
-print(loca2)
-# Como ver o método __repr__
-print(f'{loca1!r}')
-print(f'{loca2!r}')
-# ou
-print(repr(loca1), repr(loca2))
+
+if __name__ == '__main__':   
+    loca1 = Localizacao(123, 321)
+    loca2 = Localizacao(987, 789)
+    # Método __str__ chamado primeiro
+    print(loca1) 
+    print(loca2)
+    # Como ver o método __repr__
+    print(f'{loca1!r}')
+    print(f'{loca2!r}')
+    # ou
+    print(repr(loca1), repr(loca2))
