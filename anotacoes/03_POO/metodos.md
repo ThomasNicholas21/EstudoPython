@@ -16,6 +16,7 @@ Começam com dunder (__) - dois underscore. Os mesmos permiutem personalizar o c
 -   ```__str__(self) -  str```
 -   ```__repr__(self) -  str```
 
+[💻 Estudo do Método](https://github.com/ThomasNicholas21/EstudoPython/tree/master/estudos/03_POO/metodos)
 # Referência
 - https://docs.python.org/3/reference/datamodel.html#specialnames
 - https://rszalski.github.io/magicmethods/
