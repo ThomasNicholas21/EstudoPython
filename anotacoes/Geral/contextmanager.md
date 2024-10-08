@@ -112,3 +112,24 @@ Pode-se implementar seus próprios protocolos apenas implementando os métodos e
 
 ## Duck Typing
 Quando vejp um passáro que caminha como um pato, nada como um pato e grasna como um pato, eu chamo aquele passáro de pato. Ou seja, não se sabe o que é, porém parece um pato. 
+
+- __context manager__
+    - Para criar deve-se implementar os métodos '__enter__' e '__exit__'. O método '__exit__' recebera a classe de exceção e o traceback, se ele retornar True, exceção no __with__ será suprimida. *Exemplo*:
+    ```Python
+    class MeuContextManager:
+    def __enter__(self):
+        print("Entrando no bloco com.")
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        if exc_type:
+            print(f"Exceção capturada: {exc_value}")
+        print("Saindo do bloco com.")
+        return True  # Suprime a exceção
+
+    with MeuContextManager():
+        print("Dentro do bloco.")
+        raise ValueError("Ocorreu um erro.")  # A exceção será suprimida
+
+    ```
+    - O mesmo garante limpeza de recursos, controle de excções e reotrne de valores.
