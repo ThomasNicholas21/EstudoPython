@@ -13,6 +13,8 @@ Começam com dunder (__) - dois underscore. Os mesmos permiutem personalizar o c
 -   ```__mul__(self, Objeto2) - self  *  Objeto2```
 -   ```__truediv__(self, Objeto2) - self  /  Objeto2```
 -   ```__neg__(self) -  -self```
+-   ```__new__(self) -  -cls```
+-   ```__init__(self) -  -None```
 -   ```__str__(self) -  str```
 -   ```__repr__(self) -  str```
 
