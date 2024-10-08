@@ -106,3 +106,9 @@ with open('arquivo.txt', 'r') as arquivo:
     
     os.rename('arquivo.txt. novo_nome.txt')
     ```
+
+# Criando arquivo com Classes
+Pode-se implementar seus próprios protocolos apenas implementando os métodos especiais, sendo chamado de duck typing. Um conceito relacionado a tipagem dinâmica, onde o Python não está interessado no tipo (srt, int, float, etc.), mas se alguns métodos existem no seu objeto para que ele funcione.
+
+## Duck Typing
+Quando vejp um passáro que caminha como um pato, nada como um pato e grasna como um pato, eu chamo aquele passáro de pato. Ou seja, não se sabe o que é, porém parece um pato. 
