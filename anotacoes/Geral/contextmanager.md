@@ -133,3 +133,18 @@ Quando vejp um passáro que caminha como um pato, nada como um pato e grasna com
 
     ```
     - O mesmo garante limpeza de recursos, controle de excções e reotrne de valores.
+
+# Context Manger com a lib contextlib
+É possível criar um context manager com funções decorados e generetor utilizando a lib contextlib, podendo tratar erros e sempre abrir e fechar o arquivo. *Exemplo*:
+   ```Python
+    from contextlib import contexmanager
+
+    def MyContextManager(caminho_arquivo, modo):
+        try: # Trata excções
+            arquivo = open(caminho_arquivo, modo, enconding='utf8')
+            arquivo.open()
+        except Exception as e:
+            print('Trata excções')
+        finally: # ideal pois sempre vai ser executado
+            arquivo.close()
+    ```
