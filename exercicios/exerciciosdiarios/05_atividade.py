@@ -33,7 +33,7 @@ def main():
         if opcao == 'inserir':
             lista_cidade = inserir_cidade(lista_cidade)
         elif opcao == 'listar':
-            print(lista_cidade)
+            print(*lista_cidade, sep='\n')
         elif opcao == 'sair':
             break
         else:
