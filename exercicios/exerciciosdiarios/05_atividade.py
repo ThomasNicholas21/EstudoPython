@@ -8,13 +8,20 @@ class Cidade:
     def __repr__(self) -> str:
         return f'{self.__class__.__name__}:{self.nome}'
 
-class ArmazenaCidade(Cidade):
+class ArmazenaCidade:
     def __init__(self, nome, lista=()):
-        super().__init__(nome)
         self.lista = lista
+        self.cidade = Cidade(nome)
     
     def armazena_tupla(self):
-        return self.lista(self.nome, )
+        nova_tupla = self.lista + (self.cidade, )
+        return nova_tupla
+
+def inserir_cidade(lista):
+    nome_cidade = input('Insira o nome da cidade: ')
+    armazena_cidade = ArmazenaCidade(nome_cidade, lista)
+    print(nome_cidade)
+    return armazena_cidade.armazena_tupla()
 
 def main():
     lista_cidade = ()
@@ -24,15 +31,13 @@ def main():
         opcao = input('Comando: Inserir, Listar ou Sair ==> ').lower()
 
         if opcao == 'inserir':
-            ...
+            lista_cidade = inserir_cidade(lista_cidade)
         elif opcao == 'listar':
-            ...
+            print(lista_cidade)
         elif opcao == 'sair':
             break
         else:
             print('Comando Inválido.')
 
 if __name__ == '__main__':
-    # main()
-    lista = ()
-    print(bool(lista))
+    main()
