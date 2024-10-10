@@ -1,23 +1,34 @@
 # Dia 4: Listas
 # Desenvolva um programa que receba 5 números e exiba o maior, o menor e a média desses números.
+# Aplicando método max, min e sum para otimizar o código e diminuir a complexidade
 
 class VerificaNumeros:
     def __init__(self, lista=[]):
         self.lista = lista
 
+    # def maior(self):
+    #     self.lista.sort()
+    #     return self.lista[-1]
+
     def maior(self):
-        self.lista.sort()
-        return self.lista[-1]
+        return max(self.lista)
+
+    # def menor(self):
+    #     self.lista.sort()
+    #     return self.lista[0]
 
     def menor(self):
-        self.lista.sort()
-        return self.lista[0]
-    
+        return min(self.lista)
+
+    # def media(self):
+    #     total = 0
+    #     for itens in self.lista:
+    #         total += itens
+    #     return total / len(self.lista)
+
     def media(self):
-        total = 0
-        for itens in self.lista:
-            total += itens
-        return total / len(self.lista)
+        return sum(self.lista) / len(self.lista)
+
 
 def main():
     lista = []
