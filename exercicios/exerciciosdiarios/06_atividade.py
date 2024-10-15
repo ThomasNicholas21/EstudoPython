@@ -35,15 +35,13 @@ def criar_estoque(estoque_dict: dict):
 
 def inserir_produto(estoque_dict: dict):
     try:
-        nome_produto = input('Nome do produto: ')
-        quantidade_produto = int(input('Quantidade do produto: '))
-        produto = Produto({nome_produto: quantidade_produto})
-
         nome_chave = input('Nome do estoque: ')
         if procura_chave(nome_chave, estoque_dict):
-            estoque = Estoque(nome_chave, produto, estoque_dict)
-            estoque_dict = estoque.criar_estoque(estoque_dict)
-            print(produto)
+            nome_produto = input('Nome do produto: ')
+            quantidade_produto = int(input('Quantidade do produto: '))
+            produto = Produto({nome_produto: quantidade_produto})
+            estoque_dict[nome_chave].update({produto})
+            
             print()
             
         else:
@@ -75,7 +73,7 @@ def main():
     
     while True:
         comandos = input('Comandos: \ncriar estoque [ce]\nadicionar produto [ap]\n' 
-        'remover produto [rp]\ndeletar estoque [de]\neditar estoque [ee]\nconsultar estoque [ce]\nsair [s]\n-->')
+        'remover produto [rp]\ndeletar estoque [de]\neditar estoque [ee]\nconsultar estoque [c]\nsair [s]\n-->')
 
         if comandos == 'ce':
             criar_estoque(estoque_dict)
@@ -85,7 +83,7 @@ def main():
             remover_produto(estoque_dict)
         elif comandos == 'de':
             ...
-        elif comandos == 'ce':
+        elif comandos == 'c':
             print(estoque_dict)
             print()
         elif comandos == 's':
