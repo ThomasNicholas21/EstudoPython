@@ -19,23 +19,42 @@ class Estoque:
         if lista_dict is not None:
             self.lista_dict = {}
 
-    def criar_estoque(self):
-        self.lista_dict.update({self.nome_estoque: {self.produtos}})
-        return self.lista_dict
+    def criar_estoque(self, estoque_dict):
+        estoque_dict.update({self.nome_estoque: {self.produtos}})
 
     def __repr__(self) -> str:
         return f'{self.nome_estoque.capitalize()}: \n{self.produtos}'
-    
-def criar_estoque():
-    ...
+
+def procura_chave(chave, estoque_dict: dict) -> bool:
+    if chave in estoque_dict:
+        return True
+    return False
+
+def criar_estoque(estoque_dict):
+    nome_estoque = input('Nome do estoque: ')
+    estoque = Estoque(nome_estoque, None, estoque_dict)
+    estoque.criar_estoque(estoque_dict)
 
 def inserir_produto(estoque_dict):
+    try:
+        nome_produto = input('Nome do produto: ')
+        quantidade_produto = int(input('Quantidade do produto: '))
+        produto = Produto({nome_produto: quantidade_produto})
+
+        nome_chave = input('Nome do estoque: ')
+        if procura_chave(nome_chave, estoque_dict):
+            estoque = Estoque(nome_chave, produto, estoque_dict)
+            estoque_dict = estoque.criar_estoque()
+            print(produto)
+            return estoque_dict
+
+    except ValueError:
+        raise print(f'A quantidade do produto: {quantidade_produto} de ser um número - ', ValueError)
+
+def remover_produto(estoque_dict):
     ...
 
-def remover_produto():
-    ...
-
-def consultar_produto():
+def consultar_produto(estoque_dict):
     ...
 
 def main():
@@ -46,15 +65,18 @@ def main():
         'remover produto [rp], deletar estoque [de] e sair [s]\n-->')
 
         if comandos == 'ce':
-            ...
+            criar_estoque(estoque_dict)
         elif comandos == 'ap':
-            ...
+            estoque_dict = inserir_produto(estoque_dict)
+            print(estoque_dict)
         elif comandos == 'rp':
             ...
         elif comandos == 'de':
             ...
+        elif comandos == 'c':
+            print(*estoque_dict)
         elif comandos == 's':
-            ...
+            break
         else:
             print('Comando invalido!')
 
