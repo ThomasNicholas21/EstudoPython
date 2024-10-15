@@ -5,8 +5,8 @@
 class Produto:
     def __init__(self, produtos: dict=None) -> None:
         self.produtos = produtos
-    
-    def remove_produto(self, valor):
+ 
+    def remover_produto(self, valor):
         self.produtos.pop(valor)
 
     def __repr__(self) -> str:
@@ -23,17 +23,13 @@ class Estoque:
         self.lista_dict.update({self.nome_estoque: {self.produtos}})
         return self.lista_dict
 
-    def deletar_estoque(self):
-        if not self.produtos:
-            del self.lista_dict
-        else:
-            print('Estoque possui produtos:', self.produtos, 'Estoque não deletado')
-            print(bool(self.produtos))
-    
     def __repr__(self) -> str:
         return f'{self.nome_estoque.capitalize()}: \n{self.produtos}'
     
-def inserir_produto():
+def criar_estoque():
+    ...
+
+def inserir_produto(estoque_dict):
     ...
 
 def remover_produto():
@@ -44,19 +40,23 @@ def consultar_produto():
 
 def main():
     estoque_dict = {}
-    nome_estoque = 'estoque_teste1'
-    produtos = Produto({'havaina_teste1': 22, 'havaina_teste2': 23})
-    estoque1 = Estoque(nome_estoque, produtos, estoque_dict)
-    estoque_dict = estoque1.criar_estoque()
-    print(estoque1)
     
-    produtos.remove_produto('havaina_teste1')
-    produtos.remove_produto('havaina_teste2')
+    while True:
+        comandos = input('Comandos: criar estoque [ce], adicionar produto [ap],' 
+        'remover produto [rp], deletar estoque [de] e sair [s]\n-->')
 
-    estoque1.deletar_estoque()
-    #estoque1.deletar_estoque()
-    #print(estoque1)
-    print(estoque_dict)
+        if comandos == 'ce':
+            ...
+        elif comandos == 'ap':
+            ...
+        elif comandos == 'rp':
+            ...
+        elif comandos == 'de':
+            ...
+        elif comandos == 's':
+            ...
+        else:
+            print('Comando invalido!')
 
 if __name__ == "__main__":
     main() 
