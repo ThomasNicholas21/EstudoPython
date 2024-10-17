@@ -16,7 +16,8 @@ def soma(x: int | float, y: int | float) -> int | float: # Type anotation
     return: A soma entre x e y
     :rtype: int or float
 
-    """# Tipo de anotação parecida com TypeAnotation
+    """
+    # Tipo de anotação parecida com TypeAnotation
     return x + y
 
 # Aparecem como dados
