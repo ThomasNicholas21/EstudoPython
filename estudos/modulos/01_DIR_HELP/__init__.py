@@ -1,5 +1,6 @@
 import doc1
 import doc2
+import doc3
 
 print(dir(doc1)) # mostra todos os atributos de um objeto
 # Saída - ['__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__']
@@ -12,3 +13,8 @@ if 'soma' in dir(doc2):
     print(dir(doc2))
     print(doc2.__doc__)
     print(help(doc2))
+
+if 'Calculadora' in dir(doc3): # Verifica se a classe Calculadora está implementada
+    print(dir(doc3))
+    print(doc3.__doc__)
+    print(help(doc3)) #
