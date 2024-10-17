@@ -19,9 +19,10 @@ def soma(x: int | float, y: int | float) -> int | float: # Type anotation
     """# Tipo de anotação parecida com TypeAnotation
     return x + y
 
-# Aparecem como dados 
-variavel1 = 10
-variavel2 = 15
+# Aparecem como dados
+if __name__ == "__main__":
+    variavel1 = 10
+    variavel2 = 15
 
-resultado = soma(variavel1, variavel2)
-print(resultado)
+    resultado = soma(variavel1, variavel2)
+    print(resultado)
