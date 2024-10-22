@@ -26,8 +26,14 @@ class GeraTarefaTXT:
         print('Gravação finalizada.')
         self._abrir_arquivo.close()
 
-def main():
+def criando_tarefas():
     pass
+
+def deletando_tarefas():
+    pass
+
+def main():
+    lista_tarefas = []
 
 if __name__ == "__main__":
     main()
