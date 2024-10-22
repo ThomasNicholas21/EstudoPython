@@ -32,6 +32,12 @@ def criando_tarefas():
 def deletando_tarefas():
     pass
 
+def listar_tarefas():
+    pass
+
+def gravar_tarefas():
+    pass
+
 def main():
     lista_tarefas = []
 
