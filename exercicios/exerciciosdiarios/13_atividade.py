@@ -51,7 +51,7 @@ def processos_tarefas(lista_tarefas):
         case 'gravar':   
             return True
         case 'sair':
-            return True
+            return False
         case _:
             print('Opção inválida, digite um comando que exista.')
             return True
