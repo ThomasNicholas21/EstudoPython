@@ -15,13 +15,16 @@ class GeraTarefaTXT:
     def __init__(self, caminho_arquivo) -> None:
         self.caminho_arquivo = caminho_arquivo
         self.modo = 'w'
-        self.abrir_arquivo = None
+        self._abrir_arquivo = None
 
     def __enter__(self):
-        pass
+        print('Gravando tarefas')
+        self._abrir_arquivo = open(self.caminho_arquivo, self.modo, encoding='utf8')
+        return self._abrir_arquivo
 
     def __exit__(self):
-        pass
+        print('Gravação finalizada.')
+        self._abrir_arquivo.close()
 
 def main():
     pass
