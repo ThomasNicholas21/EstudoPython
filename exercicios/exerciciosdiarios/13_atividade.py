@@ -38,8 +38,34 @@ def listar_tarefas():
 def gravar_tarefas():
     pass
 
+def processos_tarefas(lista_tarefas):
+    comandos = input('Comandos Tarefa: Criar, Deletar, Listar, Gravar e Sair\n-->').lower().strip()
+
+    if comandos == 'criar':
+        pass
+        return True
+    elif comandos == 'deletar':
+        pass
+        return True
+    elif comandos == 'listar':
+        pass
+        return True
+    elif comandos == 'gravar':
+        pass
+        return True
+    elif comandos == 'sair':
+        return False
+    else:
+        print('Digite um comando valido!')
+        return True
+
 def main():
     lista_tarefas = []
+
+    while True:
+        processos = processos_tarefas(lista_tarefas)
+        if not processos:
+            break
 
 if __name__ == "__main__":
     main()
