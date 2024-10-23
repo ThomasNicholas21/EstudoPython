@@ -1,5 +1,10 @@
 # Dia 12: Arquivos (Leitura)
 # Crie um programa que leia um arquivo de texto e conte quantas palavras há nesse arquivo.
+from pathlib import Path
+
+ROOT_DIR = Path(__file__).parent
+TXT_NAME = '12_atividade.txt'
+TXT_FILE = ROOT_DIR / TXT_NAME
 
 class MyReader:
     def __init__(self, nome_arquivo):
@@ -17,14 +22,15 @@ class MyReader:
         self._abrir_arquivo.close()
 
 def contador_de_palavras():
-    with MyReader('D:/programação/EstudoPython/exercicios/exerciciosdiarios/12_atividade.txt') as arquivo:
-        contador = 1
-        for lines in arquivo.readlines():
-            palavras = lines.split(' ')
-            for palavra in palavras:
-                if not palavra == '\n':
-                    print(palavra)
-                    contador += 1
+    with MyReader(TXT_FILE) as arquivo: 
+        palavras = [lines for lines in arquivo.readlines() for palvras in lines.split(' ') if palvras != '\n']
+        contador = len(palavras) + 1 
+        # for lines in arquivo.readlines():
+            # palavras = lines.split(' ')
+            # for palavra in palavras:
+            #     if not palavra == '\n':
+            #         print(palavra)
+            #         contador += 1
         return contador
 
 
