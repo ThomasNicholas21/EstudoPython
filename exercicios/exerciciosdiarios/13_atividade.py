@@ -19,7 +19,7 @@ class Tarefas:
     def __repr__(self) -> str:
         return f'{self.tarefa}'
 
-class GeraTarefaTXT:
+class GerarTarefaTXT:
     def __init__(self, caminho_arquivo) -> None:
         self.caminho_arquivo = caminho_arquivo
         self.modo = 'w'
@@ -30,7 +30,7 @@ class GeraTarefaTXT:
         self._abrir_arquivo = open(self.caminho_arquivo, self.modo, encoding='utf8')
         return self._abrir_arquivo
 
-    def __exit__(self):
+    def __exit__(self, class_exception_, exception_, traceback_):
         print('Gravação finalizada.')
         self._abrir_arquivo.close()
 
@@ -51,7 +51,7 @@ def deletar_tarefas(lista_tarefas):
 
 def listar_tarefas(lista_tarefas):
     print('Lista de tarefas:')
-    if lista_tarefas is None:
+    if lista_tarefas:
         for contador, tarefa in enumerate(lista_tarefas):
             print(f'Atividade {contador + 1}: {tarefa}')
         print()
@@ -59,8 +59,12 @@ def listar_tarefas(lista_tarefas):
     else:
         print('Sem tarefas aqui...\n')
 
-def gravar_tarefas():
-    pass
+def gravar_tarefas(lista_tarefas):
+    with GerarTarefaTXT(TXT_FILE) as arquivo:
+        for contador ,tarefa in enumerate(lista_tarefas):
+            arquivo.writelines(f'Atividade {contador + 1}: {tarefa}\n')
+        print()
+
 
 def processar_tarefas(lista_tarefas):
     comandos = input('Comandos Tarefa: Criar, Deletar, Listar, Gravar e Sair\n-->').lower().strip()
@@ -75,7 +79,8 @@ def processar_tarefas(lista_tarefas):
         case 'listar':
             listar_tarefas(lista_tarefas)
             return True
-        case 'gravar':   
+        case 'gravar':  
+            gravar_tarefas(lista_tarefas) 
             return True
         case 'sair':
             return False
