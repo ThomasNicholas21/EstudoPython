@@ -38,14 +38,26 @@ def criar_tarefas(lista_tarefas):
     atividade = input('Digite sua tarefa: ')
     tarefa = Tarefas(atividade)
     tarefa.criar_tarefa(lista_tarefas)
+    print('Tarefa criada.\n')
 
-def deletar_tarefas():
-    pass
+def deletar_tarefas(lista_tarefas):
+    atividade = input('Digite a tarefa: ')
+    if atividade in lista_tarefas:
+        tarefa = Tarefas(atividade)
+        tarefa.deletar_tarefa(lista_tarefas)
+        print('Tarefa deletada.\n')
+    else:
+        print('Não foi encontrado essa tarefa.')
 
 def listar_tarefas(lista_tarefas):
     print('Lista de tarefas:')
-    for contador, tarefa in enumerate(lista_tarefas):
-        print(f'Atividade {contador + 1}: {tarefa}')
+    if lista_tarefas is None:
+        for contador, tarefa in enumerate(lista_tarefas):
+            print(f'Atividade {contador + 1}: {tarefa}')
+        print()
+
+    else:
+        print('Sem tarefas aqui...\n')
 
 def gravar_tarefas():
     pass
@@ -58,6 +70,7 @@ def processar_tarefas(lista_tarefas):
             criar_tarefas(lista_tarefas)
             return True
         case 'deletar':
+            deletar_tarefas(lista_tarefas)
             return True
         case 'listar':
             listar_tarefas(lista_tarefas)
