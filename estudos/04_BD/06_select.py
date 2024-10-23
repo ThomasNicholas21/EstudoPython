@@ -27,5 +27,17 @@ row = cursor.fetchone()
 _id, _name, _weight = row
 print(_id, _name, _weight)
 
+print()
+
+cursor.close()
+cursor = connection.cursor()
+
+cursor.execute(f'SELECT * FROM {TABLE_NAME} WHERE weight BETWEEN "90" and "110"')
+
+row = cursor.fetchall()
+for info in row:
+    _id, _name, _weight = info
+    print(_id, _name, _weight)
+
 cursor.close()
 connection.close()
