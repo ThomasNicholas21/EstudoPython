@@ -1,5 +1,10 @@
 # Dia 13: Arquivos (Escrita)
 # Faça um programa que pergunte ao usuário por uma lista de tarefas e as salve em um arquivo de texto.
+from pathlib import Path
+
+ROOT_DIR = Path(__file__).parent
+TXT_NAME = '13_atividade.txt'
+TXT_FILE = ROOT_DIR / TXT_NAME
 
 class Tarefas:
     def __init__(self, tarefa) -> None:
@@ -10,6 +15,9 @@ class Tarefas:
 
     def deletar_tarefa(self, lista: list):
         lista.remove(self.tarefa)
+
+    def __repr__(self) -> str:
+        return f'{self.tarefa}'
 
 class GeraTarefaTXT:
     def __init__(self, caminho_arquivo) -> None:
@@ -26,27 +34,33 @@ class GeraTarefaTXT:
         print('Gravação finalizada.')
         self._abrir_arquivo.close()
 
-def criando_tarefas():
+def criar_tarefas(lista_tarefas):
+    atividade = input('Digite sua tarefa: ')
+    tarefa = Tarefas(atividade)
+    tarefa.criar_tarefa(lista_tarefas)
+
+def deletar_tarefas():
     pass
 
-def deletando_tarefas():
-    pass
-
-def listar_tarefas():
-    pass
+def listar_tarefas(lista_tarefas):
+    print('Lista de tarefas:')
+    for contador, tarefa in enumerate(lista_tarefas):
+        print(f'Atividade {contador + 1}: {tarefa}')
 
 def gravar_tarefas():
     pass
 
-def processos_tarefas(lista_tarefas):
+def processar_tarefas(lista_tarefas):
     comandos = input('Comandos Tarefa: Criar, Deletar, Listar, Gravar e Sair\n-->').lower().strip()
 
     match comandos:
         case 'criar':
+            criar_tarefas(lista_tarefas)
             return True
         case 'deletar':
             return True
         case 'listar':
+            listar_tarefas(lista_tarefas)
             return True
         case 'gravar':   
             return True
@@ -60,7 +74,7 @@ def main():
     lista_tarefas = []
 
     while True:
-        processos = processos_tarefas(lista_tarefas)
+        processos = processar_tarefas(lista_tarefas)
         if not processos:
             break
 
