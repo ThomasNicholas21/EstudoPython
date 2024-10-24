@@ -33,22 +33,30 @@ sql_insert = (
 # )
 
 # C [READ/SELECT] UD
-
-cursor.execute(
-    f'SELECT * FROM {TABLE_NAME}'
+sql_selectall = (
+     f'SELECT * FROM {TABLE_NAME}'
 )
+
+sql_selectone = (
+     f'SELECT * FROM {TABLE_NAME} WHERE weight = "82"'
+)
+
+cursor.execute(sql_selectall)
 
 for row in cursor.fetchall():
     _id, _name, _weight = row
     print(_id, _name, _weight)
 print()
 
-cursor.execute(
-    f'SELECT * FROM {TABLE_NAME} WHERE weight = "82"'
-)
+cursor.execute(sql_selectone)
 
 row = cursor.fetchone()
 print(*row)
+
+
+# CR [UPDTADE] D
+
+# CRU [DELETE]
 
 cursor.close()
 connection.close()
