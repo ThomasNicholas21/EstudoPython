@@ -6,7 +6,7 @@ def divisao_por_zero(self):
 def verificacao_string(self):
     ...
 
-class Calculadora:
+class Operacao:
     def soma(self):
         ...
     
@@ -18,8 +18,12 @@ class Calculadora:
     
     def divisao(self):
         ...
-    
-def calculadora():
+
+class Calculadora(Operacao):
+    def __init__(self, numero1: int | float, numero2: int | float) -> None:
+        ...
+
+def calculadora(digitos):
     ...
 
 def main():
