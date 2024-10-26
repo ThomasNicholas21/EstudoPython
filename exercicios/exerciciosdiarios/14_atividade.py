@@ -3,10 +3,23 @@
 def divisao_por_zero(self):
     ...
 
-def verificacao_string(self):
-    ...
+def verificacao_string(metodo):
+    def interno(self, *args, **kwargs):
+        resultado = metodo(self, *args, **kwargs)
 
-class Operacao:
+        for arg in args:
+            if isinstance(arg, (str, bool)):
+                raise ValueError('Erro. Deve ser colocado um número.')
+        
+        return resultado
+    
+    return interno
+
+class Calculadora:
+    @verificacao_string
+    def __init__(self, numero1: int | float, numero2: int | float) -> None:
+        ...
+    
     def soma(self):
         ...
     
@@ -19,10 +32,6 @@ class Operacao:
     def divisao(self):
         ...
 
-class Calculadora(Operacao):
-    def __init__(self, numero1: int | float, numero2: int | float) -> None:
-        ...
-
 def calculadora(digitos):
     ...
 
@@ -31,3 +40,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    teste = Calculadora('1', 2)
