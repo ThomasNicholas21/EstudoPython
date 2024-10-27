@@ -18,7 +18,8 @@ def verificacao_string(metodo):
 class Calculadora:
     @verificacao_string
     def __init__(self, numero1: int | float, numero2: int | float) -> None:
-        ...
+        self.numero1 = numero1
+        self.numero2 = numero2
     
     def soma(self):
         ...
