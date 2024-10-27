@@ -28,7 +28,7 @@ class Calculadora:
         return f'Subtração: {self.numero1 - self.numero2}'
 
     def multiplicacao(self):
-        ...
+        return f'Multiplicação: {self.numero1 * self.numero2}'
     
     def divisao(self):
         ...
