@@ -31,7 +31,7 @@ class Calculadora:
         return f'Multiplicação: {self.numero1 * self.numero2}'
     
     def divisao(self):
-        ...
+        return f'Divisão: {self.numero1 / self.numero2}'
 
 def calculadora(digitos):
     ...
