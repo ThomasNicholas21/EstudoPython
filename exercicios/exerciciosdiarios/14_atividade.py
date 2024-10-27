@@ -22,7 +22,7 @@ class Calculadora:
         self.numero2 = numero2
     
     def soma(self):
-        ...
+        return f'Soma: {self.numero1 + self.numero2}'
     
     def subtracao(self):
         ...
