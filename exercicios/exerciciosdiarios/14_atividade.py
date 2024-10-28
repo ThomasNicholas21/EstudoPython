@@ -1,7 +1,15 @@
 # Dia 14: Tratamento de Exceções
 # Desenvolva um calculadora que peça dois números ao usuário, e faça a divisão tratando a exceção de divisão por zero.
-def divisao_por_zero(self):
-    ...
+def divisao_por_zero(metodo):
+    def interno(self, *args, **kwargs):
+        resultado = metodo(self, *args, **kwargs)
+        
+        if args[1] == 0:
+            raise ZeroDivisionError('Erro de divisão por zero')
+
+        return resultado
+    
+    return interno
 
 def verificacao_string(metodo):
     def interno(self, *args, **kwargs):
@@ -41,4 +49,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-    teste = Calculadora('1', 2)
+    print(1/0)
