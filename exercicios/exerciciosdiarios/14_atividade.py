@@ -38,6 +38,7 @@ class Calculadora:
     def multiplicacao(self):
         return f'Multiplicação: {self.numero1 * self.numero2}'
     
+    @divisao_por_zero
     def divisao(self):
         return f'Divisão: {self.numero1 / self.numero2}'
 
