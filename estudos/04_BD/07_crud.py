@@ -58,5 +58,14 @@ print(*row)
 
 # CRU [DELETE]
 
+sql_delete_sem_where = (f'DELETE FROM {TABLE_NAME}') # Delete sem where (perigoso), pode deletar todos os dados 
+
+sql_dele_com_where = (f'DELETE FROM {TABLE_NAME} WHERE name = "Beltrano"')
+
+sql_delete_sequencia = (f'DELTE FROM sqlite_sequence WHERE name="{TABLE_NAME}"')
+
+# cursor.execute(sql_dele_com_where)
+# connection.commit()
+
 cursor.close()
 connection.close()
