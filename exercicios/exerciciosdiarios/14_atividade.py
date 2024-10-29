@@ -71,6 +71,16 @@ def subtrair(historico_calculo: list, calculadora: Calculadora):
     except ValueError as ve:
         print(f'Números devem ser números!: ', ve)
 
+def multiplicar(historico_calculo: list, calculadora: Calculadora):
+    try:
+        numero1, numero2 = solicitar_digito()
+        resultado = calculadora.multiplicacao(numero1, numero2)
+        print(resultado)
+        historico_calculo.append(resultado)
+
+    except ValueError as ve:
+        print(f'Números devem ser números!: ', ve)
+
 def processar_comandos(historico_calculo: list):
     calc = Calculadora()
     comandos = input('Comandos: Soma[sum], subtração[sub], multiplicação[mult], divisão[div], histórico[hist] e sair[s]\n-->').lower()
@@ -80,10 +90,10 @@ def processar_comandos(historico_calculo: list):
             somar(historico_calculo, calc)
             return True
         case 'sub':
-            somar(historico_calculo, calc)
+            subtrair(historico_calculo, calc)
             return True
         case 'mult':
-            ...
+            multiplicar(historico_calculo, calc)
             return True
         case 'div':
             ...
