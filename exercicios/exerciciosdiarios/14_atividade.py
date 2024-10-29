@@ -40,8 +40,38 @@ class Calculadora:
 def calculadora(digitos):
     ...
 
+def processar_comandos(historico_calculo):
+    comandos = input('Comandos: Soma, subtração, multiplicação, divisão e histórico\n-->').lower()
+
+    match comandos:
+        case 'soma':
+            ...
+            return True
+        case 'subtração':
+            ...
+            return True
+        case 'multiplicação':
+            ...
+            return True
+        case 'divisão':
+            ...
+            return True
+        case 'histórico':
+            ...
+        case 'sair':
+            return False
+        case _:
+            print('Opção inválida.')
+            return True
+
 def main():
-    ...
+    historico_calculo = []
+
+    while True:
+        comando = processar_comandos(historico_calculo)
+        if not comando:
+            break
+        
 
 if __name__ == '__main__':
     main()
