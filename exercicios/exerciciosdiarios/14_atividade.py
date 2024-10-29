@@ -27,7 +27,7 @@ def verificacao_string(metodo):
 class Calculadora:
     @verificacao_string
     def soma(self, numero1: int | float, numero2: int | float):
-        soma = f'Soma: {numero1} + {numero2} = {numero1 - numero2}'
+        soma = f'Soma: {numero1} + {numero2} = {numero1 + numero2}'
         return soma
     
     @verificacao_string
@@ -43,7 +43,7 @@ class Calculadora:
     @divisao_por_zero
     @verificacao_string
     def divisao(self, numero1: int | float, numero2: int | float):
-        divisao = f'Divisão: {numero1} / {numero2} = {numero1 / numero2}'
+        divisao = f'Divisão: {numero1} / {numero2} = {numero1 / numero2:.2f}'
         return divisao
 
 def solicitar_digito():
@@ -80,6 +80,16 @@ def multiplicar(historico_calculo: list, calculadora: Calculadora):
 
     except ValueError as ve:
         print(f'Números devem ser números!: ', ve)
+    
+def dividir(historico_calculo: list, calculadora: Calculadora):
+    try:
+        numero1, numero2 = solicitar_digito()
+        resultado = calculadora.divisao(numero1, numero2)
+        print(resultado)
+        historico_calculo.append(resultado)
+
+    except ValueError as ve:
+        print(f'Números devem ser números!: ', ve)
 
 def processar_comandos(historico_calculo: list):
     calc = Calculadora()
@@ -96,10 +106,11 @@ def processar_comandos(historico_calculo: list):
             multiplicar(historico_calculo, calc)
             return True
         case 'div':
-            ...
+            dividir(historico_calculo, calc)
             return True
         case 'hist':
-            print(historico_calculo, sep='\n')
+            print(*historico_calculo, sep='\n')
+            return True
         case 's':
             return False
         case _:
