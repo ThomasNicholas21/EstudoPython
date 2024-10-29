@@ -25,31 +25,35 @@ def verificacao_string(metodo):
 
 class Calculadora:
     @verificacao_string
-    def __init__(self, numero1: int | float, numero2: int | float) -> None:
-        self.numero1 = numero1
-        self.numero2 = numero2
-    
-    def soma(self):
-        soma = f'Soma: {self.numero1} + {self.numero2} = {self.numero1 - self.numero2}'
+    def soma(self, numero1: int | float, numero2: int | float):
+        soma = f'Soma: {numero1} + {numero2} = {numero1 - numero2}'
         return soma
     
-    def subtracao(self):
-        subtracao = f'Subtração: {self.numero1} - {self.numero2} = {self.numero1 - self.numero2}'
+    @verificacao_string
+    def subtracao(self, numero1: int | float, numero2: int | float):
+        subtracao = f'Subtração: {numero1} - {numero2} = {numero1 - numero2}'
         return subtracao
 
-    def multiplicacao(self):
-        multiplicacao = f'Multiplicação: {self.numero1} * {self.numero2} = {self.numero1 * self.numero2}'
+    @verificacao_string
+    def multiplicacao(self, numero1: int | float, numero2: int | float):
+        multiplicacao = f'Multiplicação: {numero1} * {numero2} = {numero1 * numero2}'
         return multiplicacao
     
     @divisao_por_zero
-    def divisao(self):
-        divisao = f'Divisão: {self.numero1} / {self.numero2} = {self.numero1 / self.numero2}'
+    @verificacao_string
+    def divisao(self, numero1: int | float, numero2: int | float):
+        divisao = f'Divisão: {numero1} / {numero2} = {numero1 / numero2}'
         return divisao
 
-def calculadora(digitos):
-    ...
+def calculadora(historico_calculo, operacao):
+    try:
+        numero1 = int(input('Digite o número1: '))
+        numero2 = int(input('Digite o número2: '))
 
-def processar_comandos(historico_calculo):
+    except:
+        ...
+
+def processar_comandos(historico_calculo, calculadora):
     comandos = input('Comandos: Soma, subtração, multiplicação, divisão e histórico\n-->').lower()
 
     match comandos:
@@ -75,13 +79,13 @@ def processar_comandos(historico_calculo):
 
 def main():
     historico_calculo = []
+    calc = Calculadora()
 
     while True:
-        comando = processar_comandos(historico_calculo)
+        comando = processar_comandos(historico_calculo, calc)
         if not comando:
             break
         
 
 if __name__ == '__main__':
     main()
-    print(1/0)
