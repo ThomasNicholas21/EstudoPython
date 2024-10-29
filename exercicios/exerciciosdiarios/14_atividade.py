@@ -22,16 +22,20 @@ class Calculadora:
         self.numero2 = numero2
     
     def soma(self):
-        return f'Soma: {self.numero1 + self.numero2}'
+        soma = f'Soma: {self.numero1} + {self.numero2} = {self.numero1 - self.numero2}'
+        return soma
     
     def subtracao(self):
-        return f'Subtração: {self.numero1 - self.numero2}'
+        subtracao = f'Subtração: {self.numero1} - {self.numero2} = {self.numero1 - self.numero2}'
+        return subtracao
 
     def multiplicacao(self):
-        return f'Multiplicação: {self.numero1 * self.numero2}'
+        multiplicacao = f'Multiplicação: {self.numero1} * {self.numero2} = {self.numero1 * self.numero2}'
+        return multiplicacao
     
     def divisao(self):
-        return f'Divisão: {self.numero1 / self.numero2}'
+        divisao = f'Divisão: {self.numero1} / {self.numero2} = {self.numero1 / self.numero2}'
+        return divisao
 
 def calculadora(digitos):
     ...
