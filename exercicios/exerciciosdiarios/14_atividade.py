@@ -1,7 +1,5 @@
 # Dia 14: Tratamento de Exceções
 # Desenvolva um calculadora que peça dois números ao usuário, e faça a divisão tratando a exceção de divisão por zero.
-from typing import Any
-
 
 def divisao_por_zero(metodo):
     def interno(self, *args, **kwargs):
@@ -65,27 +63,27 @@ def somar(historico_calculo: list, calculadora: Calculadora):
 
 def processar_comandos(historico_calculo: list):
     calc = Calculadora()
-    comandos = input('Comandos: Soma, subtração, multiplicação, divisão e histórico\n-->').lower()
-
+    comandos = input('Comandos: Soma[sum], subtração[sub], multiplicação[mult], divisão[div], histórico[hist] e sair[s]\n-->').lower()
+    
     match comandos:
-        case 'soma':
+        case 'sum':
             somar(historico_calculo, calc)
             return True
-        case 'subtração':
+        case 'sub':
             ...
             return True
-        case 'multiplicação':
+        case 'mult':
             ...
             return True
-        case 'divisão':
+        case 'div':
             ...
             return True
-        case 'histórico':
+        case 'hist':
             print(historico_calculo, sep='\n')
-        case 'sair':
+        case 's':
             return False
         case _:
-            print('Opção inválida.')
+            print('Opção inválida. Tente sum, sub, mult, div ou hist para comandos válidos')
             return True
 
 def main():
