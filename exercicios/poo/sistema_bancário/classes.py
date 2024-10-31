@@ -38,11 +38,21 @@ class Transacao(ABC):
         pass
 
 class Conta(Transacao):
-    def sacar(self, valor):
-        pass
+    def __init__(self, numero: int, saldo: float) -> None:
+        self.agencia = '001'
+        self._numero = numero
+        self._saldo = saldo
 
-    def depositar(self, valor):
-        pass
+    def sacar(self, valor: float) -> None:
+        if valor > self._saldo:
+            print('Saldo insuficiente.')     
+        else:
+            print(f'Sacando R${valor:.2f}')
+            self._saldo -= valor     
+
+    def depositar(self, valor: float) -> None:
+        print(f'Depositando R${valor:.2f}')
+        self.saldo += valor
 
 class ContaCorrente(Conta):
     def sacar(self, valor):
