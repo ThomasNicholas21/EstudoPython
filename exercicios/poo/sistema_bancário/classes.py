@@ -1,14 +1,14 @@
 from abc import ABC, abstractmethod
 
 class Pessoa:
-    def __init__(self, nome, idade, cpf, cep) -> None:
+    def __init__(self, nome: str, idade: int, cpf: str, cep: str) -> None:
         self._nome = nome
         self._idade = idade
         self._cpf = cpf
         self._cep = cep
 
     @property
-    def nome(self):
+    def nome(self) -> str:
         return self._nome
 
     @property
@@ -16,15 +16,17 @@ class Pessoa:
         return self._idade
     
     @property
-    def cpf(self):
+    def cpf(self) -> str:
         return self._cpf
     
     @property
-    def cep(self):
+    def cep(self) -> str:
         return self._cep
 
 class Cliente(Pessoa): # Agrega classe Conta
-    ...
+    def __init__(self, conta, nome, idade, cpf, cep) -> None:
+        super().__init__(nome, idade, cpf, cep)
+        self.conta = conta
 
 class Transacao(ABC):
     @abstractmethod
