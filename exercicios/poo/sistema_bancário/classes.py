@@ -67,3 +67,8 @@ if __name__ == '__main__':
     print(cliente1.idade)
     print(cliente1.cpf)
     print(cliente1.cep)
+    cliente2 = Pessoa('Nicholas', 21, '987456321', '123987456')
+    print(cliente2.nome)
+    print(cliente2.idade)
+    print(cliente2.cpf)
+    print(cliente2.cep)
