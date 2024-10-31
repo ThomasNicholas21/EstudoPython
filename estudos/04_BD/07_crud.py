@@ -54,7 +54,25 @@ row = cursor.fetchone()
 print(*row)
 
 
-# CR [UPDTADE] D
+# CR [UPDATE] D
+
+sql_update = (
+    f'UPDATE {TABLE_NAME} '
+    'SET name = "Jorel" '
+    'WHERE id = 5 '
+)
+
+cursor.execute(sql_update)
+connection.commit()
+
+sql_selectone_id5 = (
+    f'SELECT * FROM {TABLE_NAME} '
+    'WHERE id=5 '
+)
+
+cursor.execute(sql_selectone_id5)
+row = cursor.fetchone()
+print(*row)
 
 # CRU [DELETE]
 
