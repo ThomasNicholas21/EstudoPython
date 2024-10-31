@@ -24,7 +24,7 @@ class Pessoa:
         return self._cep
 
 class Cliente(Pessoa): # Agrega classe Conta
-    def __init__(self, conta, nome, idade, cpf, cep) -> None:
+    def __init__(self, conta, nome: str, idade: int, cpf: str, cep: str) -> None:
         super().__init__(nome, idade, cpf, cep)
         self.conta = conta
 
