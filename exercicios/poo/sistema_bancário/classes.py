@@ -1,4 +1,4 @@
-from abc import ABC, abstractmethod
+import abc
 
 class Pessoa:
     def __init__(self, nome: str, idade: int, cpf: str, cep: str) -> None:
@@ -28,45 +28,25 @@ class Cliente(Pessoa): # Agrega classe Conta
         super().__init__(nome, idade, cpf, cep)
         self.conta = conta
 
-class Transacao(ABC):
-    @abstractmethod
-    def sacar(self, valor):
-        pass
-
-    @abstractmethod
-    def depositar(self, valor):
-        pass
-
-class Conta(Transacao):
-    def __init__(self, numero: int, saldo: float) -> None:
+class Conta(abc.ABC):
+    def __init__(self, numero: int, saldo: float = 0) -> None:
         self.agencia = '001'
         self._numero = numero
         self._saldo = saldo
 
-    def sacar(self, valor: float) -> None:
-        if valor > self._saldo:
-            print('Saldo insuficiente.')     
-        else:
-            print(f'Sacando R${valor:.2f}')
-            self._saldo -= valor     
+    @abc.abstractmethod
+    def sacar(self, valor) -> float: ...  
 
     def depositar(self, valor: float) -> None:
         print(f'Depositando R${valor:.2f}')
         self.saldo += valor
 
 class ContaCorrente(Conta):
-    def sacar(self, valor):
-        pass
-
-    def depositar(self, valor):
-        pass
-
+    ...
 class ContaPoupanca(Conta):
     def sacar(self, valor):
         pass
 
-    def depositar(self, valor):
-        pass
 
 class Banco: # agrega clientes e contas
     ...
@@ -82,3 +62,6 @@ if __name__ == '__main__':
     print(cliente2.idade)
     print(cliente2.cpf)
     print(cliente2.cep)
+    #conta = Conta(1, 120.50)
+    contacorrente = ContaCorrente(1)
+    print(contacorrente)
