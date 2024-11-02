@@ -42,7 +42,12 @@ class Conta(abc.ABC):
         self.saldo += valor
 
 class ContaCorrente(Conta):
-    ...
+    def __init__(self, limite_maximo, numero: int, saldo: float = 0) -> None:
+        super().__init__(numero, saldo)
+        self.limite_maximo = limite_maximo
+
+    def sacar(self, valor):
+        pass
 class ContaPoupanca(Conta):
     def sacar(self, valor):
         pass
