@@ -75,5 +75,7 @@ if __name__ == '__main__':
     print(cliente2.cpf)
     print(cliente2.cep)
     #conta = Conta(1, 120.50)
-    contacorrente = ContaCorrente(1)
-    print(contacorrente)
+    cc = ContaCorrente(1000, 12, 1000)
+    cc.sacar(500)
+    print(cc._saldo) # verificando se saldo está sendo realizado, porém o atributo so deve ser visualizado caso ele seja público
+    
