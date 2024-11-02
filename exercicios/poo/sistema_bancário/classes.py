@@ -56,8 +56,13 @@ class ContaCorrente(Conta):
         return self._saldo
 
 class ContaPoupanca(Conta):
-    def sacar(self, valor):
-        pass
+    def sacar(self, valor) -> float | None:
+        if valor > self._saldo:
+            print('Valor supera seu Saldo.')
+            return
+        
+        self._saldo -= valor
+        print('Saque efetuado')
 
 
 class Banco: # agrega clientes e contas
@@ -78,4 +83,6 @@ if __name__ == '__main__':
     cc = ContaCorrente(1000, 12, 1000)
     cc.sacar(500)
     print(cc._saldo) # verificando se saldo está sendo realizado, porém o atributo so deve ser visualizado caso ele seja público
-    cp = ContaPoupanca()
+    cp = ContaPoupanca(1, 555)
+    cp.sacar(155)
+    print(cp._saldo)
