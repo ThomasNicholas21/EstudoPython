@@ -46,8 +46,15 @@ class ContaCorrente(Conta):
         super().__init__(numero, saldo)
         self.limite_maximo = limite_maximo
 
-    def sacar(self, valor):
-        pass
+    def sacar(self, valor) -> float:
+        if valor > self.limite_maximo:
+            print('Limite máximo excedido.')
+            return 
+        
+        self._saldo -= valor
+        print('Saque realizado.')
+        return self._saldo
+
 class ContaPoupanca(Conta):
     def sacar(self, valor):
         pass
