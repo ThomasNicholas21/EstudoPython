@@ -29,8 +29,8 @@ class Cliente(Pessoa): # Agrega classe Conta
         self.conta = conta
 
 class Conta(abc.ABC):
-    def __init__(self, numero: int, saldo: float = 0) -> None:
-        self.agencia = '001'
+    def __init__(self, numero: int, saldo: float = 0, agencia='001') -> None:
+        self.agencia = agencia
         self._numero = numero
         self._saldo = saldo
 
@@ -78,4 +78,4 @@ if __name__ == '__main__':
     cc = ContaCorrente(1000, 12, 1000)
     cc.sacar(500)
     print(cc._saldo) # verificando se saldo está sendo realizado, porém o atributo so deve ser visualizado caso ele seja público
-    
+    cp = ContaPoupanca()
