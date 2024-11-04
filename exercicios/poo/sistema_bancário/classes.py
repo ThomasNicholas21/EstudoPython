@@ -41,6 +41,9 @@ class Conta(abc.ABC):
         print(f'Depositando R${valor:.2f}')
         self.saldo += valor
 
+    def __repr__(self) -> str:
+        return f'{self.__class__.__name__}:{self.agencia!r} | {self._numero!r} | {self._saldo!r}'
+
 class ContaCorrente(Conta):
     def __init__(self, limite_maximo, numero: int, saldo: float = 0) -> None:
         super().__init__(numero, saldo)
@@ -67,10 +70,18 @@ class ContaPoupanca(Conta):
 
 
 class Banco: # agrega clientes e contas
-    def __init__(self, agencias, contas, clientes) -> None:
-        self.agencias = agencias
+    def __init__(self, agencia: '001', contas: list, clientes: list) -> None:
+        self.agencia = agencia
         self.contas = contas
         self.clientes = clientes
+
+    def verificar_agencia(self, conta) -> bool:
+        if self.agencia in conta.__dict__:
+            return True
+        return False
+
+    def verificar_conta(self, cliente):
+        ...
 
 if __name__ == '__main__':
     cliente1 = Pessoa('Thomas', 22, '123456789', '123456')
@@ -78,15 +89,16 @@ if __name__ == '__main__':
     print(cliente1.idade)
     print(cliente1.cpf)
     print(cliente1.cep)
-    cliente2 = Pessoa('Nicholas', 21, '987456321', '123987456')
-    print(cliente2.nome)
-    print(cliente2.idade)
-    print(cliente2.cpf)
-    print(cliente2.cep)
     #conta = Conta(1, 120.50)
     cc = ContaCorrente(1000, 12, 1000)
     cc.sacar(500)
     print(cc._saldo) # verificando se saldo está sendo realizado, porém o atributo so deve ser visualizado caso ele seja público
     cp = ContaPoupanca(1, 555)
+    cliente2 = Cliente(cp, 'Nicholas', 21, '987456321', '123987456')
+    print(cliente2.conta)
+    print(cliente2.nome)
+    print(cliente2.idade)
+    print(cliente2.cpf)
+    print(cliente2.cep)
     cp.sacar(155)
     print(cp._saldo)
