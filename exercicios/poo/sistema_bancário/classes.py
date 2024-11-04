@@ -63,10 +63,14 @@ class ContaPoupanca(Conta):
         
         self._saldo -= valor
         print('Saque efetuado')
+        return self._saldo
 
 
 class Banco: # agrega clientes e contas
-    ...
+    def __init__(self, agencias, contas, clientes) -> None:
+        self.agencias = agencias
+        self.contas = contas
+        self.clientes = clientes
 
 if __name__ == '__main__':
     cliente1 = Pessoa('Thomas', 22, '123456789', '123456')
