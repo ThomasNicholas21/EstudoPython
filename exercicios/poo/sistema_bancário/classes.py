@@ -70,35 +70,30 @@ class ContaPoupanca(Conta):
 
 
 class Banco: # agrega clientes e contas
-    def __init__(self, agencia: '001', contas: list, clientes: list) -> None:
+    def __init__(self, agencia, contas: list, clientes: list) -> None:
         self.agencia = agencia
         self.contas = contas
         self.clientes = clientes
 
     def verificar_agencia(self, conta) -> bool:
-        if self.agencia in conta.__dict__:
-            return True
-        return False
+        if self.agencia == '001':
+            if self.agencia in conta.__dict__['agencia']:
+                return True
+            return False
 
     def verificar_conta(self, cliente):
         ...
 
 if __name__ == '__main__':
-    cliente1 = Pessoa('Thomas', 22, '123456789', '123456')
-    print(cliente1.nome)
-    print(cliente1.idade)
-    print(cliente1.cpf)
-    print(cliente1.cep)
+
     #conta = Conta(1, 120.50)
     cc = ContaCorrente(1000, 12, 1000)
-    cc.sacar(500)
-    print(cc._saldo) # verificando se saldo está sendo realizado, porém o atributo so deve ser visualizado caso ele seja público
     cp = ContaPoupanca(1, 555)
+    cliente1 = Cliente(cc, 'Thomas', 22, '123456789', '123456')
     cliente2 = Cliente(cp, 'Nicholas', 21, '987456321', '123987456')
-    print(cliente2.conta)
-    print(cliente2.nome)
-    print(cliente2.idade)
-    print(cliente2.cpf)
-    print(cliente2.cep)
-    cp.sacar(155)
-    print(cp._saldo)
+    lista_contas = [cc, cp]
+    lista_clientes = [cliente1, cliente2]
+    #cp.sacar(155)
+    #print(cp._saldo)
+    banco = Banco('001', lista_contas, lista_clientes)
+    print(banco.verificar_agencia(cp))
