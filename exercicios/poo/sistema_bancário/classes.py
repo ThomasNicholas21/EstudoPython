@@ -23,6 +23,9 @@ class Pessoa:
     def cep(self) -> str:
         return self._cep
 
+    def __repr__(self) -> str:
+        return f'{self.__class__.__name__}:{' | '.join([f'{valor!r}' for valor in self.__dict__.values()])}'
+
 class Cliente(Pessoa): # Agrega classe Conta
     def __init__(self, conta, nome: str, idade: int, cpf: str, cep: str) -> None:
         super().__init__(nome, idade, cpf, cep)
@@ -42,7 +45,7 @@ class Conta(abc.ABC):
         self.saldo += valor
 
     def __repr__(self) -> str:
-        return f'{self.__class__.__name__}:{self.agencia!r} | {self._numero!r} | {self._saldo!r}'
+        return f'{self.__class__.__name__}: {self.agencia!r} | {self._numero!r} | {self._saldo!r}'
 
 class ContaCorrente(Conta):
     def __init__(self, limite_maximo, numero: int, saldo: float = 0) -> None:
@@ -51,21 +54,21 @@ class ContaCorrente(Conta):
 
     def sacar(self, valor) -> float:
         if valor > self.limite_maximo:
-            print('Limite máximo excedido.')
+            print('Saque negado.')
             return 
         
         self._saldo -= valor
-        print('Saque realizado.')
+        print('Saque efetuado.')
         return self._saldo
 
 class ContaPoupanca(Conta):
     def sacar(self, valor) -> float | None:
         if valor > self._saldo:
-            print('Valor supera seu Saldo.')
+            print('Saque negado.')
             return
         
         self._saldo -= valor
-        print('Saque efetuado')
+        print('Saque efetuado.')
         return self._saldo
 
 
@@ -85,12 +88,12 @@ class Banco: # agrega clientes e contas
         ...
 
 if __name__ == '__main__':
-
     #conta = Conta(1, 120.50)
     cc = ContaCorrente(1000, 12, 1000)
     cp = ContaPoupanca(1, 555)
     cliente1 = Cliente(cc, 'Thomas', 22, '123456789', '123456')
     cliente2 = Cliente(cp, 'Nicholas', 21, '987456321', '123987456')
+    print(cliente1)
     lista_contas = [cc, cp]
     lista_clientes = [cliente1, cliente2]
     #cp.sacar(155)
