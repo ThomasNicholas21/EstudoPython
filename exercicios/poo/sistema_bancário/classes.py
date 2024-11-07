@@ -85,7 +85,9 @@ class Banco: # agrega clientes e contas
             return False
 
     def verificar_conta(self, cliente):
-        ...
+        if cliente in self.clientes:
+            return True
+        return False
 
 if __name__ == '__main__':
     #conta = Conta(1, 120.50)
