@@ -78,24 +78,25 @@ class Banco: # agrega clientes e contas
         self.contas = contas or []
         self.clientes = clientes or []
 
-    def _checar_agencia(self, conta):
+    def _checar_agencia(self, conta: Conta) -> bool:
         if conta.agencia in self.agencias:
             return True
         return False
 
-    def _checar_conta(self, conta):
+    def _checar_conta(self, conta: Conta) -> bool:
         if conta in self.contas:
             return True
         return False
 
-    def _checar_cliente(self, cliente):
+    def _checar_cliente(self, cliente: Pessoa) -> bool:
         if cliente in self.clientes:
             return True
         return False
     
-    def autenticar(self, cliente, conta):
-        ...
-
+    def autenticar(self, cliente: Pessoa, conta: Conta) -> bool:
+        return self._checar_agencia(conta) and \
+        self._checar_cliente(cliente) and self._checar_conta(conta)
+    
 if __name__ == '__main__':
     #conta = Conta(1, 120.50)
     cc = ContaCorrente(1000, 12, 1000)
