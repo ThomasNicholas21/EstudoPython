@@ -73,21 +73,13 @@ class ContaPoupanca(Conta):
 
 
 class Banco: # agrega clientes e contas
-    def __init__(self, agencia, contas: list, clientes: list) -> None:
-        self.agencia = agencia
-        self.contas = contas
-        self.clientes = clientes
+    def __init__(self, agencia: list[int], contas: list[Conta], clientes: list[Pessoa]) -> None:
+        self.agencia = agencia or []
+        self.contas = contas or []
+        self.clientes = clientes or []
 
-    def verificar_agencia(self, conta) -> bool:
-        if self.agencia == '001':
-            if self.agencia in conta.__dict__['agencia']:
-                return True
-            return False
-
-    def verificar_conta(self, cliente):
-        if cliente in self.clientes:
-            return True
-        return False
+    def autenticar(self, cliente, conta):
+        ...
 
 if __name__ == '__main__':
     #conta = Conta(1, 120.50)
