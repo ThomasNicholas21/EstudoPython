@@ -32,10 +32,11 @@ class Cliente(Pessoa): # Agrega classe Conta
         self.conta = conta
 
 class Conta(abc.ABC):
-    def __init__(self, numero: int, saldo: float = 0, agencia='001') -> None:
+    def __init__(self, agencia: str, numero: int, saldo: float = 0) -> None:
         self.agencia = agencia
         self._numero = numero
         self._saldo = saldo
+
 
     @abc.abstractmethod
     def sacar(self, valor) -> float: ...  
@@ -48,9 +49,9 @@ class Conta(abc.ABC):
         return f'{self.__class__.__name__}: {self.agencia!r} | {self._numero!r} | {self._saldo!r}'
 
 class ContaCorrente(Conta):
-    def __init__(self, limite_maximo, numero: int, saldo: float = 0) -> None:
-        super().__init__(numero, saldo)
-        self.limite_maximo = limite_maximo
+    def __init__(self, limite_maximo, agencia: str, numero: int, saldo: float = 0) -> None:
+        super().__init__(agencia, numero, saldo)
+        self.limite_maxim = limite_maximo
 
     def sacar(self, valor) -> float:
         if valor > self.limite_maximo:
@@ -73,7 +74,7 @@ class ContaPoupanca(Conta):
 
 
 class Banco: # agrega clientes e contas
-    def __init__(self, agencias: list[int], contas: list[Conta], clientes: list[Pessoa]) -> None:
+    def __init__(self, agencias: list[str], contas: list[Conta], clientes: list[Pessoa]) -> None:
         self.agencias = agencias or []
         self.contas = contas or []
         self.clientes = clientes or []
@@ -97,16 +98,21 @@ class Banco: # agrega clientes e contas
         return self._checar_agencia(conta) and \
         self._checar_cliente(cliente) and self._checar_conta(conta)
     
+    def __repr__(self) -> str:
+        return f'{self.__class__.__name__}:{'\n'.join([f'{value}' for value in self.__dict__.values()])}'
+    
 if __name__ == '__main__':
     #conta = Conta(1, 120.50)
-    cc = ContaCorrente(1000, 12, 1000)
-    cp = ContaPoupanca(1, 555)
+    cc = ContaCorrente(1000, '001', 12, 1000)
+    cp = ContaPoupanca('003', 1, 555)
     cliente1 = Cliente(cc, 'Thomas', 22, '123456789', '123456')
     cliente2 = Cliente(cp, 'Nicholas', 21, '987456321', '123987456')
     print(cliente1)
     lista_contas = [cc, cp]
     lista_clientes = [cliente1, cliente2]
+    lista_agencias = ['001', '002']
     #cp.sacar(155)
     #print(cp._saldo)
-    banco = Banco('001', lista_contas, lista_clientes)
-    print(banco.verificar_agencia(cp))
+    banco = Banco(lista_agencias, lista_contas, lista_clientes)
+    print('Conta Auntenticada' if banco.autenticar(cliente1, cc) else 'Conta não autenticada')
+    print('Conta Auntenticada' if banco.autenticar(cliente2, cp) else 'Conta não autenticada')
