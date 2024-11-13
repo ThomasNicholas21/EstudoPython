@@ -40,3 +40,20 @@
 # fraca (weakref) na instância, o que permite gerenciar ciclos de referência, 
 # útil em cenários de coleta de lixo e gerenciamento de memória.
 
+from dataclasses import dataclass
+
+@dataclass(repr=False) # desativa repr, funcionando para outros métodos
+class Pessoa:
+    nome: str
+    sobrenome: str
+
+    def __post_init__(self): # sempre iniciado após o init 
+        return f'{self.nome} {self.sobrenome}'
+    
+    def __repr__(self) -> str:
+        atributos = f'{self.nome}, {self.sobrenome}'
+        return f'{self.__class__.__name__}({atributos})'
+    
+if __name__ == "__main__":
+    pessoa1 = Pessoa('thomas', 'Teste')
+    print(pessoa1)
