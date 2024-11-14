@@ -9,16 +9,19 @@ class Contato:
     numero: str 
 
     @property
-    def get_nome(self):
+    def get_nome(self) -> str:
         return self.nome
-        
+
     @property
-    def get_numero(self):
+    def get_numero(self) -> str:
         return self.numero
 
 @dataclass
 class Agenda_telefonica:
     lista_contatos: list[Contato]
+
+    def get_contato(self, contato):
+        ...
 
 def cadastro_contato():
     ...
