@@ -9,7 +9,11 @@ class Contato:
     numero: str 
 
     @property
-    def get_contato(self):
+    def get_nome(self):
+        return self.nome
+        
+    @property
+    def get_numero(self):
         return self.numero
 
 @dataclass
@@ -31,5 +35,5 @@ if __name__ == '__main__':
     lista_contatos = [contato_teste1]
     agenda = Agenda_telefonica(lista_contatos)
     print(contato_teste1, agenda)
-    if contato_teste1 in agenda:
+    if contato_teste1.get_contato in lista_contatos:
         print(f'Estou aqui {contato_teste1}')
