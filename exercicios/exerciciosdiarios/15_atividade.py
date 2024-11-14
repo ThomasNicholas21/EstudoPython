@@ -5,16 +5,16 @@ from dataclasses import dataclass
 
 @dataclass
 class Contato:
-    nome: str
-    numero: str 
+    _nome: str
+    _numero: str 
 
     @property
     def get_nome(self) -> str:
-        return self.nome
+        return self._nome
 
     @property
     def get_numero(self) -> str:
-        return self.numero
+        return self._numero
 
 @dataclass
 class Agenda_telefonica:
