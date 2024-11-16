@@ -36,8 +36,26 @@ def cadastro_contato():
 def buscar_contato():
     ...
 
+def menu_processos(lista_contatos):
+    opcoes = input('Comandos Agenda: Cadastro de Contato [CC],' 
+                   'Buscar Contato [BC] e Sair [S]\n-->')
+
+    match opcoes:
+        case 'cc':
+            ...
+            return False
+        case 'bc':
+            ...
+            return False
+        case 's':
+            ...
+            return True   
+        case _:
+            print('Comando invalido')
+            return False
+
 def main():
-    ...
+    lita_contatos = []
 
 if __name__ == '__main__':
     main()
