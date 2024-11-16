@@ -56,7 +56,13 @@ def menu_processos(lista_contatos):
 
 def main():
     lita_contatos = []
-
+    
+    while True:
+        menu = menu_processos(lista_contatos)
+        if menu:
+            print('Fechando agenda.')
+            break
+        
 if __name__ == '__main__':
     main()
     contato_teste1 = Contato('Fulano', '62982520334')
