@@ -24,6 +24,11 @@ class Agenda_telefonica:
         if contato in self.lista_contatos:
             return True
         return False
+    
+    def get_informacoes(self, contato: Contato) -> str | None:
+        if self.find_contato(contato):
+            return f'Nome:{contato.get_nome}, número:{contato.get_numero}'
+        return 
 
 def cadastro_contato():
     ...
@@ -42,3 +47,5 @@ if __name__ == '__main__':
     print(contato_teste1, agenda)
     if agenda.find_contato(contato_teste1):
         print('Presente')
+    contato = agenda.get_informacoes(contato_teste1)
+    print(contato)
