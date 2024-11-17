@@ -76,7 +76,7 @@ def menu_processos(agenda: Agenda_telefonica) -> bool:
             listar_contatos(agenda)
             return False
         case 's':
-            ...
+            print('Encerrando agenda.')
             return True   
         case _:
             print('Comando invalido')
