@@ -34,7 +34,10 @@ class Agenda_telefonica:
         return 
 
 def cadastro_contato(agenda: Agenda_telefonica) -> None:
-    ...
+    nome = input('Nome: ')
+    telefone = input('Número: ')
+    contato = Contato(nome, telefone)
+    agenda.inserir_contato(contato)
 
 def buscar_contato():
     ...
