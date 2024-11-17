@@ -29,8 +29,8 @@ class Agenda_telefonica:
         return False
     
     def pegar_informacoes(self, contato: Contato) -> str | None:
-        if self.find_contato(contato):
-            return f'Nome:{contato.get_nome}, número:{contato.get_numero}'
+        if self.achar_contato(contato):
+            return f'Nome:{contato.get_nome}, Número:{contato.get_numero}'
         return 
 
 def cadastro_contato(agenda: Agenda_telefonica) -> None:
@@ -40,7 +40,16 @@ def cadastro_contato(agenda: Agenda_telefonica) -> None:
     agenda.inserir_contato(contato)
 
 def buscar_contato(agenda: Agenda_telefonica):
-    ...
+    nome = input('Digite o nome: ').capitalize().strip()
+    buscar = [
+        agenda.pegar_informacoes(contato) for contato in agenda.lista_contatos 
+        if contato.get_nome == nome
+    ]
+    if buscar:
+        print(*buscar, sep='\n')
+        print()
+    else:
+        print('Contato Inexistente')
 
 def menu_processos(agenda: Agenda_telefonica) -> bool:
     opcoes = input('Comandos Agenda: Cadastro de Contato [CC],' 
