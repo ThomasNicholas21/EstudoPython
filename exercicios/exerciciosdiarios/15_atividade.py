@@ -44,11 +44,14 @@ def buscar_contato():
 
 def menu_processos(agenda: Agenda_telefonica) -> bool:
     opcoes = input('Comandos Agenda: Cadastro de Contato [CC],' 
-                   'Buscar Contato [BC] e Sair [S]\n-->')
+                   'Buscar Contato [BC], Listar Contato [LC] Sair [S]\n-->')
 
     match opcoes:
         case 'cc':
             cadastro_contato(agenda)
+            return False
+        case 'bc':
+            ...
             return False
         case 'bc':
             ...
