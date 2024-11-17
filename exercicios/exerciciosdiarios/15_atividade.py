@@ -20,6 +20,9 @@ class Contato:
 class Agenda_telefonica:
     lista_contatos: list[Contato]
 
+    def insert_contato(self, contato: Contato):
+        self.lista_contatos.append(contato)
+
     def find_contato(self, contato: Contato) -> bool:
         if contato in self.lista_contatos:
             return True
@@ -30,19 +33,19 @@ class Agenda_telefonica:
             return f'Nome:{contato.get_nome}, número:{contato.get_numero}'
         return 
 
-def cadastro_contato():
+def cadastro_contato(lista_contatos) -> None:
     ...
 
 def buscar_contato():
     ...
 
-def menu_processos(lista_contatos):
+def menu_processos(agenda):
     opcoes = input('Comandos Agenda: Cadastro de Contato [CC],' 
                    'Buscar Contato [BC] e Sair [S]\n-->')
 
     match opcoes:
         case 'cc':
-            ...
+            cadastro_contato(agenda)
             return False
         case 'bc':
             ...
@@ -56,20 +59,23 @@ def menu_processos(lista_contatos):
 
 def main():
     lita_contatos = []
+    agenda = Agenda_telefonica(lista_contatos)
     
     while True:
-        menu = menu_processos(lista_contatos)
+        menu = menu_processos(agenda)
         if menu:
             print('Fechando agenda.')
             break
         
 if __name__ == '__main__':
-    main()
+    #main()
     contato_teste1 = Contato('Fulano', '62982520334')
-    lista_contatos = [contato_teste1]
+    lista_contatos = []
     agenda = Agenda_telefonica(lista_contatos)
-    print(contato_teste1, agenda)
-    if agenda.find_contato(contato_teste1):
-        print('Presente')
-    contato = agenda.get_informacoes(contato_teste1)
-    print(contato)
+    agenda.insert_contato(contato_teste1)
+    print(lista_contatos)
+    # print(contato_teste1, agenda)
+    # if agenda.find_contato(contato_teste1):
+    #     print('Presente')
+    # contato = agenda.get_informacoes(contato_teste1)
+    # print(contato)
