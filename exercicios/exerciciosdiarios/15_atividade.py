@@ -34,26 +34,27 @@ class Agenda_telefonica:
         return 
 
 def cadastro_contato(agenda: Agenda_telefonica) -> None:
-    nome = input('Nome: ')
-    telefone = input('Número: ')
+    nome = input('Nome: ').capitalize().strip()
+    telefone = input('Número: ').strip()
     contato = Contato(nome, telefone)
     agenda.inserir_contato(contato)
 
-def buscar_contato():
+def buscar_contato(agenda: Agenda_telefonica):
     ...
 
 def menu_processos(agenda: Agenda_telefonica) -> bool:
     opcoes = input('Comandos Agenda: Cadastro de Contato [CC],' 
-                   'Buscar Contato [BC], Listar Contato [LC] Sair [S]\n-->')
+                   'Buscar Contato [BC], Listar Contatos [LC] '
+                   'e Sair [S]\n-->').lower().strip()
 
     match opcoes:
         case 'cc':
             cadastro_contato(agenda)
             return False
         case 'bc':
-            ...
+            buscar_contato(agenda)
             return False
-        case 'bc':
+        case 'lc':
             ...
             return False
         case 's':
