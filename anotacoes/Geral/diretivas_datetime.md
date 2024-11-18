@@ -1,9 +1,6 @@
-
 # Diretivas Importantes do Módulo `datetime` em Python
 
-O módulo `datetime` do Python utiliza **diretivas** para formatar e interpretar datas e horários. Aqui estão as principais diretivas, organizadas por tipo, para facilitar o uso em tarefas do dia a dia.
-
----
+O módulo `datetime` do Python utiliza **diretivas** para formatar e interpretar datas e horários.
 
 ## **Diretivas para Datas**
 Essas diretivas representam ou interpretam a parte da **data** (ano, mês, dia):
