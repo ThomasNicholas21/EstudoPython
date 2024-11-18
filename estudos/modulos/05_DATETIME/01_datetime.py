@@ -22,7 +22,7 @@ if __name__ == "__main__":
     #utilizando diretivas do datetime
     data3 = '2000-12-20 01:12:54'
     data_formato1 = '%Y-%m-%d %H:%M:%S'
-    data_formato2 = '%y-%B-%a %I:%M:%S %p'
+    data_formato2 = '%a-%B-%y %I:%M:%S %p'
     print(datetime.strptime(data3, data_formato1))
     print(datetime.now().strftime(data_formato2))
 
