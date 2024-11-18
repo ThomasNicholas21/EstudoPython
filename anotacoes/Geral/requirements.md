@@ -18,7 +18,7 @@
 ## Requirements
 - O mesmo serve para gerar todas as bibliotecas instaladas no ambiente para estar rodando o projeto.
     ```
-    > pip freeza > requirements.txt # Gera um arquivo TXT no ambiente apontando bibliotecas e suas versões. 
+    > pip freeze > requirements.txt # Gera um arquivo TXT no ambiente apontando bibliotecas e suas versões. 
     ```
     - Ao baixar, pode-se utilizar o requirements.txt para baixar as dependências em outro ambiente virtual.
         ```
