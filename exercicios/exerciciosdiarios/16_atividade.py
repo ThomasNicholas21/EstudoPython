@@ -12,5 +12,9 @@ def main():
         {'Nome': 'Maria', 'Idade': 88}
     ]
 
+    print(lista_pessoa[0]['Idade'])
+    lista_pessoas_ordenada = sorted(lista_pessoa, key=lambda lista_pessoa: lista_pessoa['Idade'])
+    print(lista_pessoas_ordenada)
+
 if __name__ == '__main__':
     main()
