@@ -1,3 +1,7 @@
+# https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+# Instalando o pytz
+# pip install pytz types-pytz
+
 from datetime import datetime, timedelta, timezone
 from pytz import timezone as tz # simplifica a chamada das timezones
 
