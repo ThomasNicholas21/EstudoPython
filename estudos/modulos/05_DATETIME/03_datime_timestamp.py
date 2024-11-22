@@ -5,6 +5,11 @@
 # https://docs.python.org/3/library/datetime.html#timedelta-objects
 
 from datetime import datetime, timedelta
+from dateutil.relativedelta import relativedelta # um timedelta "completo"
+# classdateutil.relativedelta.relativedelta(dt1=None, dt2=None, years=0, months=0, 
+# #days=0, leapdays=0, weeks=0, hours=0, minutes=0, seconds=0, microseconds=0, year=None, 
+# #month=None, day=None, weekday=None, yearday=None, nlyearday=None, hour=None, minute=None, 
+# second=None, microsecond=None)
 
 if __name__ == '__main__':
     data1 = datetime.now()
@@ -19,5 +24,11 @@ if __name__ == '__main__':
           data_dif.days, data_dif.seconds, 
           data_dif.total_seconds(), sep=' | ')
     
-    data_soma = timedelta(days=10, seconds=5) # timedelta representa duração
-    print(data3 + data_soma)
+    data_soma1 = timedelta(days=10, seconds=5) # timedelta representa duração
+    print(data3 + data_soma1)
+
+    data_soma2 = relativedelta(years=1000)
+    print(data2 + data_soma2)
+
+    delta = relativedelta(data2, data3)
+    print(f'Diferença\nDias:{delta.days}\nMês:{delta.months}\nAnos:{delta.years}')
