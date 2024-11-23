@@ -11,27 +11,27 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
 def main():
-    usuario = 'Maria'
-    emprestimo = 1000000
-    parcela = 60
-    valor_mensal = emprestimo / parcela
-    valor_total_pago = 0
 
-    data_emprestimo_inicial = datetime(2020, 12, 20)
+    emprestimo = 1000000
+
+    data_emprestimo = datetime.strptime('20/12/2020', '%d/%m/%Y')
     data_pagamento_total = relativedelta(months=60) # 12 * 5 anos
-    data_pagamento_mensal = relativedelta(months=1)
-    data_emprestimo_final = data_emprestimo_inicial + data_pagamento_total
+    data_emprestimo_final = data_emprestimo + data_pagamento_total
     
-    while data_emprestimo_inicial < data_emprestimo_final:
-        valor_total_pago += valor_mensal
-        data_emprestimo_inicial += data_pagamento_mensal
-        print(f'data: {data_emprestimo_inicial} Valor Pago: {valor_total_pago:.2f} ')
-        
-        if valor_mensal == emprestimo:
-            print('Total pago')
-    
+    data_parcelas = []
+    while data_emprestimo < data_emprestimo_final:
+        data_parcelas.append(data_emprestimo)
+        data_emprestimo += relativedelta(months=+1)
+
+
+    numero_parcelas = len(data_parcelas)
+    valor_parcela = emprestimo / numero_parcelas
+    total_pago = valor_parcela * numero_parcelas
+
+    for parcela in data_parcelas:
+        print(f'Data: {parcela}, pagamento: {valor_parcela:.2f}')
     else:
-        print(f'{usuario} pagou {valor_total_pago}')
+        print(f'Total de parcelas pagas é {numero_parcelas} e valor total pago foi de R${total_pago:.2f}')
 
 if __name__ == "__main__":
     main()
