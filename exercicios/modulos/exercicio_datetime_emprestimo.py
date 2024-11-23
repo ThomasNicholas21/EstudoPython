@@ -31,7 +31,7 @@ def main():
     for parcela in data_parcelas:
         print(f'Data: {parcela}, pagamento: {valor_parcela:.2f}')
     else:
-        print(f'Total de parcelas pagas é {numero_parcelas} e valor total pago llfoi de R${total_pago:.2f}')
+        print(f'Total de parcelas pagas é {numero_parcelas} e valor total pago foi de R${total_pago:.2f}')
 
 if __name__ == "__main__":
     main()
