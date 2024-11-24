@@ -14,7 +14,7 @@ def main():
 
     emprestimo = 1000000
 
-    data_emprestimo = datetime.strptime('20/12/2020', '%d/%m/%Y')
+    data_emprestimo = datetime(2020, 12, 20)
     data_pagamento_total = relativedelta(months=60) # 12 * 5 anos
     data_emprestimo_final = data_emprestimo + data_pagamento_total
     
@@ -28,8 +28,8 @@ def main():
     valor_parcela = emprestimo / numero_parcelas
     total_pago = valor_parcela * numero_parcelas
 
-    for parcela in data_parcelas:
-        print(f'Data: {parcela}, pagamento: {valor_parcela:.2f}')
+    for data in data_parcelas:
+        print('Data:', data.strftime('%d/%m/%Y'), f'Valor: {valor_parcela:,.2f}')
     else:
         print(f'Total de parcelas pagas é {numero_parcelas} e valor total pago foi de R${total_pago:.2f}')
 
