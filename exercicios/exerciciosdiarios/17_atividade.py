@@ -49,11 +49,17 @@ def main():
         lista = gerador_lista(tamanho_lista)
 
     except ValueError as ve:
-        print('Insira um número inteiro: ', ve)
+        print('Insira um número inteiro! Erro:', ve)
 
-    print('lista gerada!')
-    print(*lista, sep='\n')
-    # implementa quick sort
+    if lista:
+        print('lista gerada!')
+        print(lista)
+        # implementa quick sort
+        print('Ordenando lista ...')
+
+        tamanho_lista = len(lista)
+        quick_sort(lista, 0, tamanho_lista - 1)
+        print(lista)
 
 if __name__ == '__main__':
     main()
