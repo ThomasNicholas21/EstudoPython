@@ -4,6 +4,8 @@
 #https://docs.python.org/pt-br/3.14/library/time.html
 #https://docs.python.org/pt-br/3.10/library/timeit.html
 
+from random import randint
+
 def calcula_tempo_execucao():
     ...
 
@@ -42,3 +44,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+    lista = [randint(1, 9) for numero in range(0, 100)]
+    print(lista)
