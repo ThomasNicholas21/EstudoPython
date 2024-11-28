@@ -41,9 +41,21 @@ def gerador_lista(tamanho_lista: int) -> list:
     return lista_aleatorio
     
 def main():
-    ...
+    lista = []
+    print('Iniciando programa gerador de lista aleatória ...')
+
+    try:
+        tamanho_lista = int(input('Insira o tamanho da lista: '))
+        lista = gerador_lista(tamanho_lista)
+
+    except ValueError as ve:
+        print('Insira um número inteiro: ', ve)
+
+    print('lista gerada!')
+    print(*lista, sep='\n')
+    # implementa quick sort
 
 if __name__ == '__main__':
     main()
-    lista = [randint(1, 9) for numero in range(0, 100)]
-    print(lista)
+    # lista = [randint(1, 9) for numero in range(0, 100)]
+    # print(lista)
