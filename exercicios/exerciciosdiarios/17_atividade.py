@@ -36,8 +36,9 @@ def quick_sort(lista, inicio, fim):
     quick_sort(lista, inicio, anterior - 1)
     quick_sort(lista, anterior + 1, fim)
 
-def gerador_lista():
-    ...
+def gerador_lista(tamanho_lista: int) -> list:
+    lista_aleatorio = [randint(1, 9) for numero in range(0, tamanho_lista)]
+    return lista_aleatorio
     
 def main():
     ...
