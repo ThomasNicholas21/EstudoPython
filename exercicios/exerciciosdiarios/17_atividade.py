@@ -5,10 +5,31 @@
 #https://docs.python.org/pt-br/3.10/library/timeit.html
 
 from random import randint
+import time
 
-def calcula_tempo_execucao():
-    ...
+def calcula_tempo_execucao(func):
+    func.flag_execucao = False
 
+    def interna(*args, **kwargs):
+
+        if not func.flag_execucao:
+            func.flag_execucao = True
+            inicio = time.time()
+            resultado = func(*args, **kwargs)
+            fim = time.time()
+            tempo = fim - inicio
+            print(f'Fução {func.__name__} demorou {tempo} para ser executada')
+            func.flag_execucao = False
+
+            return resultado
+        
+        else:
+            return func(*args, **kwargs)
+        
+    return interna
+
+
+@calcula_tempo_execucao
 def quick_sort(lista, inicio, fim):
     if inicio > fim:
         return
@@ -36,6 +57,7 @@ def quick_sort(lista, inicio, fim):
     quick_sort(lista, inicio, anterior - 1)
     quick_sort(lista, anterior + 1, fim)
 
+@calcula_tempo_execucao
 def gerador_lista(tamanho_lista: int) -> list:
     lista_aleatorio = [randint(1, 9) for numero in range(0, tamanho_lista)]
     return lista_aleatorio
