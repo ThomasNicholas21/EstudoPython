@@ -6,6 +6,7 @@
 
 from random import randint
 import time
+import sys
 
 def calcula_tempo_execucao(func):
     func.flag_execucao = False
@@ -30,32 +31,39 @@ def calcula_tempo_execucao(func):
 
 
 @calcula_tempo_execucao
-def quick_sort(lista, inicio, fim):
-    if inicio > fim:
-        return
-    anterior = inicio
-    posterior = fim
-    pivo = lista[inicio]
+def quick_sort_iterativo(lista):
+    stack = [(0, len(lista) - 1)]  # Pilha inicial com os índices
 
-    while anterior < posterior:
-        while anterior < posterior and lista[posterior] > pivo:
-            posterior = posterior - 1
+    while stack:
+        inicio, fim = stack.pop()
 
-        if anterior < posterior:
-            lista[anterior] = lista[posterior]
-            anterior = anterior + 1
+        if inicio >= fim:
+            continue
 
-        while anterior < posterior and lista[anterior] <= pivo:
-            anterior = anterior + 1
+        anterior = inicio
+        posterior = fim
+        pivo = lista[inicio]
 
-        if anterior < posterior:
-            lista[posterior] = lista[anterior]
-            posterior = posterior - 1
+        while anterior < posterior:
+            while anterior < posterior and lista[posterior] > pivo:
+                posterior -= 1
+
+            if anterior < posterior:
+                lista[anterior] = lista[posterior]
+                anterior += 1
+
+            while anterior < posterior and lista[anterior] <= pivo:
+                anterior += 1
+
+            if anterior < posterior:
+                lista[posterior] = lista[anterior]
+                posterior -= 1
 
         lista[anterior] = pivo
 
-    quick_sort(lista, inicio, anterior - 1)
-    quick_sort(lista, anterior + 1, fim)
+        # Empilhar subarrays para processar
+        stack.append((inicio, anterior - 1))
+        stack.append((anterior + 1, fim))
 
 @calcula_tempo_execucao
 def gerador_lista(tamanho_lista: int) -> list:
@@ -75,13 +83,12 @@ def main():
 
     if lista:
         print('lista gerada!')
-        print(lista)
+        print(*lista)
         # implementa quick sort
         print('Ordenando lista ...')
 
-        tamanho_lista = len(lista)
-        quick_sort(lista, 0, tamanho_lista - 1)
-        print(lista)
+        quick_sort_iterativo(lista)
+        print(*lista)
 
 if __name__ == '__main__':
     main()
