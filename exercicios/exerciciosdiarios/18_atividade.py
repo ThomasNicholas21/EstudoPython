@@ -1,5 +1,5 @@
 # Dia 18: Classes e Objetos
-# Implemente uma classe Carro com atributos como marca, modelo e ano, e um método para ligar o carro.
+# Implemente uma classe Carro, Moto, Avião, Barco com atributos como marca, modelo e ano..
 from datetime import datetime
 
 class Carro:
@@ -28,7 +28,11 @@ class Barco:
 
 def ligar(classe):
     print(f'O {classe.__class__.__name__} da marca {classe.marca} está ligando.')
+    return True
 
+def cadastrar_veiculo():
+     ...
+     
 def main():
     carro = Carro('Chevrolet', 'Sedan', datetime(1998, 2, 1))
     ligar(carro)
