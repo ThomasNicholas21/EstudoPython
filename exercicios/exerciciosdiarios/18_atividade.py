@@ -21,7 +21,10 @@ class Aviao:
             self.ano = ano
 
 class Barco:
-    ...
+    def __init__(self, marca: str, modelo: str, ano: datetime) -> None:
+            self.marca = marca
+            self.moodelo = modelo
+            self.ano = ano
 
 def ligar():
     ...
