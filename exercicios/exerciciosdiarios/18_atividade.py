@@ -26,11 +26,12 @@ class Barco:
             self.moodelo = modelo
             self.ano = ano
 
-def ligar():
-    ...
+def ligar(classe):
+    print(f'O {classe.__class__.__name__} da marca {classe.marca} está ligando.')
 
 def main():
-    ...
+    carro = Carro('Chevrolet', 'Sedan', datetime(1998, 2, 1))
+    ligar(carro)
 
 if __name__ == "__main__":
     main()
