@@ -30,12 +30,24 @@ def ligar(classe):
     print(f'O {classe.__class__.__name__} da marca {classe.marca} está ligando.')
     return True
 
-def cadastrar_veiculo():
-     ...
-     
+def cadastrar_veiculo(lista_veiculos):
+    print('Iniciando Garagem')
+    opcao = input('Entrada:\nCarro - [C]\nMoto - [M]\nAvião - [A]\nBarco - [B]\n-->')
+
+    match opcao:
+        case 'c':
+            ...
+        case 'm':
+            ...
+        case 'a':
+            ...
+        case 'b':
+            ...
+        case _:
+            print('Opção inválida.')
+
 def main():
-    carro = Carro('Chevrolet', 'Sedan', datetime(1998, 2, 1))
-    ligar(carro)
+    lista_veiculos = []
 
 if __name__ == "__main__":
     main()
