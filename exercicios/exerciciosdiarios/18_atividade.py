@@ -9,7 +9,10 @@ class Carro:
             self.ano = ano
 
 class Moto:
-    ...
+    def __init__(self, marca: str, modelo: str, ano: datetime) -> None:
+            self.marca = marca
+            self.moodelo = modelo
+            self.ano = ano
 
 class Aviao:
     ...
