@@ -32,22 +32,35 @@ def ligar(classe):
 
 def cadastrar_veiculo(lista_veiculos):
     print('Iniciando Garagem')
-    opcao = input('Entrada:\nCarro - [C]\nMoto - [M]\nAvião - [A]\nBarco - [B]\n-->')
+    opcao = input('Entrada:\nCarro - [C]\nMoto - [M]\nAvião - [A]\nBarco - [B]\nSair - [S]\n-->').lower().strip()
 
     match opcao:
         case 'c':
             ...
+            return True
         case 'm':
             ...
+            return True
         case 'a':
             ...
+            return True
         case 'b':
             ...
+            return True
+        case 's':
+            ...
+            return False
         case _:
             print('Opção inválida.')
 
 def main():
     lista_veiculos = []
 
+    while True:
+        cadastrar = cadastrar_veiculo(lista_veiculos)
+        if not cadastrar:
+            print('Encerrando.')
+            break
+        
 if __name__ == "__main__":
     main()
