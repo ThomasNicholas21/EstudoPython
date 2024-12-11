@@ -43,7 +43,7 @@ def cadastrar():
 
 def cadastrar_veiculo(lista_veiculos: list):
     print('Iniciando Garagem')
-    opcao = input('Entrada:\nCarro - [C]\nMoto - [M]\nAvião - [A]\nBarco - [B]\nSair - [S]\n-->').lower().strip()
+    opcao = input('Entrada:\nCarro - [C]\nMoto - [M]\nAvião - [A]\nBarco - [B]\nListar - [L]\nSair - [S]\n-->').lower().strip()
 
     match opcao:
         case 'c':
@@ -66,6 +66,9 @@ def cadastrar_veiculo(lista_veiculos: list):
             barco = Barco(marca, modelo, ano_cadastro)
             lista_veiculos.append(barco)
             return True
+        case 'l':
+            print(*lista_veiculos, sep='\n')
+            return True 
         case 's':
             return False
         case _:
