@@ -36,13 +36,15 @@ def cadastrar():
     ano_cadastro = datetime.now()
     return marca, modelo, ano_cadastro
 
-def cadastrar_veiculo(lista_veiculos):
+def cadastrar_veiculo(lista_veiculos: list):
     print('Iniciando Garagem')
     opcao = input('Entrada:\nCarro - [C]\nMoto - [M]\nAvião - [A]\nBarco - [B]\nSair - [S]\n-->').lower().strip()
 
     match opcao:
         case 'c':
-            ...
+            marca, modelo, ano_cadastro = cadastrar()
+            carro = Carro(marca, modelo, ano_cadastro)
+            lista_veiculos.append(carro)
             return True
         case 'm':
             ...
