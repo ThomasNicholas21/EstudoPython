@@ -38,7 +38,7 @@ def ligar(classe):
 def cadastrar():
     marca = input('Marca:')
     modelo = input('Modelo:')
-    ano_cadastro = datetime.now()
+    ano_cadastro = datetime.now().strftime('%d/%m/%Y')
     return marca, modelo, ano_cadastro
 
 def cadastrar_veiculo(lista_veiculos: list):
