@@ -2,7 +2,12 @@
 # Implemente uma classe Carro, Moto, Avião, Barco com atributos como marca, modelo e ano..
 from datetime import datetime
 
-class Carro:
+class MyRepr:
+    def __repr__(self):
+        atributos = [f'{chave}: {valor}' for chave, valor in self.__dict__.items()]
+        return f'{self.__class__.__name__}:({atributos})'
+
+class Carro(MyRepr):
     def __init__(self, marca: str, modelo: str, ano_cadastro: datetime) -> None:
             self.marca = marca
             self.moodelo = modelo
@@ -71,4 +76,5 @@ def main():
             break
         
 if __name__ == "__main__":
-    main()
+    #main()
+    print(Carro(marca='camelo', modelo='perereca', ano_cadastro=datetime.now()))
