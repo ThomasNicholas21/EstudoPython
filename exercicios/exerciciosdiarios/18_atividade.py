@@ -13,19 +13,19 @@ class Carro(MyRepr):
             self.moodelo = modelo
             self.ano_cadastro = ano_cadastro
 
-class Moto:
+class Moto(MyRepr):
     def __init__(self, marca: str, modelo: str, ano_cadastro: datetime) -> None:
             self.marca = marca
             self.moodelo = modelo
             self.ano_cadastro = ano_cadastro
 
-class Aviao:
+class Aviao(MyRepr):
     def __init__(self, marca: str, modelo: str, ano_cadastro: datetime) -> None:
             self.marca = marca
             self.moodelo = modelo
             self.ano_cadastro = ano_cadastro
 
-class Barco:
+class Barco(MyRepr):
     def __init__(self, marca: str, modelo: str, ano_cadastro: datetime) -> None:
             self.marca = marca
             self.moodelo = modelo
