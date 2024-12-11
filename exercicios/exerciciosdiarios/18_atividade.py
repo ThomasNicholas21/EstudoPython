@@ -10,25 +10,25 @@ class MyRepr:
 class Carro(MyRepr):
     def __init__(self, marca: str, modelo: str, ano_cadastro: datetime) -> None:
             self.marca = marca
-            self.moodelo = modelo
+            self.modelo = modelo
             self.ano_cadastro = ano_cadastro
 
 class Moto(MyRepr):
     def __init__(self, marca: str, modelo: str, ano_cadastro: datetime) -> None:
             self.marca = marca
-            self.moodelo = modelo
+            self.modelo = modelo
             self.ano_cadastro = ano_cadastro
 
 class Aviao(MyRepr):
     def __init__(self, marca: str, modelo: str, ano_cadastro: datetime) -> None:
             self.marca = marca
-            self.moodelo = modelo
+            self.modelo = modelo
             self.ano_cadastro = ano_cadastro
 
 class Barco(MyRepr):
     def __init__(self, marca: str, modelo: str, ano_cadastro: datetime) -> None:
             self.marca = marca
-            self.moodelo = modelo
+            self.modelo = modelo
             self.ano_cadastro = ano_cadastro
 
 def ligar(classe):
