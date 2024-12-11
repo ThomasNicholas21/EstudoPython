@@ -30,6 +30,12 @@ def ligar(classe):
     print(f'O {classe.__class__.__name__} da marca {classe.marca} está ligando.')
     return True
 
+def cadastrar():
+    marca = input('Marca:')
+    modelo = input('Modelo:')
+    ano_cadastro = datetime.now()
+    return marca, modelo, ano_cadastro
+
 def cadastrar_veiculo(lista_veiculos):
     print('Iniciando Garagem')
     opcao = input('Entrada:\nCarro - [C]\nMoto - [M]\nAvião - [A]\nBarco - [B]\nSair - [S]\n-->').lower().strip()
