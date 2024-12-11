@@ -5,7 +5,7 @@ from datetime import datetime
 class MyRepr:
     def __repr__(self):
         atributos = [f'{chave}: {valor}' for chave, valor in self.__dict__.items()]
-        return f'{self.__class__.__name__}:({atributos})'
+        return f"{self.__class__.__name__}: {', '.join(atributos)}"
 
 class Carro(MyRepr):
     def __init__(self, marca: str, modelo: str, ano_cadastro: datetime) -> None:
@@ -52,16 +52,21 @@ def cadastrar_veiculo(lista_veiculos: list):
             lista_veiculos.append(carro)
             return True
         case 'm':
-            ...
+            marca, modelo, ano_cadastro = cadastrar()
+            moto = Moto(marca, modelo, ano_cadastro)
+            lista_veiculos.append(moto)
             return True
         case 'a':
-            ...
+            marca, modelo, ano_cadastro = cadastrar()
+            aviao = Aviao(marca, modelo, ano_cadastro)
+            lista_veiculos.append(aviao)
             return True
         case 'b':
-            ...
+            marca, modelo, ano_cadastro = cadastrar()
+            barco = Barco(marca, modelo, ano_cadastro)
+            lista_veiculos.append(barco)
             return True
         case 's':
-            ...
             return False
         case _:
             print('Opção inválida.')
@@ -76,5 +81,4 @@ def main():
             break
         
 if __name__ == "__main__":
-    #main()
-    print(Carro(marca='camelo', modelo='perereca', ano_cadastro=datetime.now()))
+    main()
