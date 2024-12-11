@@ -42,37 +42,45 @@ def cadastrar():
     return marca, modelo, ano_cadastro
 
 def cadastrar_veiculo(lista_veiculos: list):
-    print('Iniciando Garagem')
-    opcao = input('Entrada:\nCarro - [C]\nMoto - [M]\nAvião - [A]\nBarco - [B]\nListar - [L]\nSair - [S]\n-->').lower().strip()
+    opcao = input('Entrada:\nCarro - [C]\nMoto - [M]\nAvião - [A]\nBarco - [B]\n'
+                  'Listar - [L]\nLigar Veículo - [LV]\nSair - [S]\n-->').lower().strip()
 
     match opcao:
         case 'c':
             marca, modelo, ano_cadastro = cadastrar()
             carro = Carro(marca, modelo, ano_cadastro)
             lista_veiculos.append(carro)
+            print()
             return True
         case 'm':
             marca, modelo, ano_cadastro = cadastrar()
             moto = Moto(marca, modelo, ano_cadastro)
             lista_veiculos.append(moto)
+            print()
             return True
         case 'a':
             marca, modelo, ano_cadastro = cadastrar()
             aviao = Aviao(marca, modelo, ano_cadastro)
             lista_veiculos.append(aviao)
+            print()
             return True
         case 'b':
             marca, modelo, ano_cadastro = cadastrar()
             barco = Barco(marca, modelo, ano_cadastro)
             lista_veiculos.append(barco)
+            print()
             return True
         case 'l':
-            print(*lista_veiculos, sep='\n')
+            print(*lista_veiculos, sep='\n', end='\n')
             return True 
+        case 'lv':
+            for ordem, veiculo in enumerate(lista_veiculos):
+                print(ordem, veiculo)
         case 's':
             return False
         case _:
             print('Opção inválida.')
+            return True
 
 def main():
     lista_veiculos = []
