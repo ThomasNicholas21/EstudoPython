@@ -33,7 +33,6 @@ class Barco(MyRepr):
 
 def ligar(classe):
     print(f'O {classe.__class__.__name__} da marca {classe.marca} está ligando.')
-    return True
 
 def cadastrar():
     marca = input('Marca:')
@@ -75,7 +74,20 @@ def cadastrar_veiculo(lista_veiculos: list):
             return True 
         case 'lv':
             for ordem, veiculo in enumerate(lista_veiculos):
-                print(ordem, veiculo)
+                print(f'{ordem}', veiculo)
+
+            try:    
+                selecionar_veiculo = int(input('Selecione qual veiculo deseja ligar pela enumeração: '))
+                if selecionar_veiculo + 1 > len(lista_veiculos):
+                    print('Número inválido! Finalizando')
+                else:
+                    vaiculo = lista_veiculos[selecionar_veiculo]
+                    ligar(veiculo)
+
+            except ValueError:
+                print('Deve ser selecionado número inteiro! Finalizando ...')
+
+            return True
         case 's':
             return False
         case _:
