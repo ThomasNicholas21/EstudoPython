@@ -81,8 +81,7 @@ def cadastrar_veiculo(lista_veiculos: list):
                 if selecionar_veiculo + 1 > len(lista_veiculos):
                     print('Número inválido! Finalizando')
                 else:
-                    vaiculo = lista_veiculos[selecionar_veiculo]
-                    ligar(veiculo)
+                    ligar(lista_veiculos[selecionar_veiculo])
 
             except ValueError:
                 print('Deve ser selecionado número inteiro! Finalizando ...')
