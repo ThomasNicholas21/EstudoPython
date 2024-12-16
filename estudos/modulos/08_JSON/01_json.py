@@ -32,3 +32,6 @@ filme = '''
   "budget": 165000000
 }
 '''
+
+if __name__ == "__main__":
+    filme_json: Movie = json.loads(filme)
