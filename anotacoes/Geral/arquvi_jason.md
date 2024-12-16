@@ -45,3 +45,5 @@ with open("dados.json", "r") as arquivo:
 ### Explicação dos métodos:
 - **json.dump()**: Escreve um objeto Python (dicionário, lista, etc.) em um arquivo no formato JSON.
 - **json.load()**: Lê um arquivo JSON e converte seu conteúdo para um objeto Python.
+- **json.dumps()**: Escreve uma string Python em um arquivo no formato JSON.
+- **json.loads()**: Lê uma string e converte seu conteúdo para um objeto.
