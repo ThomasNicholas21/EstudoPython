@@ -12,6 +12,15 @@
 import json
 from typing import TypedDict # biblioteca permite que realize a tipagem de um dicionario
 
+class Movie(TypedDict):
+    title: str
+    original_title: str
+    is_movie: True | False
+    imdb_rating: float
+    year: int
+    characters: list | tuple
+    budget: float
+
 filme = '''
 {
   "title": "Interestelar",
