@@ -48,4 +48,4 @@ if __name__ == "__main__":
 
     filme_json_string = json.dumps(filme_json, ensure_ascii=False, indent=2)
     with open(FILE , 'w') as arquivo:
-        json.dump(filme_json_string, arquivo)
+        json.dump(filme_json, arquivo, indent=2)
