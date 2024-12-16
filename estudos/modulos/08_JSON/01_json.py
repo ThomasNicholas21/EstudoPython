@@ -33,5 +33,10 @@ filme = '''
 }
 '''
 
+def printd(**kwargs):
+    for chave, valor in kwargs.items():
+        print(f'{chave}: {valor}')
+
 if __name__ == "__main__":
     filme_json: Movie = json.loads(filme)
+    printd(**filme_json)
