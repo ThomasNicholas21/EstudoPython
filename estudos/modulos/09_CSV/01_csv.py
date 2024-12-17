@@ -20,3 +20,21 @@
 
 # csv.reader e csv.DictReader 
 # respectivamente lê  arquiv em formato de lista e lê em formato de dicionário
+import csv
+from pathlib import Path
+
+
+ROOT_FILE = Path(__file__).parent / '01_csv_arquivo1.csv'
+
+with open(ROOT_FILE, 'r') as arquivo:
+    leitor1 = csv.reader(arquivo)
+
+    for dados1 in leitor1:
+        print(dados1)
+
+
+with open(ROOT_FILE, 'r') as arquivo:
+    leitor2 = csv.DictReader(arquivo)
+
+    for dados2 in leitor2:
+        print(dados2)
