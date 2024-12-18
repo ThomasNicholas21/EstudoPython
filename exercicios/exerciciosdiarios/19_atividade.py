@@ -2,6 +2,7 @@
 # Implemente uma classe Carro, Moto, Avião, Barco com atributos como marca, modelo e ano.
 # Dia 19: Construtores e Destrutores
 # Expanda o exercício anterior para incluir um método destrutor que exiba uma mensagem ao destruir o objeto.
+import datetime
 
 class MyRepr:
     def __repr__(self):
@@ -20,14 +21,15 @@ class Moto(MyRepr):
             self.modelo = modelo
             self.ano_cadastro = ano_cadastro
 
-class Aviao(MyRepr):
-    def __init__(self, marca: str, modelo: str, ano_cadastro: datetime) -> None:
-            self.marca = marca
-            self.modelo = modelo
-            self.ano_cadastro = ano_cadastro
-
 class Barco(MyRepr):
     def __init__(self, marca: str, modelo: str, ano_cadastro: datetime) -> None:
             self.marca = marca
             self.modelo = modelo
             self.ano_cadastro = ano_cadastro
+
+
+def main():
+      ...
+
+if __name__ == "__main__":
+      main()        
