@@ -1,8 +1,10 @@
 # Dia 18: Classes e Objetos
 # Implemente uma classe Carro, Moto, Avião, Barco com atributos como marca, modelo e ano.
 # Dia 19: Construtores e Destrutores
-# Expanda o exercício anterior para incluir um método destrutor que exiba uma mensagem ao destruir o objeto.
+# Expanda o exercício anterior utilizando CSV e Json
 import datetime
+import csv
+import json
 
 class MyRepr:
     def __repr__(self):
