@@ -29,6 +29,12 @@ class Barco(MyRepr):
             self.modelo = modelo
             self.ano_cadastro = ano_cadastro
 
+class MyReader:
+      def __init__(self, arquivo, modo):
+            self.arquivo = arquivo
+            self.modo = modo
+            self._arquivo_abrir = None
+
 
 def main():
       ...
