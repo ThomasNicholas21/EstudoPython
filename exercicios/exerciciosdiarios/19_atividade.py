@@ -30,11 +30,14 @@ class Barco(MyRepr):
             self.ano_cadastro = ano_cadastro
 
 class MyReader:
-      def __init__(self, arquivo, modo):
-            self.arquivo = arquivo
-            self.modo = modo
-            self._arquivo_abrir = None
+    def __init__(self, arquivo, modo):
+        self.arquivo = arquivo
+        self.modo = modo
+        self._arquivo_abrir = None
 
+    def __enter__(self):
+        self._arquivo_abrir = open(self.arquivo, self.modo, encoding='utf-8')
+        return self._arquivo_abrir
 
 def main():
       ...
