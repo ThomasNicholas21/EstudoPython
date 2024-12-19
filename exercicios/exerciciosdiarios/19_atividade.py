@@ -38,6 +38,9 @@ class MyReader:
     def __enter__(self):
         self._arquivo_abrir = open(self.arquivo, self.modo, encoding='utf-8')
         return self._arquivo_abrir
+    
+    def __exit__(self, class_exception_, exception_, traceback_):
+        self._arquivo_abrir.close()
 
 def main():
       ...
