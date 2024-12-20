@@ -16,22 +16,22 @@ class MyRepr:
         return f"{self.__class__.__name__}: {', '.join(atributos)}"
 
 class Carro(MyRepr):
-    def __init__(self, marca: str, modelo: str, ano_cadastro: datetime) -> None:
+    def __init__(self, marca: str, modelo: str, ano: datetime) -> None:
             self.marca = marca
             self.modelo = modelo
-            self.ano_cadastro = ano_cadastro
+            self.ano = ano
 
 class Moto(MyRepr):
-    def __init__(self, marca: str, modelo: str, ano_cadastro: datetime) -> None:
+    def __init__(self, marca: str, modelo: str, ano: datetime) -> None:
             self.marca = marca
             self.modelo = modelo
-            self.ano_cadastro = ano_cadastro
+            self.ano = ano
 
 class Barco(MyRepr):
-    def __init__(self, marca: str, modelo: str, ano_cadastro: datetime) -> None:
+    def __init__(self, marca: str, modelo: str, ano: datetime) -> None:
             self.marca = marca
             self.modelo = modelo
-            self.ano_cadastro = ano_cadastro
+            self.ano = ano
 
 class MyReaderCSV:
     def __init__(self, arquivo, modo):
