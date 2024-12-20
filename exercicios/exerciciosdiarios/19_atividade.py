@@ -5,6 +5,10 @@
 import datetime
 import csv
 import json
+from pathlib import Path
+
+PATH_CSV = Path(__file__).parent / '19_arquivo_csv.csv'
+PATH_JSON = Path(__file__).parent / '19_arquivo_json.json'
 
 class MyRepr:
     def __repr__(self):
