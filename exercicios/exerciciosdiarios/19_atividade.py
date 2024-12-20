@@ -33,7 +33,20 @@ class Barco(MyRepr):
             self.modelo = modelo
             self.ano_cadastro = ano_cadastro
 
-class MyReader:
+class MyReaderCSV:
+    def __init__(self, arquivo, modo):
+        self.arquivo = arquivo
+        self.modo = modo
+        self._arquivo_abrir = None
+
+    def __enter__(self):
+        self._arquivo_abrir = open(self.arquivo, self.modo, encoding='utf-8')
+        return self._arquivo_abrir
+    
+    def __exit__(self, class_exception_, exception_, traceback_):
+        self._arquivo_abrir.close()
+
+class MyReaderJSON:
     def __init__(self, arquivo, modo):
         self.arquivo = arquivo
         self.modo = modo
