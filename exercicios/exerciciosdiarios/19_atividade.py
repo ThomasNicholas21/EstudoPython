@@ -59,18 +59,53 @@ class MyReaderJSON:
     def __exit__(self, class_exception_, exception_, traceback_):
         self._arquivo_abrir.close()
 
-def cadastro_veiculos(): ...
+def cadastrar():
+    marca = input('Marca:')
+    modelo = input('Modelo:')
+    ano = int(input('Ano:'))
+    return marca, modelo, ano
+
+def cadastro_veiculos(lista_veiculos: list):
+    opcao = input('Entrada:\nCarro - [C]\nMoto - [M]\nBarco [B]\nSair - [S]\n-->').lower().strip()
+
+    match opcao:
+        case 'c':
+            marca, modelo, ano = cadastrar()
+            carro = Carro(marca, modelo, ano)
+            lista_veiculos.append(carro)
+            print()
+            return True
+        case 'm':
+            marca, modelo, ano = cadastrar()
+            moto = Moto(marca, modelo, ano)
+            lista_veiculos.append(moto)
+            print()
+            return True
+        case 'b':
+            marca, modelo, ano = cadastrar()
+            barco = Barco(marca, modelo, ano)
+            lista_veiculos.append(barco)
+            print()
+            return True
+        case 'l':
+            print(*lista_veiculos, sep='\n', end='\n')
+            return True 
+        case 's':
+            return False
+        case _:
+            print('Opção inválida.')
+            return True
 
 def importa_veiculos(): ...
      
 def exporta_veiculos(): ...
 
-def menu_opcoes() -> bool: 
+def menu_opcoes(lista_veiculos: list) -> bool: 
     opcoes = input('Comandos: cadastrar veiculo [cv], importar veiculo [ic], exportar veiculo [ev] e sair [s]\n-->').lower()
 
     match opcoes:
         case 'cv':
-            cadastro_veiculos()
+            cadastro_veiculos(lista_veiculos)
             return True
         case 'ic':
             importa_veiculos()
@@ -85,10 +120,13 @@ def menu_opcoes() -> bool:
             print('Comando Invalido.')
             return True
         
-        
-
 def main():
-      ...
+    lista_veiculos = []
+
+    while True:
+        menu = menu_opcoes()
+        if not menu:
+            break
 
 if __name__ == "__main__":
       main()        
