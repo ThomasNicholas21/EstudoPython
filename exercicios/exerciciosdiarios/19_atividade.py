@@ -130,8 +130,15 @@ def main():
 
 if __name__ == "__main__":
     #main()
+    lista = []
     with MyReaderCSV(PATH_CSV, 'r') as arquivo:
-        leitor = csv.reader(arquivo)
+        leitor = csv.DictReader(arquivo)
         for dado in leitor:
-            print(dado)   
+            obje = dado['Class'].lower().strip()
+            if obje == 'carro':
+                carro = Carro(marca=dado['marca'], modelo=dado['modelo'], ano=dado['ano'])
+                lista.append(carro)
+        print(*lista, sep='\n')
+            
+           
     
