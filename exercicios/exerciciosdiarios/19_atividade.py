@@ -65,7 +65,27 @@ def importa_veiculos(): ...
      
 def exporta_veiculos(): ...
 
-def menu_opcoes(): ...
+def menu_opcoes() -> bool: 
+    opcoes = input('Comandos: cadastrar veiculo [cv], importar veiculo [ic], exportar veiculo [ev] e sair [s]\n-->').lower()
+
+    match opcoes:
+        case 'cv':
+            cadastro_veiculos()
+            return True
+        case 'ic':
+            importa_veiculos()
+            return True
+        case 'ev':
+            exporta_veiculos()
+            return True
+        case 's':
+            print('Sair.')
+            return False
+        case _:
+            print('Comando Invalido.')
+            return True
+        
+        
 
 def main():
       ...
