@@ -129,4 +129,9 @@ def main():
             break
 
 if __name__ == "__main__":
-      main()        
+    #main()
+    with MyReaderCSV(PATH_CSV, 'r') as arquivo:
+        leitor = csv.reader(arquivo)
+        for dado in leitor:
+            print(dado)   
+    
