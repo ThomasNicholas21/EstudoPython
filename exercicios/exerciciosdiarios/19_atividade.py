@@ -13,7 +13,7 @@ PATH_JSON = Path(__file__).parent / '19_arquivo_json.json'
 class MyRepr:
     def __repr__(self):
         atributos = [f'{chave}: {valor}' for chave, valor in self.__dict__.items()]
-        return f"{self.__class__.__name__}: {', '.join(atributos)}"
+        return f"{self.__class__.__name__} - {', '.join(atributos)}"
 
 class Carro(MyRepr):
     def __init__(self, marca: str, modelo: str, ano: datetime) -> None:
@@ -96,19 +96,36 @@ def cadastro_veiculos(lista_veiculos: list):
             print('Opção inválida.')
             return True
 
-def importa_veiculos(): ...
+def importa_veiculos(lista_veiculos: list): 
+    with MyReaderCSV(PATH_CSV, 'r') as arquivo:
+        leitor = csv.DictReader(arquivo)
+        for dado in leitor:
+            obje = dado['Class'].lower().strip()
+            match obje:
+                case 'carro':
+                    carro = Carro(marca=dado['marca'], modelo=dado['modelo'], ano=dado['ano'])
+                    lista_veiculos.append(carro)
+                case 'moto':
+                    moto = Moto(marca=dado['marca'], modelo=dado['modelo'], ano=dado['ano'])
+                    lista_veiculos.append(moto)
+                case 'barco':
+                    barco = Barco(marca=dado['marca'], modelo=dado['modelo'], ano=dado['ano'])
+                    lista_veiculos.append(barco)
+                case _:
+                    raise ValueError(f'{dado["Class"]} é inválido.')
      
 def exporta_veiculos(): ...
 
 def menu_opcoes(lista_veiculos: list) -> bool: 
-    opcoes = input('Comandos: cadastrar veiculo [cv], importar veiculo [ic], exportar veiculo [ev] e sair [s]\n-->').lower()
+    opcoes = input('Comandos: cadastrar veiculo [cv], importar veiculo [ic],'
+                   'exportar veiculo [ev], listar [l]\n e sair [s]\n-->').lower()
 
     match opcoes:
         case 'cv':
             cadastro_veiculos(lista_veiculos)
             return True
         case 'ic':
-            importa_veiculos()
+            importa_veiculos(lista_veiculos)
             return True
         case 'ev':
             exporta_veiculos()
@@ -124,21 +141,9 @@ def main():
     lista_veiculos = []
 
     while True:
-        menu = menu_opcoes()
+        menu = menu_opcoes(lista_veiculos)
         if not menu:
             break
 
 if __name__ == "__main__":
-    #main()
-    lista = []
-    with MyReaderCSV(PATH_CSV, 'r') as arquivo:
-        leitor = csv.DictReader(arquivo)
-        for dado in leitor:
-            obje = dado['Class'].lower().strip()
-            if obje == 'carro':
-                carro = Carro(marca=dado['marca'], modelo=dado['modelo'], ano=dado['ano'])
-                lista.append(carro)
-        print(*lista, sep='\n')
-            
-           
-    
+    main()    
