@@ -100,25 +100,19 @@ def importa_veiculos(lista_veiculos: list):
     with MyReaderCSV(PATH_CSV, 'r') as arquivo:
         leitor = csv.DictReader(arquivo)
         for dado in leitor:
-            obje = dado['Class'].lower().strip()
-            match obje:
-                case 'carro':
-                    carro = Carro(marca=dado['marca'], modelo=dado['modelo'], ano=dado['ano'])
-                    lista_veiculos.append(carro)
-                case 'moto':
-                    moto = Moto(marca=dado['marca'], modelo=dado['modelo'], ano=dado['ano'])
-                    lista_veiculos.append(moto)
-                case 'barco':
-                    barco = Barco(marca=dado['marca'], modelo=dado['modelo'], ano=dado['ano'])
-                    lista_veiculos.append(barco)
-                case _:
-                    raise ValueError(f'{dado["Class"]} é inválido.')
+            objeto = dado['Class'].lower().strip()
+            classes = {'carro': Carro, 'moto': Moto, 'barco': Barco}
+            objeto_classe = classes.get(objeto)
+            if objeto_classe:
+                lista_veiculos.append(objeto_classe(marca=dado['marca'], modelo=dado['modelo'], ano=dado['ano']))
+            else:
+                print(f'Dado {dado["Class"]} inválido.')
      
 def exporta_veiculos(): ...
 
 def menu_opcoes(lista_veiculos: list) -> bool: 
     opcoes = input('Comandos: cadastrar veiculo [cv], importar veiculo [ic],'
-                   'exportar veiculo [ev], listar [l]\n e sair [s]\n-->').lower()
+                   'exportar veiculo [ev], listar [l] e sair [s]\n-->').lower()
 
     match opcoes:
         case 'cv':
@@ -129,6 +123,9 @@ def menu_opcoes(lista_veiculos: list) -> bool:
             return True
         case 'ev':
             exporta_veiculos()
+            return True
+        case 'l':
+            print(*lista_veiculos, sep='\n')
             return True
         case 's':
             print('Sair.')
