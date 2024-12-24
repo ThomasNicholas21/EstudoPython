@@ -8,8 +8,11 @@ import json
 from pathlib import Path
 from typing import TypedDict
 
-PATH_CSV = Path(__file__).parent / '19_arquivo_csv.csv'
-PATH_JSON = Path(__file__).parent / '19_arquivo_json.json'
+# Nome do arquivo de importação deve ser = 19_arquivo_(modo).modo
+PATH_IMPORT_CSV = Path(__file__).parent / '19_arquivo_csv.csv'
+PATH_IMPORT_JSON = Path(__file__).parent / '19_arquivo_json.json'
+PATH_EXPORT_CSV = Path(__file__).parent / '19_exportado.csv'
+PATH_EXPORT_JSON = Path(__file__).parent / '19_exportado.json'
 
 class MyRepr:
     def __repr__(self):
@@ -94,7 +97,7 @@ def importa_veiculos(lista_veiculos: list):
     modo = input('Importar em JSON [json] ou CSV [csv]: ')
 
     if modo == 'json':
-        with MyFileReader(PATH_JSON, 'r') as arquivo:
+        with MyFileReader(PATH_IMPORT_JSON, 'r') as arquivo:
             arquivo_json: FormatJson = json.load(arquivo)
             classes = {'carro': Carro, 'moto': Moto, 'barco': Barco}
             for dado in arquivo_json:
@@ -104,7 +107,7 @@ def importa_veiculos(lista_veiculos: list):
                     lista_veiculos.append(classe_objeto(marca=dado['marca'], modelo=dado['modelo'], ano=dado['ano']))
 
     elif modo == 'csv':
-        with MyFileReader(PATH_CSV, 'r') as arquivo:
+        with MyFileReader(PATH_IMPORT_CSV, 'r') as arquivo:
             leitor = csv.DictReader(arquivo)
             for dado in leitor:
                 objeto = dado['Class'].lower().strip()
@@ -118,7 +121,19 @@ def importa_veiculos(lista_veiculos: list):
     else:
         print('Modo não identificado.')
      
-def exporta_veiculos(): ...
+def exporta_veiculos(lista_veiculos: list):
+    modo = input('Importar em JSON [json] ou CSV [csv]: ')
+
+    if modo == 'json':
+        with MyFileReader(PATH_EXPORT_JSON, 'w') as arquivo:
+            ...
+
+    elif modo == 'csv':
+        with MyFileReader(PATH_EXPORT_CSV, 'w') as arquivo:
+            ...
+    
+    else:
+        print('Modo não identificado.')
 
 def menu_opcoes(lista_veiculos: list) -> bool: 
     opcoes = input('Comandos: cadastrar veiculo [cv], importar veiculo [ic],'
@@ -132,7 +147,7 @@ def menu_opcoes(lista_veiculos: list) -> bool:
             importa_veiculos(lista_veiculos)
             return True
         case 'ev':
-            exporta_veiculos()
+            exporta_veiculos(lista_veiculos)
             return True
         case 'l':
             print(*lista_veiculos, sep='\n')
