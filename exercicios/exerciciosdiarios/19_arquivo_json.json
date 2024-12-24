@@ -1,0 +1,22 @@
+[
+    {"Class": "Carro", "marca": "Chevrolet", "modelo": "Camaro", "ano": 2024},
+    {"Class": "Carro", "marca": "Audi", "modelo": "A4", "ano": 2023},
+    {"Class": "Carro", "marca": "BMW", "modelo": "Serie 3", "ano": 2022},
+    {"Class": "Carro", "marca": "Hyundai", "modelo": "Elantra", "ano": 2021},
+    {"Class": "Carro", "marca": "Kia", "modelo": "Sportage", "ano": 2020},
+    {"Class": "Moto", "marca": "Suzuki", "modelo": "GSX-R1000", "ano": 2023},
+    {"Class": "Moto", "marca": "Ducati", "modelo": "Panigale V4", "ano": 2024},
+    {"Class": "Moto", "marca": "BMW", "modelo": "S1000RR", "ano": 2022},
+    {"Class": "Moto", "marca": "KTM", "modelo": "RC 390", "ano": 2021},
+    {"Class": "Moto", "marca": "Harley-Davidson", "modelo": "Street Glide", "ano": 2020},
+    {"Class": "Barco", "marca": "Sea Ray", "modelo": "SLX 400", "ano": 2024},
+    {"Class": "Barco", "marca": "Azimut", "modelo": "Atlantis 45", "ano": 2023},
+    {"Class": "Barco", "marca": "Ferretti", "modelo": "Yacht 720", "ano": 2022},
+    {"Class": "Barco", "marca": "Sunseeker", "modelo": "Predator 55", "ano": 2021},
+    {"Class": "Barco", "marca": "Princess", "modelo": "V50", "ano": 2020},
+    {"Class": "Carro", "marca": "Mercedes-Benz", "modelo": "Classe C", "ano": 2023},
+    {"Class": "Carro", "marca": "Nissan", "modelo": "Altima", "ano": 2024},
+    {"Class": "Moto", "marca": "Triumph", "modelo": "Daytona Moto2 765", "ano": 2022},
+    {"Class": "Moto", "marca": "Aprilia", "modelo": "RSV4", "ano": 2021},
+    {"Class": "Barco", "marca": "Monte Carlo", "modelo": "Yachts 70", "ano": 2023}
+]

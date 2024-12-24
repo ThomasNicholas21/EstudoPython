@@ -6,6 +6,7 @@ import datetime
 import csv
 import json
 from pathlib import Path
+from typing import TypedDict
 
 PATH_CSV = Path(__file__).parent / '19_arquivo_csv.csv'
 PATH_JSON = Path(__file__).parent / '19_arquivo_json.json'
@@ -45,6 +46,12 @@ class MyReaderCSV:
     
     def __exit__(self, class_exception_, exception_, traceback_):
         self._arquivo_abrir.close()
+
+class FormatJson(TypedDict):
+    Class: str
+    marca: str
+    modelo: str
+    ano: int
 
 class MyReaderJSON:
     def __init__(self, arquivo, modo):
@@ -143,4 +150,14 @@ def main():
             break
 
 if __name__ == "__main__":
-    main()    
+    #main()
+    lista_teste = []    
+    with MyReaderJSON(PATH_JSON, 'r') as arquivo:
+        arquivo_json: FormatJson = json.load(arquivo)
+        classes = {'carro': Carro, 'moto': Moto, 'barco': Barco}
+        for dado in arquivo_json:
+            objeto = dado['Class'].lower().strip()
+            classe_objeto = classes.get(objeto)
+            if classe_objeto:
+                lista_teste.append(classe_objeto(marca=dado['marca'], modelo=dado['modelo'], ano=dado['ano']))
+        print(*lista_teste, sep='\n')
