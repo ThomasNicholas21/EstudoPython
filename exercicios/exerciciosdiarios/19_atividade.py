@@ -34,7 +34,7 @@ class Barco(MyRepr):
             self.modelo = modelo
             self.ano = ano
 
-class MyReaderCSV:
+class MyFileReader:
     def __init__(self, arquivo, modo):
         self.arquivo = arquivo
         self.modo = modo
@@ -52,19 +52,6 @@ class FormatJson(TypedDict):
     marca: str
     modelo: str
     ano: int
-
-class MyReaderJSON:
-    def __init__(self, arquivo, modo):
-        self.arquivo = arquivo
-        self.modo = modo
-        self._arquivo_abrir = None
-
-    def __enter__(self):
-        self._arquivo_abrir = open(self.arquivo, self.modo, encoding='utf-8')
-        return self._arquivo_abrir
-    
-    def __exit__(self, class_exception_, exception_, traceback_):
-        self._arquivo_abrir.close()
 
 def cadastrar():
     marca = input('Marca:')
@@ -104,16 +91,32 @@ def cadastro_veiculos(lista_veiculos: list):
             return True
 
 def importa_veiculos(lista_veiculos: list): 
-    with MyReaderCSV(PATH_CSV, 'r') as arquivo:
-        leitor = csv.DictReader(arquivo)
-        for dado in leitor:
-            objeto = dado['Class'].lower().strip()
+    modo = input('Importar em JSON [json] ou CSV [csv]: ')
+
+    if modo == 'json':
+        with MyFileReader(PATH_JSON, 'r') as arquivo:
+            arquivo_json: FormatJson = json.load(arquivo)
             classes = {'carro': Carro, 'moto': Moto, 'barco': Barco}
-            objeto_classe = classes.get(objeto)
-            if objeto_classe:
-                lista_veiculos.append(objeto_classe(marca=dado['marca'], modelo=dado['modelo'], ano=dado['ano']))
-            else:
-                print(f'Dado {dado["Class"]} inválido.')
+            for dado in arquivo_json:
+                objeto = dado['Class'].lower().strip()
+                classe_objeto = classes.get(objeto)
+                if classe_objeto:
+                    lista_veiculos.append(classe_objeto(marca=dado['marca'], modelo=dado['modelo'], ano=dado['ano']))
+
+    elif modo == 'csv':
+        with MyFileReader(PATH_CSV, 'r') as arquivo:
+            leitor = csv.DictReader(arquivo)
+            for dado in leitor:
+                objeto = dado['Class'].lower().strip()
+                classes = {'carro': Carro, 'moto': Moto, 'barco': Barco}
+                objeto_classe = classes.get(objeto)
+                if objeto_classe:
+                    lista_veiculos.append(objeto_classe(marca=dado['marca'], modelo=dado['modelo'], ano=dado['ano']))
+                else:
+                    print(f'Dado {dado["Class"]} inválido.')
+    
+    else:
+        print('Modo não identificado.')
      
 def exporta_veiculos(): ...
 
@@ -150,14 +153,4 @@ def main():
             break
 
 if __name__ == "__main__":
-    #main()
-    lista_teste = []    
-    with MyReaderJSON(PATH_JSON, 'r') as arquivo:
-        arquivo_json: FormatJson = json.load(arquivo)
-        classes = {'carro': Carro, 'moto': Moto, 'barco': Barco}
-        for dado in arquivo_json:
-            objeto = dado['Class'].lower().strip()
-            classe_objeto = classes.get(objeto)
-            if classe_objeto:
-                lista_teste.append(classe_objeto(marca=dado['marca'], modelo=dado['modelo'], ano=dado['ano']))
-        print(*lista_teste, sep='\n')
+    main()
