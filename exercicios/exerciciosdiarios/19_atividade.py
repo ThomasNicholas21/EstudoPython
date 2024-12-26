@@ -129,11 +129,17 @@ def exporta_veiculos(lista_veiculos: list):
             lista_json = []
             for item in lista_veiculos:
                 lista_json.append(item.__dict__)
-            json.dump(lista_json, arquivo, indent='\n')
+            json.dump(lista_json, arquivo, indent=3)
 
     elif modo == 'csv':
         with MyFileReader(PATH_EXPORT_CSV, 'w') as arquivo:
-            ...
+            escritor = csv.writer(arquivo)
+            coluna = ['Class', 'marca', 'modelo', 'ano']
+
+            escritor.writerow(coluna)
+
+            for item in lista_veiculos:
+                escritor.writerow(item.__dict__.values())
     
     else:
         print('Modo não identificado.')
