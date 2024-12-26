@@ -126,7 +126,10 @@ def exporta_veiculos(lista_veiculos: list):
 
     if modo == 'json':
         with MyFileReader(PATH_EXPORT_JSON, 'w') as arquivo:
-            ...
+            lista_json = []
+            for item in lista_veiculos:
+                lista_json.append(item.__dict__)
+            json.dump(lista_json, arquivo, indent='\n')
 
     elif modo == 'csv':
         with MyFileReader(PATH_EXPORT_CSV, 'w') as arquivo:
