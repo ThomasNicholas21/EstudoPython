@@ -133,13 +133,17 @@ def exporta_veiculos(lista_veiculos: list):
 
     elif modo == 'csv':
         with MyFileReader(PATH_EXPORT_CSV, 'w') as arquivo:
-            escritor = csv.writer(arquivo)
             coluna = ['Class', 'marca', 'modelo', 'ano']
-
-            escritor.writerow(coluna)
-
+            linha = []
+            escritor = csv.writer(arquivo)
             for item in lista_veiculos:
-                escritor.writerow(item.__dict__.values())
+                linha.append(item.__dict__)
+                
+            escritor.writerow(coluna)
+            for item1 in linha:
+                escritor.writerow(item1.values())
+
+
     
     else:
         print('Modo não identificado.')
