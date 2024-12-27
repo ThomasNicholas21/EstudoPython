@@ -14,8 +14,12 @@ lista_dicionarios = [
 ]
 
 with open(CAMINHO_CSV, 'w', encoding='utf-8') as arquivo:
-    escritor = csv.writer(arquivo)
-    nome_coluna = lista_dicionarios[0].keys()
-    print(nome_coluna)
-
-    escritor.writerow(nome_coluna)
+    nome_colunas = lista_dicionarios[0].keys()
+    escritor = csv.DictWriter(
+        arquivo,
+        fieldnames=nome_colunas
+    )
+    escritor.writeheader()
+    for cliente in lista_dicionarios:
+        print(cliente)
+        escritor.writerow(cliente)
