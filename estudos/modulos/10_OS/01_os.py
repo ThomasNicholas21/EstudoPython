@@ -7,3 +7,8 @@
 # operacional a partir do seu código Python.
 # Windows 11 (PowerShell), Linux, Mac = clear
 # Windows (antigo, cmd) = cls
+import os # modulo de interação com o sistema
+
+os.system('cls') # Realiza contato diretamente com o sistema operacional
+
+print('Testando os.system()' * 20)
