@@ -14,4 +14,4 @@ atuple: tuple = (1, 2, 3)
 # >mypy caminho
 
 # Apresenta erro utilizando extensões e bibliotecas mencionadas
-string = 123
+string = '123'
