@@ -1,5 +1,5 @@
 # criando callable para tipagem de funções
-from collections.abc import Callable 
+from collections.abc import Callable
 # módulo que disponibiliza classe para criar um callable
 
 # Recebe dois inteiros e retorna um inteiro
