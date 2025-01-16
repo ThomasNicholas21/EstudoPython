@@ -15,3 +15,22 @@
 # os.path só trabalha com caminhos de arquivos e não faz nenhuma
 # operação de entrada/saída (I/O) com arquivos em si.
 import os
+
+
+caminho = os.path.join('teste', 'estudo', 'arquivo.txt')
+print(caminho)
+
+
+diretorio, arquivo = os.path.split(caminho)  # separa o arquvo
+print(diretorio, arquivo, sep='\n')
+# separa a extensao do arquivo
+caminho_arquivo, arquivo_extensao = os.path.splitext(arquivo)
+print(caminho_arquivo, arquivo_extensao)
+# Verifica se o caminho existe.
+print(os.path.exists(caminho))
+# Caminho absoluto
+print(os.path.abspath('.'))
+# Caminho base (parte final)
+print(os.path.basename(caminho))
+# Caminho do diretiroio
+print(os.path.dirname(caminho))
