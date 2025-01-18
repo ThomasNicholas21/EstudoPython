@@ -17,10 +17,18 @@ class Veiculo:
         self.motor_ligado = motor_ligado
         
     def ligar(self) -> bool:
+        if self.motor_ligado is True:
+            print('Carro já está ligado.')
+
         self.motor_ligado = True
         return True
 
-    def desligar(self): ...
+    def desligar(self) -> bool:
+        if self.motor_ligado is False:
+            print('Motor já está desligado')
+
+        self.motor_ligado = False 
+        return False
 
     def autonomia(self): ...
 
@@ -43,4 +51,8 @@ def main():
                 print('Comando desconhecido.')
 
 if __name__ == "__main__":
-    main()
+    #main()
+    carro_teste = Veiculo('teste', 4, 40, 1000)
+    carro_teste.desligar()
+    carro_teste.ligar()
+    carro_teste.ligar()
