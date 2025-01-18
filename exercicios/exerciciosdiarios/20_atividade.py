@@ -7,14 +7,18 @@ class Veiculo:
             self, marca: str, 
             quantidade_rodas: int, 
             tanque_litros: float, 
-            km_rodado: float
+            km_rodado: float,
+            motor_ligado: bool = False
             ):
         self.marca = marca
         self.quantidade_rodas = quantidade_rodas
         self.tanque_litros = tanque_litros
         self.km_rodado = km_rodado
-
-    def ligar(self): ...
+        self.motor_ligado = motor_ligado
+        
+    def ligar(self) -> bool:
+        self.motor_ligado = True
+        return True
 
     def desligar(self): ...
 
