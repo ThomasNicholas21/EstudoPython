@@ -22,6 +22,8 @@ class Veiculo:
 
 def cadastro(): ...
 
+def excluir(): ...
+
 def main():
     lista_veiculos = []
 
