@@ -32,7 +32,7 @@ class Veiculo:
     def autonomia(self, distancia_percorrida, litros_cosumido) -> float:
         consumo_medio: float = distancia_percorrida / litros_cosumido
         autonomia: float = self.capacidade_tanque * consumo_medio
-        return autonomia
+        return consumo_medio, autonomia
 
 
 
