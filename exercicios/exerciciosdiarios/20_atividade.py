@@ -35,28 +35,8 @@ class Veiculo:
         return consumo_medio, autonomia
 
 
-
-def cadastro(): ...
-
-def excluir(): ...
-
-def main():
-    lista_veiculos = []
-
-    while True:
-        opcao = input('comandos: cadastrar [c], excluir [e] e sair [s]\n-->')
-
-        match opcao:
-            case 'c': ...
-            case 'e': ...
-            case 's':
-                break
-            case _:
-                print('Comando desconhecido.')
-
 if __name__ == "__main__":
-    #main()
-    carro_teste = Veiculo('teste', 4, 40, 1000)
-    carro_teste.desligar()
-    carro_teste.ligar()
-    carro_teste.ligar()
+    carro = Veiculo('honda', 4, 50)
+    moto = Veiculo('Yamaha', 4, 30)
+    consumo_carro, autonomia_carro = carro.autonomia(35, 3)
+    print(f'{consumo_carro:.2f}km/l, {autonomia_carro:.2f}km') 
