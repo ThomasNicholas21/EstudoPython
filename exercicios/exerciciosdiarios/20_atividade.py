@@ -4,16 +4,15 @@
 
 class Veiculo:
     def __init__(
-            self, marca: str, 
+            self, 
+            marca: str, 
             quantidade_rodas: int, 
-            tanque_litros: float, 
-            km_rodado: float,
+            capacidade_tanque: float, 
             motor_ligado: bool = False
             ):
         self.marca = marca
         self.quantidade_rodas = quantidade_rodas
-        self.tanque_litros = tanque_litros
-        self.km_rodado = km_rodado
+        self.capacidade_tanque = capacidade_tanque
         self.motor_ligado = motor_ligado
         
     def ligar(self) -> bool:
@@ -30,7 +29,12 @@ class Veiculo:
         self.motor_ligado = False 
         return False
 
-    def autonomia(self): ...
+    def autonomia(self, distancia_percorrida, litros_cosumido) -> float:
+        consumo_medio: float = distancia_percorrida / litros_cosumido
+        autonomia: float = self.capacidade_tanque * consumo_medio
+        return autonomia
+
+
 
 def cadastro(): ...
 
