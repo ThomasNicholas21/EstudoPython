@@ -46,6 +46,6 @@ for root, dirs, files in os.walk(caminho):
         stats = os.stat(caminho_arquivo)
         status = stats.st_size
         print(
-            o_contador, caminho_arquivo, formata_tamanho(tamanho), 
+            o_contador, caminho_arquivo, formata_tamanho(tamanho),
             formata_tamanho(status)
             )
