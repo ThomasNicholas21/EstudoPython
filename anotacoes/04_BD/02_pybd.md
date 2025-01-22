@@ -18,4 +18,13 @@ connection.commit()
 
 connection.close()
 ```
+_Executar Ações_
+```Python
+# Deve estar criado a instância de conexão
+cursor = connection.cursor()
+
+cursor.execute(querys)
+
+cursor.close()
+```
 
