@@ -28,3 +28,25 @@ cursor.execute(querys)
 cursor.close()
 ```
 
+### Querys:
+_Table_
+```Python
+connection = sqlite3.connect(__dbpath__)
+cursor = connection.cursor()
+
+# Criando Querys Table
+querys = (
+    F'CREATE TABLE IF NOT EXISTS {TABLE_NAME}'
+    '('
+    'id INTEGER PRIMARY KEY AUTOINCREMENT,'
+    'name TEXT,'
+    'weight REAL'
+    ')'
+)
+
+cursor.execute(querys)
+connection.commit()
+
+cursor.close()
+connection.close()
+```
