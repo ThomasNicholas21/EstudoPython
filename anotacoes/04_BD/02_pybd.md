@@ -15,7 +15,21 @@ insert = (
 
 cursor.executemany(insert, [['fulano', 100], ['beltrano', 80]])
 ```
+```Python
+# utilizando dics
+insert = (
+    f'INSERT INTO {TABLE_NAME} (name, weight)'
+     'VALUES (name:, weight:)' # bindings
+)
 
+cursor.executemany(
+    insert, 
+    [
+        {'name': 'fulano', 'weight': 100},
+        {'name': 'beltrano', 'weight': 80}
+    ]
+)
+```
 ### Comandos:
 _Iniciar Conexão_ / _Fazer Commits_ / _Fechar Conexão_
 ```Python
