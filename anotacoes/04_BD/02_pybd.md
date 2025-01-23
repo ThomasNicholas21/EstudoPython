@@ -76,3 +76,20 @@ connection.commit()
 cursor.close()
 connection.close()
 ```
+_Insert_
+```Python
+connection = sqlite3.connect(__dbpath__)
+cursor = connection.cursor()
+
+# Criando Querys Insert
+querys = (
+    F'INSERT INTO {TABLE_NAME} (name, weight)'
+    'VALUES (name, weight)' # pode-se utilizar placeholders/bindings
+)
+
+cursor.execute(querys, VALUES)
+connection.commit()
+
+cursor.close()
+connection.close()
+```
