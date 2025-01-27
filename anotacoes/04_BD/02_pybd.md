@@ -81,6 +81,26 @@ _Insert_
 connection = sqlite3.connect(__dbpath__)
 cursor = connection.cursor()
 
+# Criando Querys delete
+querys_delete1 = (
+    F'DELETE FROM {TABLE_NAME}' # apaga todos os dados
+)
+
+querys_delete2 = (
+    f'DELETE FROM sqlite_sequence WHERE name={TABLE_NAME}' # apaga autoincrement
+)
+
+cursor.execute(querys, VALUES)
+connection.commit()
+
+cursor.close()
+connection.close()
+```
+_Delete_
+```Python
+connection = sqlite3.connect(__dbpath__)
+cursor = connection.cursor()
+
 # Criando Querys Insert
 querys = (
     F'INSERT INTO {TABLE_NAME} (name, weight)'
