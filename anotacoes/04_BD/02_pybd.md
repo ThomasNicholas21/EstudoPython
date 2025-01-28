@@ -136,3 +136,21 @@ row = cursor.fetchmany()
 cursor.close()
 connection.close()
 ```
+_update_
+```python
+connection = sqlite3.connect(__dbpath__)
+cursor = connection.cursor()
+
+# Criando Querys Insert
+querys = (
+    f'UPDATE {TABLE_NAME} '
+    'SET name = "Jorel" '
+    'WHERE id = 5 '
+)
+
+cursor.execute(querys, VALUES)
+connection.commit()
+
+cursor.close()
+connection.close()
+```
