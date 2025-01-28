@@ -113,3 +113,22 @@ connection.commit()
 cursor.close()
 connection.close()
 ```
+_select_
+```python
+connection = sqlite3.connect(__dbpath__)
+cursor = connection.cursor()
+
+# Criando Querys Insert
+querys = (
+    F'SELECT * FROM {TABLE_NAME} WHERE id = "3"' 
+)
+
+cursor.execute(querys, VALUES)
+
+row = cursor.fetchaone()
+row = cursor.fetchall()
+row = cursor.fetchmany()
+
+cursor.close()
+connection.close()
+```
