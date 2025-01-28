@@ -87,6 +87,10 @@ querys_delete1 = (
 )
 
 querys_delete2 = (
+    f'DELETE FROM {TABLE_NAME} WHERE name = "Beltrano"' # apaga autoincrement
+)
+
+querys_delete3 = (
     f'DELETE FROM sqlite_sequence WHERE name={TABLE_NAME}' # apaga autoincrement
 )
 
