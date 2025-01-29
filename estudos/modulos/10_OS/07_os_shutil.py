@@ -14,7 +14,7 @@ DOCUMENTS = os.path.join(HOME, 'Documents')
 DOCUMENTS_ = os.path.join(HOME, 'Documents', 'estudo_teste')
 NOVA_PASTA = os.path.join(DOCUMENTS, 'nova_pasta')
 
-# Remove a pasta / Ignora qualquer erro OBS: não 
+# Remove a pasta / Ignora qualquer erro OBS: não
 shutil.rmtree(NOVA_PASTA, ignore_errors=True)
 # Faz a cópia de uma pasta para outra
 shutil.copytree(DOCUMENTS_, NOVA_PASTA)
