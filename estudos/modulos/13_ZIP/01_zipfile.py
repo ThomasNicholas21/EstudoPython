@@ -30,7 +30,16 @@ def criar_arquivos(qtd: int, zip_dir: Path):
 criar_arquivos(10, CAMINHO_ZIP_DIR)
 
 # Compactando arquivos
-with ZipFile(CAMINHO_COMPACTADO, 'w') as zip:
+with ZipFile(CAMINHO_COMPACTADO, 'w') as zip_:
     for root, dirs, files in os.walk(CAMINHO_ZIP_DIR):
         for file in files:
-            zip.write(os.path.join(root, file))
+            zip_.write(os.path.join(root, file))
+
+# lendo arquivos de um zip
+with ZipFile(CAMINHO_COMPACTADO, 'r') as zip_:
+    for arquivo in zip_.namelist():
+        print(arquivo)
+
+# extraindo arquivo
+with ZipFile(CAMINHO_DESCOMPACTADO, 'w') as zip_:
+    zip_.extractall(CAMINHO_DESCOMPACTADO)
