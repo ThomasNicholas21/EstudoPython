@@ -7,7 +7,8 @@
 # - Doc: https://www.crummy.com/software/BeautifulSoup/bs4/doc.ptbr/
 # + Instalação
 # - pip install requests types-requests bs4
-
+# flake8: noqa
+import re
 import requests
 from bs4 import BeautifulSoup
 
@@ -20,3 +21,12 @@ if parsed_html.title \
      and parsed_html.h1 is not None:
     print(parsed_html.title.text)
     print(parsed_html.h1.text)
+
+top_jobs_heading = parsed_html.select_one('#intro > div > div > article > h2')
+if top_jobs_heading is not None:
+     # .parent pega todas as tags dentro do trecho selecionado
+     article = top_jobs_heading.parent
+
+     if article is not None:
+          for p in article.select('p'):
+               print(re.sub(r'\s{1,}', ' ', p.text).strip())
