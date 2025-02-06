@@ -24,3 +24,6 @@ print(len(reader.pages))
 
 for page in reader.pages:
     print(page)
+
+pagina0 = reader.pages[0]
+print(pagina0.extract_text())
