@@ -21,3 +21,6 @@ reader = PdfReader(PATH_RELATORIO)
 
 # iterável que permite ler a quantidade de páginas do PDF
 print(len(reader.pages))
+
+for page in reader.pages:
+    print(page)
