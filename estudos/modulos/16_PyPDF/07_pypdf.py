@@ -20,10 +20,14 @@ PATH_PASTE.mkdir(exist_ok=True)
 reader = PdfReader(PATH_RELATORIO)
 
 # iterável que permite ler a quantidade de páginas do PDF
-print(len(reader.pages))
+# print(len(reader.pages))
 
-for page in reader.pages:
-    print(page)
+# for page in reader.pages:
+#     print(page)
 
+# extrai o texto
 pagina0 = reader.pages[0]
-print(pagina0.extract_text())
+# print(pagina0.extract_text())
+
+# extrai as imagens / modelo da imagem PA
+print(len(pagina0.images))
