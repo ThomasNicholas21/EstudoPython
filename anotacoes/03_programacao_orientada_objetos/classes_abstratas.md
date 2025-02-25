@@ -42,3 +42,6 @@
     pagamento_cartaodebito = CartaoDDebito()
     pagamento_cartao.processar_pagamento(150)
     ```
+
+### 👉 [Mais exemplos e atividades](https://github.com/ThomasNicholas21/EstudoPython/tree/master/estudos/03_POO)
+
