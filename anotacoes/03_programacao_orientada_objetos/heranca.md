@@ -30,4 +30,4 @@ class C(A, B): # Herda caractéristicas da classe A e B
 ```
 
 
-### 👉 [Mais exemplos e atividades](https://github.com/ThomasNicholas21/EstudoPython/tree/master/estudos/03_POO)
+### 👉 [Mais exemplos e atividades](https://github.com/ThomasNicholas21/EstudoPython/tree/master/estudos/03_POO/heranca)
