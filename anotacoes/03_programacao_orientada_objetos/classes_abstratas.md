@@ -1,19 +1,19 @@
 # Interfaces
-- Interfaces definem o que uma classe deve fazer e não como. Este conceito seria como definir um contrato aonde são declarados os metodos (O que deve ser feito) e suas rescpectivas assinaturas. Porém em python não existe palavras reservadas para o mesmo, se utilizando classes abstratas para criar contratos, pois os mesmos não podem ser instnaciados.
+- Interfaces definem o que uma classe deve fazer e não como deve fazer. Este conceito seria como definir um contrato aonde são declarados os métodos (O que deve ser feito) e suas respectivas assinaturas. Porém em python não existe palavras reservadas para o mesmo, se utilizando classes abstratas para criar contratos, pois os mesmos não podem ser instanciados.
 
 # Classes Abstratas
-- Classes abastratas são aquelas que não podem ser instanciadas diretamente, servindo como modelo para ouitras classes (contratos). Sendo elas utilizadas para definir modelos que devem ser implementadas por subclasses, garantindo que sigam uma interface específica.
-- Python não vem nativamente com classes abstratas, por isso deve-se chamar o módulo ABC (Abstract Base Class) no módulo 'abc' para criar classes abstratas. Sendo elas marcadas por decoradores '@abstractmethod'.
+- Classes abstratas são aquelas que não podem ser instanciadas diretamente, servindo como modelo para outras classes (contratos). Sendo elas utilizadas para definir modelos que devem ser implementados por subclasses, garantindo que sigam uma interface específica.
+- Python não vem nativamente com classes abstratas, por isso deve-se chamar o módulo abc (Abstract Base Class) para criar classes abstratas. Sendo elas marcadas por decoradores '@abstractmethod'.
 
 - **Quando Usar?**
     - Definir um interface clara: quando se tem um conjunto de classes que devem compartilhar um conjunto comum de métodos.
-    - Consistência: garantir que subclasses seguiram uma estrutura especifica.
-    - Bibiliotecas e APIs: calssers bastratas são utéis para criação, para criar funcionalidade específicas de acordo com uma interface.
+    - Consistência: garantir que subclasses seguirão uma estrutura específica.
+    - Bibliotecas e APIs: classes abstratas são úteis para criação de funcionalidades específicas de acordo com uma interface.
 
 - **Vantagens**
     - Consistencia: garante uma estrutura
     - Flexibilidade: permite diferentes implantações
-    - Segurança: força a implemntação dos métodos obrigatórios
+    - Segurança: força a implementação dos métodos obrigatórios
 
 - **Desvantagens**
     - Complexidade
