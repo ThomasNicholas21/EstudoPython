@@ -25,7 +25,7 @@ class A:
     pass
 class B: 
     pass
-class C(A, B): # Herda caractéristicas da classe A e B
+class C(A, B): # Herda características da classe A e B
     pass
 ```
 
