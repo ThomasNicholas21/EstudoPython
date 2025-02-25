@@ -114,3 +114,5 @@ print(resultado)  # 7
     saudacao1.oi()
     Oi.dar_saudacao()
     ```
+
+### 👉 [Mais exemplos e atividades](https://github.com/ThomasNicholas21/EstudoPython/tree/master/estudos/03_POO)
