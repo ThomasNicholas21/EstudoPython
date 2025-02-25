@@ -20,7 +20,7 @@
     - Restrição
 
 - **Exemplo**
-    ```Python
+    ```python
     from abc import ABC, abstractmethod
 
     class pagamento(ABC)
