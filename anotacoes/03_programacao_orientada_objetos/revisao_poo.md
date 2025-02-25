@@ -17,7 +17,6 @@ calc = Calculadora()
 resultado = calc.somar(3, 4)
 print(resultado)  # 7
 ```
-- [Mais exemplos](https://github.com/ThomasNicholas21/BootCampVivo/tree/master/poo/classes_objetos)
 
 ## Contrutores e Destrutores
 - **```Método Contrutor```**
@@ -50,7 +49,6 @@ print(resultado)  # 7
     # Deletando a instância explicitamente
     del pessoa1
     ```
-- [Mais exemplos](https://github.com/ThomasNicholas21/BootCampVivo/tree/master/poo/construtores_destrutores)
 
 ## Herança
 - **O que é?**
@@ -315,3 +313,5 @@ pagamento_cartao.processar_pagamento(100)
 pagamento_cartaodebito = CartaoDDebito()
 pagamento_cartao.processar_pagamento(150)
 ```
+
+### 👉 [Mais exemplos e atividades](https://github.com/ThomasNicholas21/EstudoPython/tree/master/estudos/03_POO)
