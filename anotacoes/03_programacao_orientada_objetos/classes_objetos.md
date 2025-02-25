@@ -18,8 +18,8 @@ resultado = calc.somar(3, 4)
 print(resultado)  # 7
 ```
 
-## Contrutores e Destrutores
-- **```Método Contrutor```**
+## Construtores e Destrutores
+- **```Método Construtor```**
     - Inicializa de forma automática os atributos do objeto, chamado quando uma nova instância da classe é criada, sendo chamado de: ```__init__ ```
     Exemplo:
     ```python
@@ -51,7 +51,7 @@ print(resultado)  # 7
     ```
 
 ## O que é *self*
-- self é a instância da classe, ou seja, é uma referênciada classe ao próprio objeto que será manipulado.
+- self é a instância da classe, ou seja, é uma referência da classe ao próprio objeto que será manipulado.
 
 ## __dict__ e vars
 - São métodos que transformam os atributos de um objeto em um dicionário.
@@ -81,7 +81,7 @@ print(resultado)  # 7
 
 ## Métodos
 - **Método de Classe**
-    - Permite que seja possível exercutar um método a classe sem passar o objeto como parâmetro, recebendo a própria classe. Usado para métodos de fábricas (factories).
+    - Permite que seja possível executar um método a classe sem passar o objeto como parâmetro, recebendo a própria classe. Usado para métodos de fábricas (factories).
     ```Python
     class Carro:
         def __init__(self, marca, modelo, ano):
@@ -107,7 +107,7 @@ print(resultado)  # 7
     ```Python
     class Oi:
         @staticmethod
-        def dar_saudao():
+        def dar_saudacao():
             print('Oi!')
         
     saudacao1 = Oi()

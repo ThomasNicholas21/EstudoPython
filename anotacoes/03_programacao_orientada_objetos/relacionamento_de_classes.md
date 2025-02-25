@@ -1,5 +1,5 @@
 # Associação
-Quado se trata de associação para Programação Orientada a Objetos, se refere a uma classe que terá uma relação direta com outra classe, podendo ter acesso a atributos e métodos dessa classe, sem ter uma dependência rigida e direta da classe.
+Quando se trata de associação para Programação Orientada a Objetos, se refere a uma classe que terá uma relação direta com outra classe, podendo ter acesso a atributos e métodos dessa classe, sem ter uma dependência rigida e direta da classe.
 - *Exemplo*:
     ```Python
     class Professor
@@ -8,7 +8,7 @@ Quado se trata de associação para Programação Orientada a Objetos, se refere
     class Escola
         pass
 
-    # a classe escola pode exoiistir sem um professor específico.
+    # a classe escola pode existir sem um professor específico.
     ```
 
 
@@ -36,7 +36,7 @@ Uma forma especializada de associação entre dois ou mais objetos. Geralmente �
 
 
 # Composição
-Sendo uma especialização de agragação, porém quando o objeto "pai" for apagado, todas as referência dos objetos também são apagadas.
+Sendo uma especialização de agregação, porém quando o objeto "pai" for apagado, todas as referências dos objetos também são apagadas.
 - *Exemplo*:
     ```Python
     class Motor:

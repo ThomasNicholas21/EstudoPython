@@ -1,5 +1,5 @@
 # Métodos especiais Python
-Começam com dunder (__) - dois underscore. Os mesmos permiutem personalizar o comportamento de operações e interações com objetos de uma classe, como operadores aritméticos, comparações, conversãoes e outros. Permitindo que os objetos se comportem de maneira intuituva e interajam com diversas funções  e operadores embutidos.
+Começam com dunder (__) - dois underscore. Os mesmos permitem personalizar o comportamento de operações e interações com objetos de uma classe, como operadores aritméticos, comparações, conversões e outros. Permitindo que os objetos se comportem de maneira intuitiva e interajam com diversas funções  e operadores embutidos.
 
 ## Exemplos de Métodos Especiais
 - ```__lt__(self, Objeto2) - self  <  Objeto2```

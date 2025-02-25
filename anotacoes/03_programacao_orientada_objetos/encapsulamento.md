@@ -1,6 +1,6 @@
 ## Encapsulamento
 - **O que é?**
-    - É a ideia de agrupar dados, impondo métodos que manipulam os dados. Impondo restrições diretos a variáveis e métodos, evitando a modificação de dados, pódendo apenas ser modificada pelo método do dado. Garantindo a manipulação de dados de forma consistente e segura.
+    - É a ideia de agrupar dados, impondo métodos que manipulam os dados. Impondo restrições diretas a variáveis e métodos, evitando a modificação de dados, podendo apenas ser modificada pelo método do dado. Garantindo a manipulação de dados de forma consistente e segura.
 - **Como funciona?**
     - **Atributos públicos:** Acessíveis de qualquer lugar.
     - **Atributos protegidos:** Acessíveis dentro de classes e subclasses (Indicado por "_")
@@ -13,7 +13,7 @@
                 self._saldo = saldo_inicial # Atributo Protegido
         ```
     - **Atributos privados:** Acessíveis apenas dentro da classe (Indicado por "__")
-        - **Dois "__":** Este indica que o atributo passará por um processo chamado **Name Mangling** tornando o mesmo privado, pois ele dificulta o acesso fora da classe. O mesmo deixa o atributo diferente do que ele foi declarado de forma intencional. Porém ainda é possível aceessa-lo. **Exemplo**
+        - **Dois "__":** Este indica que o atributo passará por um processo chamado **Name Mangling** tornando o mesmo privado, pois ele dificulta o acesso fora da classe. O mesmo deixa o atributo diferente do que ele foi declarado de forma intencional. Porém ainda é possível acessá-lo. **Exemplo**
         ``` Python
         class conta_bancaria:
             def __init__(self, titular, saldo_inicial):
@@ -23,7 +23,7 @@
             def obter_saldo(self):
                 return self.__saldo 
         ```
-    - **property():** possibilita criar atributos que são gerenciados em suas classes, podendo usar atributos gerenciados e também conhecidos como propriedade. Quando Precisar modificar sua implantacão interna sem alterar a API pública da classe. Uma propriedade do objeto, ela é um método que se comporta como um atributo, geramente utilizada para agir como um getter(obtem um atributo), evitar quebrar código do cliente , habilitar setter e executar ações ao obter um atributo.
+    - **property():** possibilita criar atributos que são gerenciados em suas classes, podendo usar atributos gerenciados e também conhecidos como propriedade. Quando Precisar modificar sua implantacão interna sem alterar a API pública da classe. Uma propriedade do objeto, ela é um método que se comporta como um atributo, geralmente utilizada para agir como um getter(obtém um atributo), evitar quebrar código do cliente , habilitar setter e executar ações ao obter um atributo.
         - **Getter:** método utilizado para obter um valor de um atributo privado ou protegido de uma classe, em Python chamamos a função decoradora property() para realizar a ação.
             ```Python
             class Pessoa:

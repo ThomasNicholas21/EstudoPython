@@ -1,11 +1,11 @@
 ## Polimorfismo 
 - **O que é?**
-    - Na programação, polimorfisomo significa o mesmo nome de função sendo usuado para tipos diferentes, ou seja, ele possui comportamentos diferentes. Como por exemplo a função **len**:
+    - Na programação, polimorfismo significa o mesmo nome de função sendo usuado para tipos diferentes, ou seja, ele possuí comportamentos diferentes. Como por exemplo a função **len**:
     ```Python
     len('Python')
     len([10, 5, 11])
     ```
-    O mesmo recebe objetos diferentes, e para cada objeto ele se comporta de uma maneira. Dessa forma é possível concluir que _polimorfismo_ é o princípio que permite que classes derivadas de uma mesma superclasse tenham métodos iguais (mesma assinatura), porém com comportamentos diferentes.
+    O mesmo recebe objetos diferentes, e para cada objeto ele se comporta de uma maneira. Dessa forma, é possível concluir que _polimorfismo_ é o princípio que permite que classes derivadas de uma mesma superclasse tenham métodos iguais (mesma assinatura), porém com comportamentos diferentes.
 
 - **Princípio da Substituição de Liskov**
     - Objetos de uma superclasses devem ser substituíveis por objetos de uma subclasse sem quebrar a aplicação.

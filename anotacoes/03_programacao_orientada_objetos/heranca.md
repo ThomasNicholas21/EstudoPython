@@ -1,7 +1,7 @@
 ## Herança
 - **O que é?**
     - Na programação orientada a objeto, herança é a capacidade de uma classe filha herdar as características e comportamento da classe pai.
-- **Vantangens:**
+- **Vantagens:**
     - Faz a reutilização do código, para que não seja necessário repetir. Além disso, permite adicionar mais recursos a uma classe sem modificá-la.
     - É transitiva, caso uma classe B herde da classe A, todas as subclasses de B herdarão de forma automática da classe A, ou seja, caso a classe B tenha como filha a classe C, essa classe será neta da classe A herdando suas caractéristicas.
         - **Obs:** Sempre verificar a complexidade da herança das classe, pois caso a família seja grande, uma pequena alteração irá refletir em toda a família.
