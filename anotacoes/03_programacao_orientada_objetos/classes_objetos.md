@@ -1,4 +1,4 @@
-# Pragramação Orientada a Objetos (POO)
+# Programação Orientada a Objetos (POO)
 Paradigma de programação é um estilo de programação de como solucionar problemas através do código. O paradigma de programação orientada a objetos faz a estruturação do código abstraindo problemas em objetos do mundo real, facilitando o entendimento do código e tornando-o mais flexível e modular.
 
 ## Classes e Objetos
