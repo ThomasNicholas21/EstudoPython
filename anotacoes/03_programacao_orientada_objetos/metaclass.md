@@ -73,4 +73,4 @@ obj = MinhaClasse(10)
 print(obj.novo_metodo())
 ```
 
-### 👉 [Mais exemplos e atividades](https://github.com/ThomasNicholas21/EstudoPython/tree/master/estudos/03_POO)
+### 👉 [Mais exemplos e atividades](https://github.com/ThomasNicholas21/EstudoPython/tree/master/estudos/03_POO/metaclass)
