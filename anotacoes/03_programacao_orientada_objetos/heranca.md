@@ -28,3 +28,6 @@ class B:
 class C(A, B): # Herda caractéristicas da classe A e B
     pass
 ```
+
+
+### 👉 [Mais exemplos e atividades](https://github.com/ThomasNicholas21/EstudoPython/tree/master/estudos/03_POO)
