@@ -23,4 +23,4 @@ Começam com dunder (__) - dois underscore. Os mesmos permiutem personalizar o c
 - https://rszalski.github.io/magicmethods/
 
 
-### 👉 [Mais exemplos e atividades](https://github.com/ThomasNicholas21/EstudoPython/tree/master/estudos/03_POO)
+### 👉 [Mais exemplos e atividades](https://github.com/ThomasNicholas21/EstudoPython/tree/master/estudos/03_POO/metodos)
