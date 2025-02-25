@@ -53,4 +53,4 @@ Sendo uma especialização de agragação, porém quando o objeto "pai" for apag
 
     ```
 
-### 👉 [Mais exemplos e atividades](https://github.com/ThomasNicholas21/EstudoPython/tree/master/estudos/03_POO)
+### 👉 [Mais exemplos e atividades](https://github.com/ThomasNicholas21/EstudoPython/tree/master/estudos/03_POO/classes_variaveis_metodos/assoc_agreg_comp)
