@@ -43,3 +43,5 @@
     fazer_animal_falar(vaca)
 
     ```
+
+### 👉 [Mais exemplos e atividades](https://github.com/ThomasNicholas21/EstudoPython/tree/master/estudos/03_POO)
