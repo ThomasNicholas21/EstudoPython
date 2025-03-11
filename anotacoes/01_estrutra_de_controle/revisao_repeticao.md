@@ -76,4 +76,4 @@
     - **`continue`**: Útil para pular a iteração atual e continuar com a próxima, geralmente usado para ignorar certos casos dentro de um loop.
     - **`pass`**: Útil como um placeholder quando a sintaxe exige um comando, mas você não quer executar nenhuma ação no momento.
 
-- **`Observação`**: Mais exemplos de Estrutura de Repetição ["clique aqui""](https://github.com/ThomasNicholas21/BootCampVivo/blob/master/estrutura_de_controle/condicional_repeticao/estrutura_repeticao.py)
+- **`Observação`**: Mais exemplos de Estrutura de Repetição ["clique aqui"](https://github.com/ThomasNicholas21/EstudoPython/tree/master/estudos/01_estrutura_de_controle/condicional_repeticao)

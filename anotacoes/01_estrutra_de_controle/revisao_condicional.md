@@ -45,4 +45,4 @@
         print(resultado)  # Saída: Maior que 5
         ```
 
-- **`Observação`**: Mais exemplos de Estrutura Condicional ["clique aqui""](https://github.com/ThomasNicholas21/BootCampVivo/blob/master/estrutura_de_controle/condicional_repeticao/estrutura_condicionais.py)
+- **`Observação`**: Mais exemplos de Estrutura Condicional ["clique aqui""](https://github.com/ThomasNicholas21/EstudoPython/tree/master/estudos/01_estrutura_de_controle/condicional_repeticao)

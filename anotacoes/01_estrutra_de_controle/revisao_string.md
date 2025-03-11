@@ -12,7 +12,7 @@
         print(texto[::2])    # Saída: Hlo ol!
         print(texto[::-1])   # Saída: !dlroW ,olleH
         ```
-    - **`Obersavação`**: Mais exemplos de Fatiamento de String ["clique aqui""](https://github.com/ThomasNicholas21/BootCampVivo/blob/master/estrutura_de_controle/manipulacao_string/fatiamento_strings.py)
+
 - ## Interpolação de Variáveis
     - `%` - Versão Antiga
         - Utiliza o operador `%` para inserir variáveis dentro de strings.
@@ -66,7 +66,6 @@
             print(f"Nome: {nome}, Idade: {idade}")
             # Saída: Nome: Frank, Idade: 40
             ```
-    - **`Observação`**: Mais exemplos de Interpolação de Variáveis ["clique aqui""](https://github.com/ThomasNicholas21/BootCampVivo/blob/master/estrutura_de_controle/manipulacao_string/interpolacao_variaveis.py)
 
 - ## Métodos para String
     - **`string.upper()`**: Converte todos os caracteres para maiúsculo.
@@ -191,4 +190,5 @@
         print(texto.isalpha())
         # Saída: True
         ```
-    - **`Observação`**: Mais exemplos de Métodos para String ["clique aqui""](https://github.com/ThomasNicholas21/BootCampVivo/blob/master/estrutura_de_controle/manipulacao_string/metodo_string.py)
+
+**`Observação`**: Mais exemplos de Métodos para String ["clique aqui"](https://github.com/ThomasNicholas21/EstudoPython/tree/master/estudos/01_estrutura_de_controle/manipulacao_string)

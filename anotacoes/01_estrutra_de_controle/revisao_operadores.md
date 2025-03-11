@@ -26,7 +26,6 @@
     ```python
     print(a is not c)  # True
     ```
-    - **`Observação`**: Mais exemplos de Operadores de identificação ["clique aqui""](https://github.com/ThomasNicholas21/BootCampVivo/blob/master/estrutura_de_controle/operadores/oepradores_identidadae.py)
 
 - ### Operadores Aritiméticos
     - **`+`**: Soma.
@@ -57,7 +56,7 @@
     ```python
     print(2 ** 3)  # 8
     ```
-    - **`Observação`**: Mais exemplos de Operadores Aritiméticos ["clique aqui""](https://github.com/ThomasNicholas21/BootCampVivo/blob/master/estrutura_de_controle/operadores/oepradores_identidadae.py)
+
 - ### Operadores de Associação
     - **`in`**: Verifica se um valor está presente em uma sequência.
     ```python
@@ -67,7 +66,7 @@
     ```python
     print('x' not in 'banana')  # True
     ```
-    - **`Observação`**: Mais exemplos de Operadores de Associação ["clique aqui""](https://github.com/ThomasNicholas21/BootCampVivo/blob/master/estrutura_de_controle/operadores/operadores_associcao.py)
+
 - ### Operadores de Atribuição
     - **`=`**: Atribuição de valor.
     ```python
@@ -101,7 +100,7 @@
     ```python
     x **= 3  # x agora é 1.0
     ```
-    - **`Observação`**: Mais exemplos de Operadores de Atribuição ["clique aqui""](https://github.com/ThomasNicholas21/BootCampVivo/blob/master/estrutura_de_controle/operadores/operadores_atribuicao.py)
+
 - ### Operadores de Comparação
     - **`==`**: Igualdade.
     ```python
@@ -127,7 +126,7 @@
     ```python
     print(3 <= 3)  # True
     ```
-    - **`Observação`**: Mais exemplos de Operadores de Comparação ["clique aqui""](https://github.com/ThomasNicholas21/BootCampVivo/blob/master/estrutura_de_controle/operadores/operadores_comparacao.py)
+
 - ### Operadores Lógicos
     - **`and`**: Retorna `True` se ambas as expressões forem verdadeiras.
     ```python
@@ -141,4 +140,5 @@
     ```python
     print(not True)  # False
     ```
-    - **`Observação`**: Mais exemplos de Operadores Lógicos ["clique aqui""](https://github.com/ThomasNicholas21/BootCampVivo/blob/master/estrutura_de_controle/operadores/operadores_logicos.py)
+
+**`Observação`**: Mais exemplos de Operadores Lógicos ["clique aqui"](https://github.com/ThomasNicholas21/EstudoPython/tree/master/estudos/01_estrutura_de_controle/operadores)
