@@ -155,4 +155,4 @@ match user:
 
 ```
 
-**`Observação`**: Mais exemplos de Operadores Lógicos ["clique aqui"](https://github.com/ThomasNicholas21/EstudoPython/tree/master/estudos/01_estrutura_de_controle/match_case)
+**`Observação`**: Mais exemplos de Match Case ["clique aqui"](https://github.com/ThomasNicholas21/EstudoPython/tree/master/estudos/01_estrutura_de_controle/match_case)
