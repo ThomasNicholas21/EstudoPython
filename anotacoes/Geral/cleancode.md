@@ -1,4 +1,3 @@
-# Revisão de estrutura de controle 💻
 ## Clean Code Python
 - ### Importância de Clean Code
 Manter o código limpo e legível é essencial para facilitar a manutenção, aumentar a produtividade e reduzir erros. Aqui estão algumas dicas importantes para escrever clean code em Python:
