@@ -11,9 +11,10 @@
 # depois de pegar o resultado e fazer uma soma e dividir por 11
 # regra:
 # se o resto da divisao for menor que 2, segundo digito sera 0, se maior que 2, segundo digito sera (11 - quociente da divisão inteiro)
+import re
 
 
-def verifier(cnpj):
+def verifier(cnpj) -> bool:
     cnpj_first = first_digit(cnpj)
     cnpj_second = second_digit(cnpj_first)
     
@@ -21,13 +22,9 @@ def verifier(cnpj):
     cnpj_int = [int(integer) for integer in cnpj_validate]
 
     if cnpj_second[12:14] == cnpj_int:
-        return {
-            'cnpj': f'esse CNPJ é válido {cnpj}'
-        }
+        return True
 
-    return {
-            'cnpj': f'esse CNPJ não é válido {cnpj}'
-        }
+    return False
 
 
 
@@ -40,12 +37,10 @@ def get_last_digits(cnpj):
         return cnpj_split
 
  
-def format(cnpj: str):
-    if ('-' and '.' and '/') in cnpj:
-        cnpj_formated = cnpj.replace('-', '').replace('.', '').replace('/', '')
-        cnpj_no_verifier_digits = ' '.join(cnpj_formated[0:12])
-        cnpj_split = cnpj_no_verifier_digits.split(' ')
-
+def remove_last_digits(cnpj: str) -> list[str]:
+    if not cnpj.isdigit():
+        cnpj = ' '.join(re.sub(r'\D', '', cnpj[0:12]))
+        cnpj_split = cnpj.split(' ')
         return cnpj_split
 
 
