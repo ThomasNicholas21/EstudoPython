@@ -15,13 +15,14 @@ import re
 
 
 def verifier(cnpj) -> bool:
-    cnpj_first = first_digit(cnpj)
-    cnpj_second = second_digit(cnpj_first)
+    cnpj_first, digit1 = first_digit(cnpj)
+    digit2 = second_digit(cnpj_first)
     
-    cnpj_validate = get_last_digits(cnpj)
-    cnpj_int = [int(integer) for integer in cnpj_validate]
+    cnpj_last_digits = get_last_digits(cnpj)
+    cnpj_last_digits_int = [int(integer) for integer in cnpj_last_digits]
+    cnpj_last_digits_validated = [digit1, digit2]
 
-    if cnpj_second[12:14] == cnpj_int:
+    if cnpj_last_digits_validated == cnpj_last_digits_int:
         return True
 
     return False
@@ -29,21 +30,23 @@ def verifier(cnpj) -> bool:
 
 
 def get_last_digits(cnpj):
-    if ('-' and '.' and '/') in cnpj:
-        cnpj_formated = cnpj.replace('-', '').replace('.', '').replace('/', '')
-        cnpj_no_verifier_digits = ' '.join(cnpj_formated[12:14])
-        cnpj_split = cnpj_no_verifier_digits.split(' ')
+    if not cnpj.isdigit():
+        cnpj = ' '.join(re.sub(r'\D', '', cnpj)[12:14])
+        cnpj = cnpj.split(' ')
         
-        return cnpj_split
+        return cnpj
+
+    return list(cnpj[12:14])
 
  
 def remove_last_digits(cnpj: str) -> list[str]:
     if not cnpj.isdigit():
         cnpj = ' '.join(re.sub(r'\D', '', cnpj)[:12])
+        cnpj = cnpj.split(' ')
         
-        return list(cnpj)
-    
-    return list(cnpj)
+        return cnpj
+
+    return list(cnpj[:12])
 
 
 def first_digit(cnpj: str):
@@ -64,7 +67,7 @@ def first_digit(cnpj: str):
 
     cnpj_formated.append(last_digit)
     
-    return cnpj_formated
+    return cnpj_formated, last_digit
 
 
 def second_digit(cnpj: str):
@@ -84,7 +87,7 @@ def second_digit(cnpj: str):
 
     list_verified.append(last_digit)
 
-    return list_verified
+    return last_digit
 
 
 def first_rule_multiplier(iterator, value):
@@ -105,4 +108,4 @@ def second_rule_multiplier(iterator, value):
             return variable
 
 
-print(verifier('16.840.122/0001-15'))
+print(verifier('18426795000160'))
