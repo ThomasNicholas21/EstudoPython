@@ -13,16 +13,20 @@
 # se o resto da divisao for menor que 2, segundo digito sera 0, se maior que 2, segundo digito sera (11 - quociente da divisão inteiro)
 import re
 
+
 def clean_cnpj(cnpj: str) -> str:
     return re.sub(r'\D', '', cnpj)
+
 
 def calculate_digit(cnpj, weights):
     total = sum(int(d) * w for d, w in zip(cnpj, weights))
     rest = total % 11
     return 0 if rest < 2 else 11 - rest
 
+
 def is_sequential(cnpj: str) -> bool:
     return cnpj == cnpj[0] * len(cnpj)
+
 
 def verifier(cnpj: str):
     cnpj = clean_cnpj(cnpj)
@@ -42,6 +46,7 @@ def verifier(cnpj: str):
     else:
         return {'erro': 'CNPJ informado é inválido!', 'cnpj': cnpj}
     
+
 
 print(verifier('18426795000160'))
 
