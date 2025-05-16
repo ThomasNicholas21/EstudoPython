@@ -15,6 +15,12 @@ import re
 
 
 def verifier(cnpj) -> bool:
+    if not validate_format_cnpj(cnpj):
+        return {
+            'erro': 'CNPJ com digitos iguais não são válidos',
+            'erro': 'CNPJ devem ter 14 digitos (númericos)'
+        }
+    
     cnpj_first, digit1 = first_digit(cnpj)
     digit2 = second_digit(cnpj_first)
     
@@ -22,11 +28,24 @@ def verifier(cnpj) -> bool:
     cnpj_last_digits_int = [int(integer) for integer in cnpj_last_digits]
     cnpj_last_digits_validated = [digit1, digit2]
 
-    if cnpj_last_digits_validated == cnpj_last_digits_int:
-        return True
+    if cnpj_last_digits_validated != cnpj_last_digits_int:
+        return {
+            'erro': 'CNPJ informado é inválido!',
+            'cnpj': cnpj
+        }
+    
 
-    return False
+def validate_format_cnpj(cnpj: str) -> bool:
+    if not cnpj.isdigit():
+        cnpj = re.sub(r'\D', '', cnpj)
 
+    if cnpj == cnpj[::-1]:
+        return False
+    
+    if len(cnpj) != 14:
+        return False
+    
+    return True
 
 
 def get_last_digits(cnpj):
@@ -108,4 +127,4 @@ def second_rule_multiplier(iterator, value):
             return variable
 
 
-print(verifier('18426795000160'))
+print(verifier('18426795000560'))
