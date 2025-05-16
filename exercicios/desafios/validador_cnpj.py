@@ -39,13 +39,15 @@ def get_last_digits(cnpj):
  
 def remove_last_digits(cnpj: str) -> list[str]:
     if not cnpj.isdigit():
-        cnpj = ' '.join(re.sub(r'\D', '', cnpj[0:12]))
-        cnpj_split = cnpj.split(' ')
-        return cnpj_split
+        cnpj = ' '.join(re.sub(r'\D', '', cnpj)[:12])
+        
+        return list(cnpj)
+    
+    return list(cnpj)
 
 
 def first_digit(cnpj: str):
-    cnpj_formated = format(cnpj)
+    cnpj_formated = remove_last_digits(cnpj)
     list_verified = []
 
     for iterator, value in enumerate(cnpj_formated):
