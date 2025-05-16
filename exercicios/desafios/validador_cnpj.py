@@ -13,123 +13,35 @@
 # se o resto da divisao for menor que 2, segundo digito sera 0, se maior que 2, segundo digito sera (11 - quociente da divisão inteiro)
 import re
 
+def clean_cnpj(cnpj: str) -> str:
+    return re.sub(r'\D', '', cnpj)
 
-# bagunçado e confuso -- melhorar
-def verifier(cnpj) -> bool:
-    if not validate_format_cnpj(cnpj):
-        return {
-            'erro': 'CNPJ com digitos iguais não são válidos',
-            'erro': 'CNPJ devem ter 14 digitos (númericos)'
-        }
-    
-    cnpj_first, digit1 = first_digit(cnpj)
-    digit2 = second_digit(cnpj_first)
-    
-    cnpj_last_digits = get_last_digits(cnpj)
-    cnpj_last_digits_int = [int(integer) for integer in cnpj_last_digits]
-    cnpj_last_digits_validated = [digit1, digit2]
+def calculate_digit(cnpj, weights):
+    total = sum(int(d) * w for d, w in zip(cnpj, weights))
+    rest = total % 11
+    return 0 if rest < 2 else 11 - rest
 
-    if cnpj_last_digits_validated != cnpj_last_digits_int:
-        return {
-            'erro': 'CNPJ informado é inválido!',
-            'cnpj': cnpj
-        }
-    
+def is_sequential(cnpj: str) -> bool:
+    return cnpj == cnpj[0] * len(cnpj)
 
-# Pode ser feita de forma melhor
-def validate_format_cnpj(cnpj: str) -> bool:
-    if not cnpj.isdigit():
-        cnpj = re.sub(r'\D', '', cnpj)
+def verifier(cnpj: str):
+    cnpj = clean_cnpj(cnpj)
 
-    if cnpj == cnpj[::-1]:
-        return False
-    
     if len(cnpj) != 14:
-        return False
-    
-    return True
+        return {'erro': 'CNPJ deve conter 14 dígitos numéricos'}
 
+    if is_sequential(cnpj):
+        return {'erro': 'CNPJ com dígitos repetidos não são válidos'}
 
-# get_last_digits e remove_last_digits possuem a mesma lógica
-def get_last_digits(cnpj):
-    if not cnpj.isdigit():
-        cnpj = ' '.join(re.sub(r'\D', '', cnpj)[12:14])
-        cnpj = cnpj.split(' ')
-        
-        return cnpj
+    cnpj_base = cnpj[:12]
+    digit1 = calculate_digit(cnpj_base, [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2])
+    digit2 = calculate_digit(cnpj_base + str(digit1), [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2])
 
-    return list(cnpj[12:14])
-
- 
-def remove_last_digits(cnpj: str) -> list[str]:
-    if not cnpj.isdigit():
-        cnpj = ' '.join(re.sub(r'\D', '', cnpj)[:12])
-        cnpj = cnpj.split(' ')
-        
-        return cnpj
-
-    return list(cnpj[:12])
-
-
-# first_digit e second_digit pode ser ser feito tambem em uma função
-def first_digit(cnpj: str):
-    cnpj_formated = remove_last_digits(cnpj)
-    list_verified = []
-
-    for iterator, value in enumerate(cnpj_formated):
-        variable = first_rule_multiplier(iterator, int(value))
-        list_verified.append(variable)
-    
-    list_sum = sum(list_verified)
-    rest = list_sum % 11
-
-    if rest < 2:
-        last_digit = 0
+    if cnpj[-2:] == f"{digit1}{digit2}":
+        return {'valido': True, 'cnpj': cnpj}
     else:
-        last_digit = 11 - rest
-
-    cnpj_formated.append(last_digit)
+        return {'erro': 'CNPJ informado é inválido!', 'cnpj': cnpj}
     
-    return cnpj_formated, last_digit
 
+print(verifier('18426795000160'))
 
-def second_digit(cnpj: str):
-    list_verified = []
-
-    for iterator, value in enumerate(cnpj):
-        variable = second_rule_multiplier(iterator, int(value))
-        list_verified.append(variable)
-    
-    list_sum = sum(list_verified)
-    rest = list_sum % 11
-
-    if rest < 2:
-        last_digit = 0
-    else:
-        last_digit = 11 - rest
-
-    list_verified.append(last_digit)
-
-    return last_digit
-
-
-# Pontos de melhoria -- Funções fazem a mesma coisa além da alta complexidade
-def first_rule_multiplier(iterator, value):
-    list_verifier = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
-
-    for verifier_iterator, verifier in enumerate(list_verifier):
-        if verifier_iterator == iterator:
-            variable = verifier * value
-            return variable
-
-
-def second_rule_multiplier(iterator, value):
-    list_verifier = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
-
-    for verifier_iterator ,verifier in enumerate(list_verifier):
-        if verifier_iterator == iterator:
-            variable = verifier * value
-            return variable
-
-
-print(verifier('18426795000560'))
