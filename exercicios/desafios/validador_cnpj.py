@@ -12,14 +12,15 @@
 # regra:
 # se o resto da divisao for menor que 2, segundo digito sera 0, se maior que 2, segundo digito sera (11 - quociente da divisão inteiro)
 import re
+from typing import Any
 
 
 def clean_cnpj(cnpj: str) -> str:
     return re.sub(r'\D', '', cnpj)
 
 
-def calculate_digit(cnpj, weights):
-    total = sum(int(d) * w for d, w in zip(cnpj, weights))
+def calculate_digit(cnpj: str, weights: list[int]) -> int:
+    total = sum(int(digit) * weight for digit, weight in zip(cnpj, weights))
     rest = total % 11
     return 0 if rest < 2 else 11 - rest
 
@@ -28,7 +29,7 @@ def is_sequential(cnpj: str) -> bool:
     return cnpj == cnpj[0] * len(cnpj)
 
 
-def verifier(cnpj: str):
+def verifier(cnpj: str) -> dict[str | Any]:
     cnpj = clean_cnpj(cnpj)
 
     if len(cnpj) != 14:
@@ -47,6 +48,4 @@ def verifier(cnpj: str):
         return {'erro': 'CNPJ informado é inválido!', 'cnpj': cnpj}
     
 
-
 print(verifier('18426795000160'))
-
