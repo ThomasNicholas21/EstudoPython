@@ -14,6 +14,7 @@
 import re
 
 
+# bagunçado e confuso -- melhorar
 def verifier(cnpj) -> bool:
     if not validate_format_cnpj(cnpj):
         return {
@@ -35,6 +36,7 @@ def verifier(cnpj) -> bool:
         }
     
 
+# Pode ser feita de forma melhor
 def validate_format_cnpj(cnpj: str) -> bool:
     if not cnpj.isdigit():
         cnpj = re.sub(r'\D', '', cnpj)
@@ -48,6 +50,7 @@ def validate_format_cnpj(cnpj: str) -> bool:
     return True
 
 
+# get_last_digits e remove_last_digits possuem a mesma lógica
 def get_last_digits(cnpj):
     if not cnpj.isdigit():
         cnpj = ' '.join(re.sub(r'\D', '', cnpj)[12:14])
@@ -68,6 +71,7 @@ def remove_last_digits(cnpj: str) -> list[str]:
     return list(cnpj[:12])
 
 
+# first_digit e second_digit pode ser ser feito tambem em uma função
 def first_digit(cnpj: str):
     cnpj_formated = remove_last_digits(cnpj)
     list_verified = []
@@ -109,6 +113,7 @@ def second_digit(cnpj: str):
     return last_digit
 
 
+# Pontos de melhoria -- Funções fazem a mesma coisa além da alta complexidade
 def first_rule_multiplier(iterator, value):
     list_verifier = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
 
