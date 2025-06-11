@@ -12,12 +12,16 @@ Este repositório é o meu hub de estudos práticos e anotações pessoais basea
 
 ✅ Lógica de programação com Python  
 ✅ Programação procedural, funcional e orientada a objetos  
-✅ Projetos com Django (veja meu repositório específico de estudos em Django [aqui](https://github.com/seu-usuario/[link-do-repo]))  
+✅ Projetos com Django (Além de projetos tenho um repositório destinado a estudos de Django)  
 ✅ Expressões Regulares, SQL, HTML5, CSS3  
 ✅ Interfaces gráficas com PySide6 (Qt6)  
 ✅ Testes com Pytest e Unittest  
 ✅ Deploy de aplicações com GCP + Linux  
-✅ E muito mais... o curso é constantemente atualizado!
+✅ Módulos como os, datetime, sys, json, csv, selenium, pillow, csv e outros que são úteis no mercado profissional.
+
+---
+> Esse curso além de vitalício, recebe atualizações constante do professor/orientador.
+---
 
 **Autor**: [Thomas Nicholas](https://github.com/ThomasNicholas21)
 **Professor**: [Luiz Otávio Miranda](https://gist.github.com/luizomf)
