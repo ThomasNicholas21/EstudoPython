@@ -23,4 +23,3 @@ Este repositório é o meu hub de estudos práticos e anotações pessoais. Aqui
 ---
 
 **Autor**: [Thomas Nicholas](https://github.com/ThomasNicholas21)
-**Curso base**: _Curso de Python do Básico ao Avançado_  
