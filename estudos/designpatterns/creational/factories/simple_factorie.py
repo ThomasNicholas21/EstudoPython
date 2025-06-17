@@ -29,7 +29,7 @@ class ReportSales(Report):
 
 
 # Fábrica Simples
-class FactoryRelatorio:
+class FactoryReport:
     @staticmethod
     def get_report(tipo: str) -> Report:
         if tipo == "Stock":
@@ -44,5 +44,5 @@ if __name__ == "__main__":
     reports = ["Stock", "Sales", "Sales", "Stock", "Ages"]
 
     for report in reports:
-        relatorio = FactoryRelatorio.get_report(report)
+        relatorio = FactoryReport.get_report(report)
         relatorio.generate_csv()
