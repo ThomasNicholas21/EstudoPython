@@ -7,3 +7,6 @@ Assim sendo, quando se tem um código que prcisa criar diferentes tipos de objet
 - `Produto (Product)`: Geralmente uma interface ou classe abstrata que define a interface comum para os objetos que a fábrica vai criar.
 - `Produtos Concretos (Concrete Products)`: As implementações reais dos objetos que serão criados. Eles implementam/estendem a interface/classe abstrata do Produto.
 - `Fábrica Simples (Simple Factory)`: Uma classe com um método (geralmente estático, mas não necessariamente) que recebe um parâmetro e, com base nele, cria e retorna uma instância de um Produto Concreto apropriado.
+
+## Exemplos
+- Clique [👉 aqui](https://github.com/ThomasNicholas21/EstudoPython/blob/master/estudos/designpatterns/creational/factories/simple_factorie.py)
