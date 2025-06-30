@@ -1,20 +1,24 @@
 # Abstract Factory
-Abstract Factry é um padrão de criação que fornece uma interface para criar famílias de objetos realcionados ou dependente, sem especificar suas classes concretas. Geralmente vai contar com um ou mais Factory Methods para criar seus objetos. O Abstract Factory utiliza composição para criar suas interfaces, diferente de Factory Method, que utiliza herança.
+Abstract Factory é um padrão de criação que fornece uma interface para criar famílias de objetos relacionados ou dependentes, sem especificar suas classes concretas. Geralmente conta com um ou mais Factory Methods para criar seus objetos. Diferente do Factory Method, que utiliza herança, o Abstract Factory utiliza composição para criar suas interfaces.
 
-**O Factory Method traz consigo vários benefícios, dentre eles:**
-- Aderir o desacomplamento (OCP - Open/Closed Principle)
-- Facilita a manutenção, implementação e teste de novos tipos de produtos.
-- Deixa o código mais organizado.
-- Consistência na criação de produtos.
+**Vantagens do Abstract Factory**
+- Desacoplamento entre a criação e o uso de objetos (aderência ao princípio OCP - Open/Closed Principle).
+- Facilidade de manutenção e extensão, ao permitir adicionar novas famílias de produtos com pouca ou nenhuma modificação no código existente.
+- Consistência entre objetos criados: todos pertencem à mesma família.
+- Organização e modularidade: a lógica de criação fica centralizada em fábricas específicas.
 
-**Pode trazer algumas desvantagens, como:**
-- Aumento da complexidade, devido a isso, deve ser bem analisado antes de ser aplicado.
-- Pode deixar confuso em sistema muitos grandes, acontecendo o paralelismo.
+**Desvantagens do Abstract Factory**
+- Aumento da complexidade estrutural, especialmente em sistemas pequenos ou simples.
+- Dificuldade de modificação se for necessário adicionar um novo tipo de produto em todas as fábricas existentes.
+- Pode se tornar verboso e confuso em sistemas muito grandes, com muitas famílias de objetos (problema do paralelismo).
 
-## Quando Usar o Factory Method
-- Quando uma classe não pode prever a classe dos objetos que ela deve criar.
-- Quando uma classe deseja que suas subclasses especifiquem os objetos a serem criados.
-- Quando as classes delegam a responsabilidade de criação para uma das várias subclasses auxiliares, e você quer centralizar a criação dessa lógica (como no nosso exemplo de Logistica).
+**Quando Usar o Abstract Factory**
+- Quando o sistema deve ser independente de como seus objetos são criados, compostos e representados.
+- Quando o sistema deve ser configurado com uma das várias famílias de objetos.
+- Quando se deseja garantir que os objetos de uma mesma família sejam utilizados juntos.
+- Quando você quer centralizar a criação dos objetos e facilitar testes, injeções e trocas de implementação.
+- Quando a criação de objetos deve seguir uma lógica complexa que varia conforme o contexto (como no exemplo de Logística).
+
 
 ## Componentes Principais:
 - `AbstractProduct (Produto Abstrato):`

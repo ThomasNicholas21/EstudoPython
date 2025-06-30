@@ -1,5 +1,5 @@
 # Factory Method
-O Factory Method é um padrão de criação que permite definir uma interface para criar objetos, mas deixa as subclasses decidirem quais objetos criar, ou seja, a criação dos objetos são delegados as subclasses. O Factory Method permite adiar a instanciação para as subclasses, garantindo o baixo acolplamento entre classes.
+O Factory Method é um padrão de criação que permite definir uma interface para criar objetos, mas deixa as subclasses decidirem quais objetos criar, ou seja, a criação dos objetos é delegada às subclasses. O Factory Method permite adiar a instanciação para as subclasses, garantindo o baixo acoplamento entre classes.
 
 **O Factory Method traz consigo vários benefícios, dentre eles:**
 - Aderir o desacomplamento (OCP - Open/Closed Principle)
